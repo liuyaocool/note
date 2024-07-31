@@ -1,0 +1,53 @@
+[
+    {
+        "name": "算法",
+        "child": [
+            ["基础", "algorithm/00-base.md"],
+            ["数据结构", "algorithm/01-data_struct.md"],
+            ["排序", "algorithm/02-sort.md"],
+            ["二进制", "algorithm/03-bit.md"]
+        ]
+
+    },{
+        "name": "spring源码解析",
+        "child": [
+            ["初识", "spring/01-first.md"]
+        ]
+
+    },{
+        "name": "java",
+        "child": [
+            ["设计模式", "java/design_patterns.md"]
+        ]
+    },{
+        "name": "linux",
+        "child": [
+            ["基础", "linux/linux.md"],
+            ["设置", "linux/linux_setting.md"],
+            ["软件", "linux/linux_soft.md"],
+            ["termux", "linux/termux.md"],
+            ["kde", "linux/plasma.md"]
+        ]
+
+    },{
+        "name": "虚拟化技术",
+        "child": [
+            ["kvm", "virtual/kvm.md"],
+            ["podman", "virtual/podman.md"]
+        ]
+    },{
+        "name": "nginx",
+        "child": [
+            ["基础", "nginx/nginx.md"]
+        ]
+    },{
+        "name": "其他",
+        "child": [
+            ["软件配置", "other/soft_setting.md"],
+            ["windows", "other/windows.md"],
+            ["mac", "other/mac.md"],
+            ["git", "other/git.md"]
+        ]
+
+    }
+]
