@@ -1,3 +1,22 @@
+# 常用命令
+
+- 查看所有容器: `podman ps -a`
+- 查看运行容器: `podman ps`
+- 停止容器: `podman stop ${name}`
+- 启动容器: `podman start ${name}`
+- 删除容器: `podman rm ${name}`
+- 查看镜像: `podman images`
+- 删除镜像: `podman rmi ${image_id}`
+- 下载镜像: `podman pull ${name:version}`
+
+
+# DockerHub
+
+## 版本说明
+
+- slim: 最小安装包
+- bullseye / bookworm: 正在开发但尚未稳定版本
+
 
 # 配置文件
 
@@ -6,7 +25,24 @@ https://docs.podman.io/en/latest/markdown/podman-search.1.html
 - `/etc/containers/registries.conf`
 - `~/.config/containers/registries.conf`
 
+> 注: 阿里云加速已经不开放了， 这里只能代理加速官方源了
+
+**官方**
+
+```conf
+unqualified-search-registries = [
+    'docker.io' 
+]
+
+[[registry]]
+prefix="docker.io/library"
+location="docker.io/library"
+```
+
+
 **这个可用**
+
+> 目前已不可用
 
 ```
 unqualified-search-registries = ["docker.io"] 
