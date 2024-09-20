@@ -28,8 +28,8 @@ sudo vi /etc/ssh/sshd_config
     #AuthorizedKeysFile .ssh/authorized_keys
     # 关闭密码登录 建议关闭
     PasswordAuthentication no
-    # 是否允许root用户通过SSH登录
-    PermitRootLogin no
+    # 是否允许root用户通过SSH登录: 这里配的 禁止密码登录
+    PermitRootLogin prohibit-password
 
 # 重启 ssh
 service sshd restart

@@ -1,4 +1,12 @@
+# 终端配置
 
+```bash
+# 终端没有颜色
+# 'foot': unknown terminal type
+# vim 错乱
+export TERM=xterm-256color
+
+```
 
 # zsh
 
@@ -33,8 +41,6 @@ git clone https://github.com/ohmyzsh/ohmyzsh.git
 vim ~/.zshrc
 ## ---------- 修改 ----------
 ZSH_THEME="agnoster"
-# 'foot': unknown terminal type
-export TERM=xterm-256color
 ## ---------- end ----------
 
 ```

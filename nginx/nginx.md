@@ -199,3 +199,12 @@ todo 。。。
     }
 }
 ```
+
+## 2. 获得访问者ip
+
+```nginx
+location /getip {
+    default_type text/plain;
+    return 200 "$remote_addr\n";
+}
+```
