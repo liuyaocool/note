@@ -344,3 +344,49 @@ bright0=8C979F
 # 常用软件全名
 
 - nc: openbsd-netcat
+
+
+# swappy 图片标记(截图) (Wayland)
+
+## cofig
+
+`~/.config/swappy/config `
+
+```ini
+[Default]
+# save_dir=$HOME/Desktop
+save_dir=/tmp
+save_filename_format=screenshot-%Y%m%d-%H_%M_%S.png
+show_panel=true
+line_size=2
+text_size=16
+text_font=sans-serif
+paint_mode=brush
+early_exit=false
+fill_shape=false
+```
+
+# foot 终端 (Wayland)
+
+## config
+
+` ~/.config/foot/foot.ini `
+
+```ini
+# font=Fantasque Sans Mono:size=8, Joypixels:size=7:charset=1f000-1f644
+font=Source Code Pro:size=10
+
+[mouse]
+hide-when-typing=yes
+
+[colors]
+alpha=0.7
+background=000000
+foreground=d1ba74
+
+# folder
+regular4=d2e327
+
+# zsh-autosuggestions
+bright0=8C979F
+```

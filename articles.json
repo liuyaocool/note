@@ -28,7 +28,11 @@
             ["termux", "linux/termux.md"],
             ["kde", "linux/plasma.md"]
         ]
-
+    },{
+            "name": "软件",
+            "child": [
+                ["vscode", "soft/vscode.md"]
+            ]
     },{
         "name": "虚拟化技术",
         "child": [
