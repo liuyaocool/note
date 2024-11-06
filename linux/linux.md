@@ -5,6 +5,19 @@
 
 `dd if=/home/xxx.iso of=/dev/sdc status=progress`
 
+## scp
+
+- 单文件
+    - 上传: ` scp local_file linux_user@ip:linux_folder（/filename） `
+    - 下载: ` scp linux_user@linux_ip:linux_file local_folder `
+- 多文件
+    - 上传: ` scp local_file1 local_file2 ... linux_user@ip:linux_folder `
+- 文件夹
+    - 上传: ` scp -v -r local_folder linux_user@ip:linux_folder `
+    - 上传到相同目录下: ``` scp -r ./folder/ root@ip:`pwd` ``` // tab按键与esc按键之间那个
+    - 下载: ` scp -r linux_user@linux_ip:linux_folder local_folder `
+    
+
 ## 监控
 
 - 磁盘: `iostat`(sysstat), `iotop`

@@ -144,6 +144,14 @@ echo 2 > /sys/module/hid_apple/parameters/fnmode
 vi /etc/modprobe.d/hid_apple.conf
 ## ---------- 修改或添加 ----------
 options hid_apple fnmode=2
+# 有时候系统可能会使用缓存的 initramfs 而忽略新的模块参数设置。
+# 可以尝试更新 initramfs
+sudo mkinitcpio -P
+
+# wayland 校验
+wev
+# xprop 校验
+xev
 ## ---------- end ----------
 ```
 
