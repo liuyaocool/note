@@ -261,6 +261,25 @@ switchs:
 
 ## 皮肤
 
+good theme: https://github.com/thep0y/fcitx5-themes-candlelight
+
+```bash
+# 主题存放路径
+cd ~/.local/share/fcitx5/themes/
+vim theme_name/theme.conf
+# --- 自定义主题 ---
+
+# 应用主题
+vim ~/.config/fcitx5/conf/classicui.conf
+  # 垂直候选列表
+  Vertical Candidate List=False
+  # 按屏幕 DPI 使用
+  PerScreenDPI=True
+  Font="华康翩翩体W5P 13"
+  # 主题， 存放路径下的目录名
+  Theme=spring
+```
+
 ## wayland chrome support
 
 ```sh
