@@ -13,6 +13,8 @@ sudo ip addr add 172.21.2.61/24 dev enp12s0 label 网卡标签
 
 ## 免密登录
 
+删除密码(不能用密码登录): ` sudo passwd -d username `
+
 ### 服务端
 
 **修改配置**
@@ -242,3 +244,19 @@ Fonts fot: Simplified Chinese
 # all set to PingFang SC
 等宽字体: SourceCodeVF
 ```
+
+# bluetooth
+
+## 基础命令
+
+```bash
+# systemd
+systemctl enable bluetooth
+systemctl status bluetooth
+systemctl start bluetooth
+systemctl stop bluetooth
+```
+
+# ToucbScreen
+
+## 触摸不准
