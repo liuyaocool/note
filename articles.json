@@ -13,7 +13,11 @@
         "child": [
             ["初识", "spring/01-first.md"]
         ]
-
+    },{
+        "name": "rust",
+        "child": [
+            ["基础", "rust/base.md"]
+        ]
     },{
         "name": "java",
         "child": [
