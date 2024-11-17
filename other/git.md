@@ -41,6 +41,12 @@ git checkout --orphan 分支名
 git add . # 当前目录及子目录
 git add nginx/nginx.conf # 单个文件/目录
 
+# 切换分支
+git switch <本地分支名>
+
+# 删除本地已提交分支
+git branch -d <本地分支名>
+
 # 提交
 git commit -m "提交信息"
 
