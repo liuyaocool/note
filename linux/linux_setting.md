@@ -9,11 +9,13 @@ sudo ip addr add ip/掩码 dev 所属网卡 label 网卡标签
 sudo ip addr add 172.21.2.61/24 dev enp12s0 label 网卡标签
 ```
 
+# 账号设置
+
+删除密码(不能用密码登录): ` sudo passwd -d username `
+
 # ssh
 
 ## 免密登录
-
-删除密码(不能用密码登录): ` sudo passwd -d username `
 
 ### 服务端
 
