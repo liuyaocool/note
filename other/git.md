@@ -51,7 +51,7 @@ git branch -d <本地分支名>
 git commit -m "提交信息"
 
 # 推送新分支到远程
-git push --set-upstream origin release1
+git push --set-upstream origin <本地分支名>
 
 # 从本地提交列表 回退到修改列表
 git restore --staged filepath
