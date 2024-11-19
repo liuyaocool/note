@@ -1,3 +1,7 @@
+# 插件
+
+- SFTP(Natizyskunk)
+
 # settings.json 设置
 
 ## linux
