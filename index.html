@@ -160,6 +160,20 @@
         a {
             color: #7e7ef9;
         }
+
+        .copy {
+            border-radius: 5px;
+            display: inline-block;
+            text-align: center;
+            padding: 2px 5px;
+            background: gray;
+            color: white;
+            cursor: pointer;
+        }
+
+        .ly_germ {
+            opacity: 0.7;
+        }
     </style>
 
     <script>
@@ -181,7 +195,7 @@
     <div id="app">
         <div class="header">
             <button @click="showMenu=!showMenu">LY</button>
-            <span class="tag" :class="k == showArticlesPath ? 'tag-active' : ''" v-for="(v, k) in articles" @click="openArticle(null, k)">{{v.name}}</span>
+            <span class="tag" :class="k == currentPath ? 'tag-active' : ''" v-for="(v, k) in articles" @click="openArticle(null, k)">{{v.name}}</span>
         </div>
         <menu v-show="showMenu">
             <ul>
@@ -192,11 +206,13 @@
                 </li>
             </ul>
         </menu>
-        <div class="content" v-for="(v, k) in articles" v-show="k == showArticlesPath" v-html="v.html"></div>
-        <div class="title" v-for="(v, k) in articles" v-show="k == showArticlesPath">
+        <div class="content" v-for="(v, k) in articles" v-show="k == currentPath" v-html="v.html"></div>
+        <div class="title" v-for="(v, k) in articles" v-show="k == currentPath">
             <div v-for="(v2, k2) in v.titles" :style="v2.style" :class="'title-'+v2.level" @click="jumpTo(v2.id)">{{v2.name}}</div>
         </div>
     </div>
+
+    <textarea id="copyaaa"></textarea>
 
 <!-- <script src="https://cdn.jsdelivr.net/gh/liuyaocool/jslib/vue/vue3.global.js"></script> -->
 <!-- <script src="https://unpkg.com/vue@3.4.25/dist/vue.global.js"></script> -->
@@ -224,26 +240,16 @@
 
 <script>
     const {createApp} = Vue;
-    const md = markdownit({
-        highlight(code, lang, info) {
-            let preCode = hljs.getLanguage(lang) ? hljs.highlight(code, { language: lang }).value : code;
-            preCode = preCode.split('\n');
-            code = `<span class="language-tip">${lang}</span><ol class="code-ol">`;
-            for (let i = 0; i < preCode.length; i++) {
-                if(i == preCode.length-1 && !preCode[i]) break;
-                code += `<li>${preCode[i]}</li>`;
-            }
-            return code + '</ol>';
-        }
-    });
     const vm = createApp({
         data() {
             return {
+                md: markdownit({highlight: this.highlight}),
                 version: '0.1',
                 menu: [], // articles.json
                 showMenu: true,
                 showTitle: false,
-                showArticlesPath: '',
+                currentPath: '',
+                codeStr: {}, // {id: str}
                 /**
                  *  {
                  *      path: {
@@ -279,13 +285,13 @@
                     };
                     this.getFileText(path, text => this.setArticle(path, text));
                 }
-                this.showArticlesPath = path;
+                this.currentPath = path;
                 this.showMenu = false;
                 location.hash = path;
             },
             setArticle(path, text) {
                 let temp = document.createElement('div');
-                temp.innerHTML = md.render(text);;
+                temp.innerHTML = this.md.render(text);;
                 let titles = temp.querySelectorAll('h1, h2, h3, h4, h5, h6');
                 let titlesHtml = this.articles[path].titles;
                 let sty, level, idPre = Date.now();
@@ -322,6 +328,30 @@
                 fetch(`${path}?v=${this.version}`).then(resp => {
                     if(resp.ok) resp.text().then(str => success(str));
                 });
+            },
+            uuid() {
+                return crypto.randomUUID().replaceAll('-', '');
+            },
+            copyCode(id) {
+                document.getElementById("copyaaa").value = this.codeStr[id];
+                document.getElementById("copyaaa").select();
+                document.execCommand("copy");
+                document.getElementById(id).innerText = 'copied';
+                setTimeout(() => {
+                    document.getElementById(id).innerText = 'copy';
+                }, 1000);
+            },
+            highlight(code, lang, info) {
+                let preCode = hljs.getLanguage(lang) ? hljs.highlight(code, { language: lang }).value : code;
+                let id = this.uuid();
+                this.codeStr[id] = code;
+                preCode = preCode.split('\n');
+                code = `<div class="language-tip">${lang} <span class="copy" id="${id}" onclick="vm.copyCode('${id}')">copy</span></div><ol class="code-ol">`;
+                for (let i = 0; i < preCode.length; i++) {
+                    if(i == preCode.length-1 && !preCode[i]) break;
+                    code += `<li>${preCode[i]}</li>`;
+                }
+                return code + '</ol>';
             }
         }
     }).mount('#app');
