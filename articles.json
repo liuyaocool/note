@@ -5,9 +5,14 @@
             ["基础", "algorithm/00-base.md"],
             ["数据结构", "algorithm/01-data_struct.md"],
             ["排序", "algorithm/02-sort.md"],
-            ["二进制", "algorithm/03-bit.md"]
+            ["二进制", "algorithm/03-bit.md"],
+            ["题", "algorithm/question.md"]
         ]
-
+    },{
+        "name": "c",
+        "child": [
+            ["编译", "c/00-run_c.md"]
+        ]
     },{
         "name": "spring源码解析",
         "child": [
@@ -29,14 +34,16 @@
             ["基础", "linux/linux.md"],
             ["设置", "linux/linux_setting.md"],
             ["软件", "linux/linux_soft.md"],
+            ["Arch Linux", "linux/archlinux.md"],
+            ["dwl", "linux/dwl.md"],
             ["termux", "linux/termux.md"],
             ["kde", "linux/plasma.md"]
         ]
     },{
-            "name": "软件",
-            "child": [
-                ["vscode", "soft/vscode.md"]
-            ]
+        "name": "软件",
+        "child": [
+            ["vscode", "soft/vscode.md"]
+        ]
     },{
         "name": "虚拟化技术",
         "child": [
@@ -47,6 +54,11 @@
         "name": "nginx",
         "child": [
             ["基础", "nginx/nginx.md"]
+        ]
+    },{
+        "name": "数据库",
+        "child": [
+            ["PostgreSQL", "db/pgsql.md"]
         ]
     },{
         "name": "其他",

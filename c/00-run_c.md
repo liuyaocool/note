@@ -1,4 +1,4 @@
-# gcc
+# GCC
 
 https://www.bilibili.com/video/BV1rJ411V7EV?p=1
 
