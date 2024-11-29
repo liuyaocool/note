@@ -36,6 +36,7 @@
             ["软件", "linux/linux_soft.md"],
             ["Arch Linux", "linux/archlinux.md"],
             ["dwl", "linux/dwl.md"],
+            ["Hyprland", "linux/hyprland.md"],
             ["termux", "linux/termux.md"],
             ["kde", "linux/plasma.md"]
         ]
