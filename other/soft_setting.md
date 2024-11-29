@@ -39,6 +39,11 @@
 
 # Idea
 
+## color scheme
+
+- [java](/file/idea_java.icls)
+
+
 ## keymap
 
 ```
