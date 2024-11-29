@@ -41,7 +41,7 @@
 
 ## color scheme
 
-- [java](/file/idea_java.icls)
+- [java](file/idea/java.icls)
 
 
 ## keymap

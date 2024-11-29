@@ -41,7 +41,14 @@ waybarc
 
 # 状态栏 waybar
 
-## 启动脚本
+## 主题
+
+![](file/waybar/01-dwl/preview.png)
+
+- [config](file/waybar/01-dwl/config)
+- [style.css](file/waybar/01-dwl/style.css)
+
+## 启动脚本:弃用
 
 ```bash
 #!/bin/bash

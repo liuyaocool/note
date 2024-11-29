@@ -1,0 +1,81 @@
+{
+	"height": 23,
+
+	"modules-left": [
+		"dwl/tags"
+	],
+
+	"modules-center": [
+	],
+	
+	"modules-right": [
+		"network",
+		"cpu",
+		"memory",
+		"custom/clock"
+	],
+
+	"dwl/tags": {
+		"num-tags": 10,
+		"tag-labels": [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
+	},
+	"hyprland/window": {
+		"format": "{}",
+		"separate-outputs": false
+	},
+
+	"wlr/workspaces": {
+		"sort-by-number": true,
+		"format": "{icon}",
+		"format-icons": {
+		}
+	},
+
+	"clock": {
+        "format": "{:%A, %B %d, %Y (%V) | %r}",
+        "format-alt": "{:%a, %b %d, %Y | %I:%M %p}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "interval": 1
+    },
+
+	"memory": {
+		"format": "Sw {swapUsed:0.2f}G/{swapTotal:0.2f}G | M {used:0.2f}G/{total:0.2f}G",
+        "interval": 1
+    },
+
+	"cpu": {
+        "format": "C {usage}%",
+        "interval": 1
+    },
+
+	"network": {
+        "format-wifi": "{essid} ({signalStrength}%) ↟{bandwidthUpBytes} ↡{bandwidthDownBytes}",
+        "format-ethernet": "↑{bandwidthUpBytes} ↓{bandwidthDownBytes}", 
+        "tooltip-format": "{ifname} via {gwaddr}",
+        "format-linked": "{ifname} (No IP)",
+        "format-disconnected": "Disconnected",
+        "format-alt": "",
+        "interval": 1
+    },
+
+	"custom/network": {
+        "format-wifi": "{essid} ({signalStrength}%) ↟{bandwidthUpBytes} ↡{bandwidthDownBytes}",
+        "format-ethernet": "↟{bandwidthUpBytes} ↡{bandwidthDownBytes} {ipaddr}/{cidr}", 
+        "tooltip-format": "{ifname} via {gwaddr}",
+        "format-linked": "{ifname} (No IP)",
+        "format-disconnected": "Disconnected",
+        "format-alt": "",
+        "interval": 1
+    },
+
+    "escape": true,
+
+	"custom/clock": {
+        "format": " {} ",
+        "escape": true,
+        "interval": 1,
+        "tooltip": true,
+        "exec": "date '+%u  %m/%d %H:%M:%S'"
+    }
+
+}

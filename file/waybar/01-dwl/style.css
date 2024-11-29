@@ -1,0 +1,80 @@
+@define-color font-color white;
+
+* {
+    font-family: Source Code Pro,Roboto, Helvetica, Arial, sans-serif, otf-font-awesome;
+    /* font-family: "JetBrainsMono Nerd Font"; */
+    font-size: 12px;
+    font-weight: bold;
+    min-height: 0;
+}
+
+#waybar {
+	/* background-color: gray;  */
+	background-color: rgba(32, 32, 34, 0.9);
+	background-size: cover;
+	background-repeat: no-repeat;
+    /*background: linear-gradient(to top, shade(alpha(@borders, 0.95), 1.15), shade(alpha(@borders, 0.9), 1.25));*/
+    /*border-bottom: 1px solid alpha(@borders, 0.95);*/
+
+}
+
+#custom-clock, #clock, #memory, #cpu, #network, #tags button.focused {
+    background-color: rgba(50, 50, 51, 1);
+    /* border-top: 1px solid #515152; */
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.075) 0px 1px 1px 0px, 
+        rgba(0, 0, 0, 0.075) 0px 2px 2px 0px, 
+        rgba(0, 0, 0, 0.075) 0px 4px 4px 0px, 
+        rgba(0, 0, 0, 0.075) 0px 8px 8px 0px, 
+        rgba(0, 0, 0, 0.075) 0px 16px 16px 0px;
+}
+
+#tags button{
+    padding: 0 2px;
+    margin: 3px;
+    color: gray;
+    /* background-color: transparent; */
+    /* Use box-shadow instead of border so the text isn't offset */
+    /*box-shadow: inset 0 -2px transparent; */
+    /* box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1); */
+}
+#tags button:hover{
+    background: rgba(62, 62, 65, 1);
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgba(151, 151, 151, 0.57) transparent transparent transparent;
+    outline: none;
+    font-size: 12px;
+}
+/* tag has window */
+#tags button.occupied {
+    color: #ffffff;
+    /* box-shadow: inset 0 -2px #ffffff; */
+}
+#tags button.focused {
+}
+#tags button.active {
+
+    /* background-color: #64727D; */
+}
+#tags button.urgent {
+
+    /* background-color: #eb4d4b; */
+}
+
+#custom-clock, #clock, #memory, #cpu, #network{
+	margin: 3px 5px 3px 0;
+    padding: 2px 5px;
+    color: white;
+}
+
+#network {
+    min-width: 150px;
+}
+#memory {
+    min-width: 251px;
+}
+#cpu {
+    min-width: 39px;
+}
