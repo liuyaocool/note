@@ -1,0 +1,103 @@
+[{
+	"output": ["HDMI-A-1"],
+	"modules-left": [
+		"hyprland/workspaces",
+		"hyprland/window"
+	],
+
+	"modules-center": [
+	],
+	
+	"modules-right": [
+		"network",
+		"cpu",
+		"memory",
+		"custom/clock"
+	],
+
+	"hyprland/window": {
+		"format": "{}",
+		"separate-outputs": false
+	},
+
+	"hyprland/workspaces": {
+		"sort-by-number": true,
+		"format": "{icon}",
+		"format-icons": {
+		}
+	},
+
+	"clock": {
+        "format": "{:%A, %B %d, %Y (%V) | %r}",
+        "format-alt": "{:%a, %b %d, %Y | %I:%M %p}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "interval": 1
+    },
+
+	"memory": {
+		"format": "Sw {swapUsed:0.2f}G/{swapTotal:0.2f}G | M {used:0.2f}G/{total:0.2f}G",
+        "interval": 1
+    },
+
+	"cpu": {
+        "format": "C {usage}%",
+        "interval": 1
+    },
+
+	"network": {
+        "format-wifi": "{essid} ({signalStrength}%) ↟{bandwidthUpBytes} ↡{bandwidthDownBytes}",
+        "format-ethernet": "↑{bandwidthUpBytes} ↓{bandwidthDownBytes}", 
+        "tooltip-format": "{ifname} via {gwaddr}",
+        "format-linked": "{ifname} (No IP)",
+        "format-disconnected": "Disconnected",
+        "format-alt": "",
+        "interval": 1
+    },
+
+	"custom/network": {
+        "format-wifi": "{essid} ({signalStrength}%) ↟{bandwidthUpBytes} ↡{bandwidthDownBytes}",
+        "format-ethernet": "↟{bandwidthUpBytes} ↡{bandwidthDownBytes} {ipaddr}/{cidr}", 
+        "tooltip-format": "{ifname} via {gwaddr}",
+        "format-linked": "{ifname} (No IP)",
+        "format-disconnected": "Disconnected",
+        "format-alt": "",
+        "interval": 1
+    },
+
+	"custom/clock": {
+        "format": " {} ",
+        "escape": true,
+        "interval": 1,
+        "tooltip": true,
+        "exec": "date '+%u  %m/%d %H:%M:%S'"
+    }
+
+},{
+
+	"layer": "top",
+	"output": "!HDMI-A-1",
+	"modules-left": [
+		"hyprland/workspaces",
+		"hyprland/window"
+	],
+
+	"hyprland/workspaces": {
+		"sort-by-number": true,
+		"format": "{icon}",
+		"format-icons": {
+			"11": "1",
+			"12": "2",
+			"13": "3",
+			"14": "4",
+			"15": "5",
+			"16": "6",
+			"17": "7",
+			"18": "8",
+			"19": "9",
+			"20": "10",
+			"21": "11",
+			"22": "12",
+		}
+	},
+
+}]
