@@ -119,6 +119,15 @@ Editor
 3. Rainbow Brackets：彩虹括号(FFFA00  01FF10  F80000  00EAFF  FF8646)，部分功能免费
 4. Grep Console：控制台筛选 设置颜色(INFO:004810  WARN:645700  ERROR:430000)
 
+## 异常
+
+### 分辨率异常
+
+`vim 安装目录/bin/idea.properties`
+
+```properties
+sun.java2d.uiScale.enabled=false
+```
 
 # Firefox
 
