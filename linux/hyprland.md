@@ -5,6 +5,9 @@
 # shell
 
 ## rofi -show window 自动聚焦窗口脚本
+
+`vim hypr_ipc`
+
 ```bash
 #!/bin/sh
 

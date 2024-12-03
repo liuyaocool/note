@@ -39,6 +39,16 @@
 
 # Idea
 
+## Linux 开启 Wayland
+
+version: 2024.xx+
+
+` vim 安装目录/bin/idea64.vmoptions ` 添加
+
+```
+-Dawt.toolkit.name=WLToolkit
+```
+
 ## color scheme
 
 - [java](file/idea/java.icls)
