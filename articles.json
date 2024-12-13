@@ -44,6 +44,7 @@
         "name": "软件",
         "child": [
             ["vscode", "soft/vscode.md"]
+            ,["intellj idea", "soft/intellj_idea.md"]
         ]
     },{
         "name": "虚拟化技术",
