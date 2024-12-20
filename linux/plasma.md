@@ -7,8 +7,14 @@
 
 ## 样式
 
-```
-~/.local/share/plasma/desktoptheme plasma视觉风格
-~/.local/share/plasma/look-and-feel/ 全局主题
-~/.local/share/plasma/plasmoids/ 挂件
+```bash
+# 系统样式路径
+/usr/share/plasma
+
+# plasma视觉风格
+~/.local/share/plasma/desktoptheme
+# 全局主题
+~/.local/share/plasma/look-and-feel
+# 挂件
+~/.local/share/plasma/plasmoids
 ```
