@@ -45,6 +45,7 @@
         "child": [
             ["vscode", "soft/vscode.md"]
             ,["intellj idea", "soft/intellj_idea.md"]
+            ,["firefox", "soft/firefox.md"]
         ]
     },{
         "name": "虚拟化技术",

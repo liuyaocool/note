@@ -1,6 +1,10 @@
 
 # 常用命令
 
+## 比较文件
+
+` md5sum file1 file2 `
+
 ## 烧录
 
 `dd if=/home/xxx.iso of=/dev/sdc status=progress`

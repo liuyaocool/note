@@ -37,13 +37,6 @@
 - shitf+i -> esc    --多列模式下 添加文本，esc应用
 - d                 --多列模式下删除选中文本
 
-# Firefox
-
-## 禁用 Alt键 打开菜单栏
-
-1. 地址栏输入 about:config
-2. 搜索 `ui.key.menuAccessKeyFocuses` 并将其关闭
-
 # VSCodium
 
 ## 修改microsoft插件源
