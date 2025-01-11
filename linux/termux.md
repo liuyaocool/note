@@ -9,15 +9,21 @@ chsh -s tmux 用户名
 # ssh 默认端口：8022
 ```
 
-# 字体
+# 换源
 
-[~/.termux/font.ttf](files/termux_font.ttf)
+中科大源站
+
+# 配置
+
+- 颜色: [~/.termux/colors.properties](file/_termux/colors.properties)
+- 字体: [~/.termux/font.ttf](file/_termux/font.ttf)
+- 界面配置: [~/.termux/termux.properties](file/_termux/termux.properties)
 
 # 颜色配置
 
 ` ~/.termux/colors.properties `
 
-```bash
+```properties
 # flat.colors
 # Color scheme from https://github.com/Mayccoll/Gogh
 color1=#0000ff
@@ -29,7 +35,7 @@ color8=#f0f0f0
 color11=#f0f0f0
 # zsh .zip .tar.gz
 color9=#a80909
-# zsh username background, zsh current path foreground 
+# zsh username background, zsh current path foreground
 color0=#006054
 # zsh current path background
 color4=#cecb00
@@ -55,6 +61,13 @@ foreground=#00ffa8
 # 界面配置
 
 ` ~/.termux/termux.properties `
+
+```properties
+extra-keys = [ \
+    [ESC, '[',  ']', '{', '}', '+', '=', '~/', UP, BACKSLASH], \
+    [TAB, CTRL, '"', '<', '>', {macro: '$PREFIX/', display:'根'}, '|', LEFT, DOWN, RIGHT] \
+]
+```
 
 ```bash
 extra-keys = [ \    
