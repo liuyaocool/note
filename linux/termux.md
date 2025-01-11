@@ -16,7 +16,7 @@ chsh -s tmux 用户名
 # 配置
 
 - 颜色: [~/.termux/colors.properties](file/termux/colors.properties)
-- 字体: [~/.termux/font.ttf](file/termux/font.ttf)
+- 字体(UbuntuMono): [~/.termux/font.ttf](file/termux/font.ttf)
 - 界面配置: [~/.termux/termux.properties](file/termux/termux.properties)
 
 # 颜色配置
