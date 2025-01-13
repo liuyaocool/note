@@ -335,13 +335,13 @@ SkinType=lyskin（目录名 非全路径 如：lyskin）
 fcitx -r
 ```
 
-# foot 终端
+# foot 终端 (Wayland)
 
 ## 配置
 
 ` ~/.config/foot/foot.ini `
 
-```
+```ini
 # font=Fantasque Sans Mono:size=8, Joypixels:size=7:charset=1f000-1f644
 font=Source Code Pro:size=10
 
@@ -383,29 +383,4 @@ text_font=sans-serif
 paint_mode=brush
 early_exit=false
 fill_shape=false
-```
-
-# foot 终端 (Wayland)
-
-## config
-
-` ~/.config/foot/foot.ini `
-
-```ini
-# font=Fantasque Sans Mono:size=8, Joypixels:size=7:charset=1f000-1f644
-font=Source Code Pro:size=10
-
-[mouse]
-hide-when-typing=yes
-
-[colors]
-alpha=0.7
-background=000000
-foreground=d1ba74
-
-# folder
-regular4=d2e327
-
-# zsh-autosuggestions
-bright0=8C979F
 ```

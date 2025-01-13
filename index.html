@@ -67,7 +67,7 @@
         }
 
         .header > div {
-            display: inline-block;
+            /* display: inline-block; */
         }
         .logo {
             cursor: pointer;
@@ -89,11 +89,19 @@
                 rgba(0, 0, 0, 0) 90%
             ) border-box;
         }
+        .tag_group {
+            margin-left: 10px;
+            /* border-bottom: 1px solid greenyellow; */
+        }
+        .tag_group_name {
+            font-size: 10px;
+        }
         .tag {
             padding: 1px 5px;
             margin: 0 1px;
             border-radius: 2px;
             cursor: pointer;
+            display: inline-block;
         }
         .tag:hover {
             background-color: rgba(222, 222, 222, 0.2);
@@ -235,17 +243,12 @@
         <div class="header">
             <div class="logo" @click="showMenu=!showMenu">LY</div>
             <div class="header-split"></div>
-            <div class="tag" :class="k == currentPath ? 'tag-active' : ''" v-for="(v, k) in articles" @click="openArticle(null, k)">{{v.name}}</div>
+            <div v-for="(v_tags, parent) in tags" class="tag_group">
+                <span class="tag_group_name">{{parent}}: </span>
+                <div class="tag" :class="k_path == currentPath ? 'tag-active' : ''" v-for="(v_name, k_path) in v_tags" @click="openArticle(k_path)">{{v_name}}</div>
+            </div>
         </div>
-        <menu v-show="showMenu">
-            <ul>
-                <li v-for="(item, i) in menu">{{item.name}}
-                    <ol>
-                        <li v-for="(child, j) in item.child" @click="openArticle(child[0], child[1])">{{child[0]}}</li>
-                    </ol>
-                </li>
-            </ul>
-        </menu>
+        <menu v-show="showMenu"><ul id="menu_list"></ul></menu>
         <div class="content" v-for="(v, k) in articles" v-show="k == currentPath" v-html="v.html"></div>
         <div class="title" v-for="(v, k) in articles" v-show="k == currentPath">
             <div v-for="(v2, k2) in v.titles" :style="v2.style" :class="'title-'+v2.level" @click="jumpTo(v2.id)">{{v2.name}}</div>
@@ -287,16 +290,16 @@
             return {
                 md: markdownit({highlight: this.highlight}),
                 version: '0.1',
-                menu: [], // articles.json
                 showMenu: true,
                 showTitle: false,
                 currentPath: '',
-                codeStr: {}, // {id: str}
+                codeStr: {}, // {id: str} for copy
                 /**
                  *  {
                  *      path: {
                  *          name: '',
                  *          html: '',
+                 *          parent: '',
                  *          titles: [{
                  *              id: '',
                  *              name: '',
@@ -306,36 +309,59 @@
                  *      }
                  *  }
                  */
-                articles: {}
+                articles: {},
+                /*
+                 *  {
+                 *      parent: {
+                 *          path: 'name',
+                 *      }
+                 *  }
+                 */
+                tags: {},
             }
         },
         created() {
             this.getFileText('articles.json', text => {
-                this.menu = JSON.parse(text)
+                let mjson = JSON.parse(text);
+                let mstr = '', mmstr;
+                let articles = {};
+                for(var k in mjson) {
+                    mmstr = '';
+                    mjson[k].forEach(e => {
+                        articles[e[1]] = {
+                            name: e[0],
+                            parent: k,
+                        };
+                        mmstr += `<li onclick="vm.openArticle('${e[1]}')">${e[0]}</li>`;
+                    });
+                    mstr += `<li>${k}<ol>${mmstr}</ol></li>`;
+                }
+                this.articles = articles;
+                document.getElementById('menu_list').innerHTML = mstr;
                 if (location.hash) {
-                    this.openByPath(location.hash.substr(1));
+                    this.openArticle(location.hash.substr(1));
                 }
             });
         },
         methods: {
-            openArticle(name, path) {
-                if (!this.articles[path]) {
-                    this.articles[path] = {
-                        name: name,
-                        html: '加载中...',
-                        titles: []
-                    };
+            openArticle(path) {
+                let pobj = this.articles[path];
+                if (!pobj.html) {
                     this.getFileText(path, text => this.setArticle(path, text));
                 }
+                if (!this.tags[pobj.parent]) {
+                    this.tags[pobj.parent] = {};
+                }
+                this.tags[pobj.parent][path] = pobj.name;
                 this.currentPath = path;
                 this.showMenu = false;
                 location.hash = path;
             },
             setArticle(path, text) {
                 let temp = document.createElement('div');
-                temp.innerHTML = this.md.render(text);;
+                temp.innerHTML = this.md.render(text);
                 let titles = temp.querySelectorAll('h1, h2, h3, h4, h5, h6');
-                let titlesHtml = this.articles[path].titles;
+                let titlesHtml = [];
                 let sty, level, idPre = Date.now();
                 for (let i = 0; i < titles.length; i++) {
                     level = titles[i].tagName.charAt(1)*1;
@@ -348,23 +374,13 @@
                         level: level
                     });
                 }
+                this.articles[path].titles = titlesHtml;
                 this.articles[path].html = temp.outerHTML;
             },
             jumpTo(id) {
                 var section = document.getElementById(id);
                 // 使用 scrollIntoView 方法滚动页面使得指定元素可见
                 section.scrollIntoView({ behavior: 'smooth' });
-            },
-            openByPath(path) {
-                if (!path) return;
-                for (let i = 0; i < this.menu.length; i++) {
-                    for (let j = 0; j < this.menu[i].child.length; j++) {
-                        if (this.menu[i].child[j][1] == path) {
-                            this.openArticle(this.menu[i].child[j][0], path)
-                            return;
-                        }
-                    }
-                }
             },
             getFileText(path, success) {
                 fetch(`${path}?v=${this.version}`).then(resp => {
