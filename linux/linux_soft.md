@@ -384,3 +384,9 @@ paint_mode=brush
 early_exit=false
 fill_shape=false
 ```
+
+# rofi
+
+## themes
+
+`~/.config/rofi`
