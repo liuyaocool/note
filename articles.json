@@ -15,6 +15,9 @@
     "rust": [
         ["基础", "rust/base.md"]
     ],
+    "浏览器代码": [
+        ["javascript", "front/js.md"]
+    ],
     "java": [
         ["设计模式", "java/design_patterns.md"]
     ],
