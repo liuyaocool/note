@@ -12,6 +12,10 @@ https://support.apple.com/zh-cn/101578?utm_source=hacpai.com
 - [Karabiner-Elements: 快捷键映射](https://karabiner-elements.pqrs.org/)
 
 
+# brew (Homebrew)
+
+ustc源搜brew, 点brew.git后help， 内有安装教程和换源教程
+
 # 痛点
 
 ## command+q
