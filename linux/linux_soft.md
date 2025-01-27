@@ -96,9 +96,19 @@ vi ~/.zshrc
 
 # ranger 文件浏览器
 
-https://github.com/ranger/ranger
+## 安装
 
-## image preview on Xorg --ueberzug
+1. https://github.com/ranger/ranger 下载源码
+2. `ln -s ranger/ranger.py ~/bin/ra`
+3. `ranger --copy-config=all`
+4. 启用图片预览 `vim ~/.config/ranger/rc.conf`
+    ```conf
+    set preview_images true
+    set preview_images_method sixel
+    ```
+5. 启用视频预览 `vi ~/.config/ranger/scope.sh`, 找到video取消注释
+
+## 图片预览(Xorg) --ueberzug
 
 st终端预览图片：
 - https://github.com/seebye/ueberzug
@@ -120,7 +130,7 @@ set preview_images_method ueberzug
 # ------------------
 ```
 
-## image preview on wayland --sixel
+## 图片预览(wayland) --sixel
 
 see: https://github.com/ranger/ranger/issues/723#issuecomment-701025904
 
@@ -132,7 +142,7 @@ doas emerge --ask libsixel imagemagic
 # source code install ranger, use github `pythod xxx` install
 ```
 
-## viewo preview
+## 视频预览
 
 see https://github.com/ranger/ranger/wiki/Video-Previews
 
