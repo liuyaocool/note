@@ -13,6 +13,27 @@ chsh -s tmux 用户名
 
 中科大源站
 
+# 安卓12杀进程
+
+问题android12 phantom pricess killing
+
+Android12+在使用Termux时，有时会显示`[Process completed (signal 9) - press Enter]`，这是因为Android12的PhantomProcesskiller限制了应用的子进程，最大允许应用有32个子进程
+
+解决方式:
+
+1. 开启开发者模式, 打开手机设置 -> 关于手机 -> 版本设置 -> 连续点击5次“版本号” -> 输入密码 (若找不到 自行百度手机型号)
+2. 打开Termux, 输入 `pkg install android-tools` 并浮窗termux
+4. 配置无线调试, 设置 -> 系统设置 -> 开发者设置 -> 打开无线调试
+5. 记住显示的IP地址和端口，在termux中输入`adb pair 192.168.0.103:45367`
+6. 当显示“Enter pairing code:”时，输入配对码链接, 链接到adb, 复制IP地址以留备用。
+7. 输入`adb connect 192.168.0.103:4`, 当输出以下表示连接成功
+    - daemon not running; starting now at tcp:5037
+    - daemon started successfully
+    - connected to 192.168.0.103:41249
+8. 设置最大子进程是65536: 
+    - `adb shell device_config set_sync_disabled_for_tests persistent`
+    - `adb shell device_config put activity_manager max_phantom_processes 65536`
+
 # 配置
 
 - 颜色: [~/.termux/colors.properties](file/termux/colors.properties)
