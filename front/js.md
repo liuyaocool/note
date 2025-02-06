@@ -30,3 +30,25 @@
     video.play();
 })();
 ```
+
+# js 方法
+
+```javascript
+
+function uuid() {
+    return crypto.randomUUID().replaceAll('-', '');
+}
+
+// 页面 esc 事件
+function pageEscListener(listener) {
+    let func = () => listener();
+    window.addEventListener('blur', func);
+    document.addEventListener('scroll', func); 
+    document.addEventListener('visibilitychange', function() {
+        if (document.visibilityState === 'hidden') listener();
+    });
+    document.addEventListener("keydown", e => {
+        if (e.key === 'Escape') listener();
+    });
+}
+```
