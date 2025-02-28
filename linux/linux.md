@@ -5,10 +5,6 @@
 
 ` md5sum file1 file2 `
 
-## 烧录
-
-`dd if=/home/xxx.iso of=/dev/sdc status=progress`
-
 ## scp
 
 - 单文件
@@ -27,6 +23,25 @@
 - 磁盘: `iostat`(sysstat), `iotop`
 - cpu、内存: `htop`
 - 系统基础信息: `neofetch`
+
+# 装机
+
+## 分区
+
+### linux 已有系统 分割磁盘
+
+1. 从Live USB启动
+2. 安装GParted
+    ```bash
+    # archlinux
+    sudo pacman -S gparted
+    ```
+3. 打开: ` sudo gparted `
+4. 找到目标磁盘 右键 -> Resize/Move
+
+## 烧录
+
+`dd if=/home/xxx.iso of=/dev/sdc status=progress`
 
 # 防火墙
 
