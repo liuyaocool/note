@@ -22,6 +22,7 @@
         ["设计模式", "java/design_patterns.md"]
     ],
     "linux": [
+        ["hk", "linux/hacker.md"],
         ["基础", "linux/linux.md"],
         ["设置", "linux/linux_setting.md"],
         ["软件", "linux/linux_soft.md"],
@@ -47,6 +48,8 @@
         ["PostgreSQL", "db/pgsql.md"]
     ],
     "其他": [
+        ["菜谱", "other/cookbook.md"],
+        ["日常", "other/life.md"],
         ["软件配置", "other/soft_setting.md"],
         ["windows", "other/windows.md"],
         ["mac", "other/mac.md"],
