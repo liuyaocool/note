@@ -374,27 +374,6 @@ bright0=8C979F
 
 - nc: openbsd-netcat
 
-
-# swappy 图片标记(截图) (Wayland)
-
-## cofig
-
-`~/.config/swappy/config `
-
-```ini
-[Default]
-# save_dir=$HOME/Desktop
-save_dir=/tmp
-save_filename_format=screenshot-%Y%m%d-%H_%M_%S.png
-show_panel=true
-line_size=2
-text_size=16
-text_font=sans-serif
-paint_mode=brush
-early_exit=false
-fill_shape=false
-```
-
 # rofi
 
 ## themes
