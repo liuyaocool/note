@@ -1,3 +1,37 @@
+# 服务
+
+## 创建服务
+
+`vim /usr/lib/systemd/system/xxx.service`
+```bash
+[Unit]
+# 描述
+Description=Auto SSH Tunnel
+# 指定服务启动的依赖条件, 如network.target表示网络启动后再启动服务
+After=network-online.target
+
+[Service]
+# 指定运行服务的用户和组
+User=liuyao
+# Group=liuyao
+Type=simple
+# 指定要运行的命令或脚本的路径, bash -c可用$(), 直接写命令不能用$()
+ExecStart=/bin/bash -c '这里填写命令'
+ExecReload=/bin/kill -HUP $MAINPID
+KillMode=process
+# 设置服务失败时是否自动重启, always表示总是重启
+Restart=always
+RestartSec=30s
+
+[Install]
+# 指定服务的目标, multi-user.target表示多用户模式, 目标见/etc/systemd/system 
+WantedBy=multi-user.target
+```
+
+## 操作服务
+
+`sudo systemctl enable/disable/start/stop/status xxx`
+
 # 网络
 
 ## 虚拟网卡
@@ -14,6 +48,10 @@ sudo ip addr add 172.21.2.61/24 dev enp12s0 label 网卡标签
 删除密码(不能用密码登录): ` sudo passwd -d username `
 
 # ssh
+
+## 生成密钥
+
+`ssh-keygen -t ed25519`
 
 ## 免密登录
 
