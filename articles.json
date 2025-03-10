@@ -26,6 +26,7 @@
         ["基础", "linux/linux.md"],
         ["设置", "linux/linux_setting.md"],
         ["软件", "linux/linux_soft.md"],
+        ["脚本", "linux/shell.md"],
         ["Ubuntu", "linux/ubuntu.md"],
         ["Arch Linux", "linux/archlinux.md"],
         ["dwl", "linux/dwl.md"],

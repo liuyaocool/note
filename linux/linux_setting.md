@@ -15,10 +15,14 @@ After=network-online.target
 User=liuyao
 # Group=liuyao
 Type=simple
-# 指定要运行的命令或脚本的路径, bash -c可用$(), 直接写命令不能用$()
+# 指定要运行的命令或脚本的路径(需要从“/”开始), bash -c可用$(), 直接写命令不能用$()
 ExecStart=/bin/bash -c '这里填写命令'
 ExecReload=/bin/kill -HUP $MAINPID
-KillMode=process
+# control-group: 默认值 systemd 会停止服务的控制组（cgroup）中的所有进程，包括主进程和所有子进程。
+# process: 仅停止服务的主进程，不会终止子进程。
+# mixed: 向主进程发送 SIGTERM 信号，同时向子进程发送 SIGKILL 信号。
+# none: 不停止任何进程，仅执行 ExecStop 中定义的命令。
+KillMode=control-group
 # 设置服务失败时是否自动重启, always表示总是重启
 Restart=always
 RestartSec=30s

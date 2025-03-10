@@ -1,13 +1,3 @@
-# 终端配置
-
-```bash
-# 终端没有颜色
-# 'foot': unknown terminal type
-# vim 错乱
-export TERM=xterm-256color
-
-```
-
 # zsh
 
 ## 配置文件 
@@ -15,17 +5,27 @@ export TERM=xterm-256color
 `vi .zshrc`
 
 ```bash
-# 关闭自动更新
-zstyle ':omz:update' mode disabled
-DISABLE_MAGIC_FUNCTIONS=true
-
+# 终端没有颜色
+# 'foot': unknown terminal type
+# vim 错乱
+# tty zsh-autosuggestions没颜色
+export PATH=$PATH:~/bin
+export TERM=xterm-256color
 export ZSH="$HOME/.oh-my-zsh"
 
 ZSH_THEME="agnoster"
 
+DISABLE_MAGIC_FUNCTIONS=true
+
 plugins=(git zsh-autosuggestions)
 
+# 关闭自动更新
+zstyle ':omz:update' mode disabled
 source $ZSH/oh-my-zsh.sh
+
+alias gs="git status"
+alias gu="git pull"
+alias gd="git diff"
 ```
 
 ## 美化 ohmyzsh
