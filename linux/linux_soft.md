@@ -187,7 +187,9 @@ vi ~/.config/ranger/scope.sh
 
 ## 配置
 
-`vim ~/.vimrc`
+`vim ~/.vimrc` && `sudo vim /root/.vimrc`
+
+配置root文件 避免sudo的时候配置不生效
 
 ```bash
 set mouse=          " 关闭鼠标指针
