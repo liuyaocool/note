@@ -18,3 +18,10 @@
 # 挂件
 ~/.local/share/plasma/plasmoids
 ```
+
+# Trouble
+
+## wifi问题
+
+- 描述： 连接wifi显示 一直显示正在等待授权， 
+- 解决： kde wallet密码问题，开始菜单搜索wallet 输入密码即可

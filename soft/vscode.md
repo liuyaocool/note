@@ -14,7 +14,7 @@
     "port": 22,
     "username": "liuyao",
     "remotePath": "/home/liuyao/mypro/malit-keyboard",
-    "ignore": [".vscode", ".git", ".DS_Store"],
+    "ignore": [".vscode", ".git", ".DS_Store", ".idea"],
     "uploadOnSave": true,
     "privateKeyPath": "~/.ssh/id_ed25519"
 }, {
@@ -24,7 +24,7 @@
     "port": 22,
     "username": "liuyao",
     "remotePath": "/home/liuyao/mypro",
-    "ignore": [".vscode", ".git", ".DS_Store"],
+    "ignore": [".vscode", ".git", ".DS_Store", ".idea"],
     "uploadOnSave": true,
     "privateKeyPath": "~/.ssh/id_ed25519"
 }]
