@@ -1,6 +1,33 @@
 # 插件
 
-- SFTP(Natizyskunk)
+## SFTP(Natizyskunk)
+
+**config**
+
+`vim .vscode/sftp.json`
+
+```json
+[{
+    "name": "maliit-keyboard",
+    "context": "maliit-keyboard",
+    "host": "192.168.3.10",
+    "port": 22,
+    "username": "liuyao",
+    "remotePath": "/home/liuyao/mypro/malit-keyboard",
+    "uploadOnSave": true,
+    "privateKeyPath": "~/.ssh/id_ed25519"
+}, {
+    "name": "mypro",
+    "context": "mypro",
+    "host": "192.168.3.10",
+    "port": 22,
+    "username": "liuyao",
+    "remotePath": "/home/liuyao/mypro",
+    "uploadOnSave": true,
+    "privateKeyPath": "~/.ssh/id_ed25519"
+}]
+
+```
 
 # settings.json 设置
 
