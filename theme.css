@@ -1,0 +1,32 @@
+body, html {
+    margin: 0;
+    height: 100%;
+}
+html {
+    background-color: black;
+}
+a {
+    color: #f2c100;
+}
+table {
+    border-collapse: collapse;
+}
+thead {
+    background-color: #4848487d;
+}
+th, td {
+    border: 1px solid #9d9b9b;
+    padding: 5px 1vw;
+    text-align: center;
+}
+code {
+    font-family: "source code pro";
+}
+code:not([class]) {
+    color: aqua;
+}
+.panel {
+    background-color: rgba(52, 66, 63, 0.39);
+    backdrop-filter: blur(29px);
+    border-radius: 6px;
+}

@@ -1,27 +1,10 @@
-body, html {
-    margin: 0;
-    height: 100%;
-}
-html {
-    background-color: black;
-}
 #app {
     padding: 10px;
     height: calc(100% - 20px);
     position: relative;
 }
-
-.box {
-    background-color: rgba(230, 230, 234, 0.23);
-    backdrop-filter: blur(5px);
-    border-radius: 6px;
-}
-
 .content, .title, .header {
     position: fixed;
-    background-color: rgba(52, 66, 63, 0.39);
-    backdrop-filter: blur(29px);
-    border-radius: 6px;
 }
 .header {
     padding: 2px 18px;
@@ -135,15 +118,6 @@ menu ol > li:hover {
 .content img {
     max-width: 100%;
 }
-
-code {
-    font-family: "source code pro";
-}
-
-code:not([class]) {
-    color: aqua;
-}
-
 code ol {
     margin: 0;
 }
@@ -184,10 +158,6 @@ code ol {
 /* .title-5 { color: blue;} */
 /* .title-6 { color: purple;} */
 
-a {
-    color: #00ffdb;
-}
-
 .copy {
     border-radius: 5px;
     display: inline-block;
@@ -200,9 +170,4 @@ a {
 
 .ly_germ {
     opacity: 0.8;
-}
-#copyaaa {
-    position: fixed;
-    height: 10px;
-    top: -50px;
 }

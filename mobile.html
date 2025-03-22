@@ -11,6 +11,7 @@
     <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/liuyaocool/jslib/highlight.11.9.0/styles/night-owl.min.css"/> -->
     <!-- 淡 蓝 系 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/vs2015.min.css"/>
+    <link rel="stylesheet" href="theme.css"/>
     <link rel="stylesheet" href="mobile.css"/>
 
     <script src="https://resource.liuyao.link/js/my/util.js"></script>
@@ -22,7 +23,7 @@
 </head>
 <body>
     <div id="app">
-        <div class="header">
+        <div class="panel header">
             <div class="logo" @click="showMenu=!showMenu">LY</div>
             <div class="header-split"></div>
             <div class="tag-container">
@@ -34,8 +35,8 @@
             <div class="title-open" @click="showTitle=!showTitle">{{windowwidth}}</div>
         </div>
         <menu v-show="showMenu"><ul id="menu_list"></ul></menu>
-        <div class="content" v-for="(v, k) in articles" v-show="k == currentPath" v-html="v.html"></div>
-        <div class="title" v-for="(v, k) in articles" v-show="showTitle && k == currentPath">
+        <div class="panel content" v-for="(v, k) in articles" v-show="k == currentPath" v-html="v.html"></div>
+        <div class="panel title" v-for="(v, k) in articles" v-show="showTitle && k == currentPath">
             <div v-for="(v2, k2) in v.titles" :style="v2.style" :class="'title-'+v2.level" @click="jumpTo(v2.id)">{{v2.name}}</div>
         </div>
     </div>
