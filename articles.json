@@ -2,6 +2,7 @@
     "算法": [
         ["基础", "algorithm/00-base.md"],
         ["数据结构", "algorithm/01-data_struct.md"],
+        ["数据结构-树", "algorithm/01-data_struct_tree.md"],
         ["排序", "algorithm/02-sort.md"],
         ["二进制", "algorithm/03-bit.md"],
         ["题", "algorithm/question.md"]
