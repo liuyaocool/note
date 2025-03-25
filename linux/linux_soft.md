@@ -375,9 +375,3 @@ bright0=8C979F
 # 常用软件全名
 
 - nc: openbsd-netcat
-
-# rofi
-
-## themes
-
-`~/.config/rofi`

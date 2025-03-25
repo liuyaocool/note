@@ -32,6 +32,23 @@ socat -U - UNIX-CONNECT:$XDG_RUNTIME_DIR/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.sock
 - [~/.config/waybar/config](file/waybar/02hyprland/config)
 - [~/.config/waybar/style.css](file/waybar/02hyprland/style.css)
 
+# rofi
+
+## install
+```bash
+git clone https://github.com/lbonn/rofi.git
+cd rofi
+meson setup build
+ninja -C build
+
+# test run
+./build/rofi -show drun
+```
+
+## config
+
+
+
 # 截图
 
 - 截图编辑: `grim -g "$(slurp)" - | swappy -f -`
