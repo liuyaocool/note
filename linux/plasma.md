@@ -26,7 +26,11 @@
 - 描述： 连接wifi显示 一直显示正在等待授权， 
 - 解决： kde wallet密码问题，开始菜单搜索wallet 输入密码即可
 
-## 触摸屏问题
+## vscode
+
+1. xwayland无法使用fcitx5输入法: `GTK_IM_MODULE=fcitx QT_IM_MODULE=fcitx XMODIFIERS=@im=fcitx code`
+
+## 触摸屏问题(未解决)
 
 1. 查看设备调试事件: `sudo libinput debug-events`
 2. 异常情况触摸屏幕右下角时有这样一行输出
