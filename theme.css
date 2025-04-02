@@ -30,3 +30,9 @@ code:not([class]) {
     backdrop-filter: blur(29px);
     border-radius: 6px;
 }
+blockquote {
+    background-color: #6866666e;
+    margin: 0;
+    padding: 8px 20px;
+    border-left: 5px solid gray;
+}

@@ -10,9 +10,6 @@
     "c": [
         ["编译", "c/00-run_c.md"]
     ],
-    "spring源码": [
-        ["初识", "spring/01-first.md"]
-    ],
     "rust": [
         ["基础", "rust/base.md"]
     ],
@@ -20,7 +17,9 @@
         ["javascript", "front/js.md"]
     ],
     "java": [
-        ["设计模式", "java/design_patterns.md"]
+        ["UML", "java/uml.md"]
+        ,["设计模式", "java/design_patterns.md"]
+        ,["spring源码1-初识", "java/spring-01-first.md"]
     ],
     "linux": [
         ["hk", "linux/hacker.md"],

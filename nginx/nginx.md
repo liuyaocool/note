@@ -208,3 +208,48 @@ location /getip {
     return 200 "$remote_addr\n";
 }
 ```
+
+## 3. 根据域名访问路径
+
+> 需配置host:  
+[w10885 ~]$: ping note.localhost  
+PING note.localhost (::1) 56 data bytes  
+64 bytes from localhost (::1): icmp_seq=1 ttl=64 time=0.039 ms  
+64 bytes from localhost (::1): icmp_seq=2 ttl=64 time=0.062 ms
+
+```conf
+server {
+    listen 80;
+    server_name ~^(?<subdir>[^.]+)\.localhost$;
+    limit_rate 10000k;
+    charset utf-8,gbk;
+
+    client_header_buffer_size 16k;
+    large_client_header_buffers 4 32k;
+
+    root /home/xxx/my_pro/github_pages/$subdir;
+    index index.html;
+
+    location / {
+        # $uri/ 表示为目录
+        try_files $uri $uri/ =404;
+    }
+}
+```
+or
+```conf
+map $host $fpath {
+    note.localhost          /home/xxx/my_pro/github_pages/note;
+    hello.localhost         /home/xxx/my_pro/github_pages/hello;
+    resource.localhost      /home/xxx/my_pro/github_pages/resource;
+}
+server {
+    listen 80;
+    server_name note.localhost hello.localhost resource.localhost;
+    root $fpath;
+    index index.html;
+    location / {
+        try_files $uri $uri/ =404;
+    }
+}
+```
