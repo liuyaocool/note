@@ -1,0 +1,48 @@
+@startuml
+
+!define RET_LINE(From, To) From .[#red].> To : <color:#red>return
+
+class Client #greenyellow {}
+Client -> TV
+Client -> Freezer
+Client -> AppFactory
+
+interface TV {}
+interface Freezer {}
+interface AppFactory {
+    createTV(): TV
+    createFreezer(): Freezer
+}
+
+package "Hair族" {
+    class HairTV
+    class HairFreezer
+}
+Freezer <|.. HairFreezer
+TV <|.. HairTV
+
+package "Hisense族" {
+    class HisenseTV
+    class HisenseFreezer
+}
+Freezer <|.. HisenseFreezer
+TV <|.. HisenseTV
+
+class HairFactory {
+    createTV()
+    createFreezer()
+}
+AppFactory <|.. HairFactory
+RET_LINE(HairFactory, HairTV)
+RET_LINE(HairFactory, HairFreezer)
+
+class HisenseFactory {
+    createTV()
+    createFreezer()
+}
+AppFactory <|.. HisenseFactory
+RET_LINE(HisenseFactory, HisenseTV)
+RET_LINE(HisenseFactory, HisenseFreezer)
+
+
+@enduml

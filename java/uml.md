@@ -10,8 +10,7 @@ sudo pacman -S graphviz
 
 ## 语法
 
-
-**访问修饰符**
+### 访问修饰符
 
 - `+` 表示 `public`
 - `-` 表示 `private`
@@ -20,17 +19,41 @@ sudo pacman -S graphviz
 
 ```puml
 @startuml
-
 class Car {
-    +String make
-    +String model
+    + String name
+    - int age
+    # int sex
 }
+@enduml
+```
 
-class Engine {
-    -int horsepower
+### 关系
+
+- 继承： `--|>` `<|--`  实线 空三角箭头
+- 实现： `..|>` `<|..`  虚线 空三角箭头
+- 组合： `*--` `--*`  实线 实菱形箭头
+- 聚合： `o--` `--o`  实线 空菱形箭头
+- 关联： `-->` `<--`  实线 实三角箭头
+
+```puml
+@startuml
+class A {}
+class B {}
+A <-- B
+@enduml
+```
+
+### 分组
+
+```puml
+@startuml
+package "Group A" {
+  class A
+  class B
 }
-
-Engine <|-- Car
-
+package "Group B" {
+  class C
+}
+A --> C
 @enduml
 ```
