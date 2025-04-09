@@ -38,6 +38,7 @@
         ["vscode", "soft/vscode.md"]
         ,["intellj idea", "soft/intellj_idea.md"]
         ,["firefox", "soft/firefox.md"]
+        ,["mpv", "soft/mpv.md"]
     ],
     "虚拟化技术": [
         ["kvm", "virtual/kvm.md"],
