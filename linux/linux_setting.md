@@ -1,8 +1,36 @@
 # 服务
+## 操作服务
 
-## 创建服务
+- 用户级: `systemctl --user enable/disable/start/stop/status xxx`
+- 系统级: `sudo systemctl enable/disable/start/stop/status xxx`
+
+## 创建服务-用户级
+
+>用户级不会随开机启动， 需要登录用户后才会启动
+
+`vim ~/.config/systemd/user/xxx.service`
+
+```bash
+[Unit]
+Description=Auto SSH Tunnel
+After=network-online.target
+
+[Service]
+# 注： 这里不要加 User Group
+Type=simple
+ExecStart=/bin/bash -c '这里填写命令'
+ExecReload=/bin/kill -HUP $MAINPID
+Restart=always
+RestartSec=30s
+
+[Install]
+WantedBy=default.target
+```
+
+## 创建服务-系统级
 
 `vim /usr/lib/systemd/system/xxx.service`
+
 ```bash
 [Unit]
 # 描述
@@ -31,10 +59,6 @@ RestartSec=30s
 # 指定服务的目标, multi-user.target表示多用户模式, 目标见/etc/systemd/system 
 WantedBy=multi-user.target
 ```
-
-## 操作服务
-
-`sudo systemctl enable/disable/start/stop/status xxx`
 
 # 网络
 

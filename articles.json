@@ -58,5 +58,6 @@
         ["windows", "other/windows.md"],
         ["mac", "other/mac.md"],
         ["git", "other/git.md"]
+        ,["test", "other/test.md"]
     ]
 }

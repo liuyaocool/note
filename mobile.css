@@ -27,7 +27,9 @@ h4 { font-size: 3vw; }
 { 
     font-size: 3vw;
 }
-.content, .title { 
+p { font-size: 3vw; }
+code { font-size: 28px; }
+.content, .title {
     top: 8vw; 
     bottom: 5px; 
     padding: 9px 18px;
