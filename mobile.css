@@ -18,8 +18,16 @@
     align-items: center;
     box-sizing: border-box;
 }
+h1 { font-size: 6vw; }
+h2 { font-size: 4.5vw; }
+h3 { font-size: 3.5vw; }
+h4 { font-size: 3vw; }
+.content *:not(h1, h2, h3, h4)
+, .title 
+{ 
+    font-size: 3vw;
+}
 .content, .title { 
-    font-size: 30px;
     top: 8vw; 
     bottom: 5px; 
     padding: 9px 18px;
