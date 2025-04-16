@@ -5,6 +5,7 @@
 }
 .content, .title, .header {
     position: fixed;
+    border-radius: 6px;
 }
 .header {
     padding: 2px 18px;
