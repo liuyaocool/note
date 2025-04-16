@@ -25,7 +25,7 @@ h4 { font-size: 3vw; }
 .content *:not(h1, h2, h3, h4)
 , .title 
 { 
-    font-size: 3vw;
+    font-size: 28px;
 }
 p { font-size: 3vw; }
 code { font-size: 28px; }
