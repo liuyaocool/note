@@ -19,7 +19,7 @@
     box-sizing: border-box;
 }
 .content, .title { 
-    font-size: 3vw;
+    font-size: 30px;
     top: 8vw; 
     bottom: 5px; 
     padding: 9px 18px;
