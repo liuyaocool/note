@@ -2,6 +2,7 @@
     padding: 10px;
     height: calc(100% - 20px);
     position: relative;
+    color: white;
 }
 .content, .title, .header {
     position: fixed;
@@ -13,7 +14,6 @@
     z-index: 2;
     height: 28px;
     font-size: 13px;
-    color: white;
     display: flex;
     /* justify-content: center; */
     align-items: center;
@@ -22,17 +22,15 @@
     top: 50px; 
     bottom: 5px; 
     padding: 9px 18px;
-    color: white;
     overflow: auto;
 }
 .header, .content { left: 10px; }
 .header, .title { right: 15px; }
 .content {
     right: 300px;
-    color: white;
 }
 .title {
-    width: 236px;
+    width: 272px;
 }
 
 .header > div {
@@ -91,7 +89,6 @@ menu {
     overflow: hidden auto;
     width: fit-content;
     max-height: calc(100% - 77px);
-    color: white;
     padding: 10px;
     border-radius: 20px;
 }
@@ -165,7 +162,6 @@ code ol {
     text-align: center;
     padding: 2px 5px;
     background: gray;
-    color: white;
     cursor: pointer;
 }
 
