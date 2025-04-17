@@ -19,7 +19,7 @@ thead {
 }
 th, td {
     border: 1px solid #9d9b9b;
-    padding: 5px 1vw;
+    padding: 2px 5px;
     text-align: center;
 }
 code {
@@ -35,6 +35,5 @@ code:not([class]) {
 blockquote {
     background-color: #6866666e;
     margin: 0;
-    padding: 8px 20px;
     border-left: 5px solid gray;
 }

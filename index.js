@@ -104,9 +104,6 @@ const vm = createApp({
                 if(resp.ok) resp.text().then(str => success(str));
             });
         },
-        uuid() {
-            return crypto.randomUUID().replaceAll('-', '');
-        },
         copyCode(id) {
             copyToClipboard(this.codeStr[id])
             document.getElementById(id).innerText = 'copied';
@@ -115,8 +112,9 @@ const vm = createApp({
             }, 1000);
         },
         highlight(code, lang, info) {
-            let preCode = hljs.getLanguage(lang) ? hljs.highlight(code, { language: lang }).value : code;
-            let id = this.uuid();
+            let preCode = (typeof hljs !== "undefined" && null !== hljs && hljs.getLanguage(lang))
+                ? hljs.highlight(code, { language: lang }).value : code;
+            let id = uuid();
             this.codeStr[id] = code;
             preCode = preCode.split('\n');
             code = `<div class="language-tip">${lang} <span class="copy" id="${id}" onclick="vm.copyCode('${id}')">copy</span></div><ol class="code-ol">`;

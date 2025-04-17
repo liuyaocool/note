@@ -80,16 +80,15 @@ menu, .title {
     margin: 0;
     max-width: 100%;
 }
-
 menu {
     font-size: 4vw;
-    padding: 1vw 2vw 1vw 5vw;
+    padding: 3vw 2vw;
 }
 menu ul {
-    padding: 5px 0px 5px 22px;
+    padding: 0 0 0 4vw;
 }
 menu ol {
-    padding-left: 22px;
+    padding-left: 6vw;
     font-size: 3vw;
 }
 menu ol > li {
@@ -101,6 +100,15 @@ menu ol > li {
     overflow: auto;
     margin-top: 1vw;
     padding: 0 2vw;
+    font-size: 3vw;
+}
+
+.content ul, .content ol {
+    padding: 0 0 0 6vw;
+}
+
+blockquote {
+    padding: 0.1vw 3vw;
 }
 
 .content pre {
@@ -134,7 +142,7 @@ code ol {
 .title {
     right: 0;
     color: #cecbcb;
-    padding: 9px 18px;
+    padding: 4vw;
     font-size: 3vw;
 }
 

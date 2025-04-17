@@ -162,9 +162,13 @@ code ol {
     text-align: center;
     padding: 2px 5px;
     background: gray;
+    color: white;
     cursor: pointer;
 }
 
+blockquote {
+    padding: 8px 20px;
+}
 .ly_germ {
     opacity: 0.8;
 }
