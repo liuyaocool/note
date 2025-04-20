@@ -148,6 +148,10 @@ code ol {
     color: white;
     border-top: solid 1px white;
 }
+.title-3 {padding-left: 20px;}
+.title-4 {padding-left: 40px;}
+.title-5 {padding-left: 60px;}
+.title-6 {padding-left: 80px;}
 
 /* .title-1 { color: red;} */
 /* .title-2 { color: orange;} */

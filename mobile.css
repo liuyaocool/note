@@ -151,6 +151,10 @@ code ol {
     color: white;
     border-top: solid 1px white;
 }
+.title-3 {padding-left: 3vw;}
+.title-4 {padding-left: 6vw;}
+.title-5 {padding-left: 9vw;}
+.title-6 {padding-left: 12vw;}
 
 .copy {
     border-radius: 5px;

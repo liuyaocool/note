@@ -82,7 +82,7 @@ const vm = createApp({
             let sty, level, idPre = Date.now();
             for (let i = 0; i < titles.length; i++) {
                 level = titles[i].tagName.charAt(1)*1;
-                sty = level < 3 ? {} : {'padding-left': (level-2) * 20 + 'px'};
+                // sty = level < 3 ? {} : {'padding-left': (level-2) * 20 + 'px'};
                 titles[i].id = `${idPre}-${i}`;
                 titlesHtml.push({
                     id: titles[i].id,
