@@ -1,10 +1,10 @@
 
 const {createApp} = Vue;
-const vm = createApp({
+const vm = Vue.createApp({
     data() {
         return {
             md: markdownit({highlight: this.highlight}),
-            version: '0.1',
+            isLocal: location.hostname === 'note.localhost',
             showMenu: true,
             showTitle: false,
             windowwidth: window.innerWidth,
@@ -37,7 +37,7 @@ const vm = createApp({
         }
     },
     created() {
-        this.getFileText('articles.json', text => {
+        fetchTextFile('articles.json').then(text => {
             let mjson = JSON.parse(text);
             let mstr = '', mmstr;
             let articles = {};
@@ -63,7 +63,7 @@ const vm = createApp({
         openArticle(path) {
             let pobj = this.articles[path];
             if (!pobj.html) {
-                this.getFileText(path, text => this.setArticle(path, text));
+                this.setArticle(path);
             }
             if (!this.tags[pobj.parent]) {
                 this.tags[pobj.parent] = {};
@@ -74,7 +74,9 @@ const vm = createApp({
             this.showTitle = false;
             location.hash = path;
         },
-        setArticle(path, text) {
+        async setArticle(path) {
+            if (!path) return;
+            let text = await fetchTextFile(path);
             let temp = document.createElement('div');
             temp.innerHTML = this.md.render(text);
             let titles = temp.querySelectorAll('h1, h2, h3, h4, h5, h6');
@@ -98,11 +100,6 @@ const vm = createApp({
             var section = document.getElementById(id);
             // 使用 scrollIntoView 方法滚动页面使得指定元素可见
             section.scrollIntoView({ behavior: 'smooth' });
-        },
-        getFileText(path, success) {
-            fetch(`${path}?v=${this.version}`).then(resp => {
-                if(resp.ok) resp.text().then(str => success(str));
-            });
         },
         copyCode(id) {
             copyToClipboard(this.codeStr[id])
