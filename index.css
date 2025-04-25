@@ -134,7 +134,7 @@ code ol {
 }
 
 .title {
-    color: #cecbcb;
+    /* color: #cecbcb; */
     font-size: 14px;
 }
 .title > div {
@@ -145,7 +145,7 @@ code ol {
 }
 .title-1 {
     font-size: 18px;
-    color: white;
+    color: #08ff00;
     border-top: solid 1px white;
 }
 .title-3 {padding-left: 20px;}
@@ -174,5 +174,5 @@ blockquote {
     padding: 8px 20px;
 }
 .ly_germ {
-    opacity: 0.8;
+    opacity: 0.3;
 }
