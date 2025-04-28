@@ -23,7 +23,6 @@
     - www.clipconverter.cc
     - http://keepvid.com/
 - bilibili: http://www.bilibilijj.com/
-- twitter: https://twittervideodownloader.com/
 
 # 账号
 
@@ -47,8 +46,9 @@ https://v2rayssr.com/teach-vless.html
 
 - 真实赛车3: qq邮箱(ios)
 - 街头篮球: liu2809957275	阳生
-- sijishe: jiangziya L..Y..4
+- sijishe: jiangziya L.....4
 - douyin: 同上
+- haijiao: jiangziya61 同上
 - cloudflare: 163邮箱 同上!
 
 # 卧虎
