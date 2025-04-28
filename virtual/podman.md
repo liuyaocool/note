@@ -1,5 +1,6 @@
-# 常用命令
+# 常用操作
 
+- 搜索镜像: 右键打开 [Docker Hub(https://hub.docker.com/)](https://hub.docker.com/)
 - 查看所有容器: `podman ps -a`
 - 查看运行容器: `podman ps`
 - 停止容器: `podman stop ${name}`
@@ -102,4 +103,40 @@ printf "%*s\n" $terminal_width | tr ' ' '-'
 podman search $@ --filter stars=1 --format "{{.Name}}\t{{.Stars}}\t{{.Official}}"  | \
 awk -v col1_width="$column1_width" 'BEGIN { FS="\t" } {printf "%-*s %-10s %-10s\n", col1_width, $1, $2, $3}' | \
 sort -k2rn
+```
+
+# podman-compose
+
+## 安装
+
+- `git clone https://github.com/containers/podman-compose.git`
+- `./podman_compose.py -f compose.yaml up -d`
+
+## 语法
+
+```yaml
+version: '3.8'
+services:
+  mysql:
+    container_name: ly_mysql8
+    image: mysql:8.4.5
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 111111
+      MYSQL_DATABASE: mysql
+      MYSQL_USER: mysql
+      MYSQL_PASSWORD: 111111
+    ports:
+      - "8562:3306"
+    volumes:
+    #   - ~/data/mysql8/conf:/etc/mysql/conf.d
+      - ~/data/mysql8/data:/var/lib/mysql
+    command: 
+      - "--character-set-server=utf8mb4"
+      - "--collation-server=utf8mb4_unicode_ci"
+
+# 配置会自动将本地同目录映射到容器同目录: - mysql8_data:/var/lib/mysql
+# volumes:
+#   mysql8_data:
+#   pg17_data:
 ```

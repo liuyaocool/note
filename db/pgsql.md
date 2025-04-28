@@ -2,10 +2,12 @@
 
 官方文档: https://hub.docker.com/_/postgres
 
+## 命令
+
 ```bash
 #!/bin/bash
 image=postgres:13.16
-name=my_postgres_container
+name=ly_pgsql
 port=8561
 password=111111
 postgre_path=~/data/postgre
@@ -37,12 +39,32 @@ fi
 
 ```bash
 # 停止
-podman stop my_postgres_container
+podman stop ly_pgsql
 # 删除容器
-podman rm my_postgres_container
+podman rm ly_pgsql
 ```
 
 > 注: 删除容器 重新创建容器， 如果映射数据路径 且路径内有原始数据， 那么重新设置的密码不会生效
+
+## podman-compose
+
+- `./podman_compose.py -f compose.yaml up -d`
+
+```yaml
+version: '3.8'
+services:
+  postgres:
+    container_name: ly_pgsql17
+    image: postgres:17.4
+    # restart: unless-stopped
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: 111111
+    ports:
+      - "8561:5432"
+    volumes:
+      - ~/data/postgre17/data:/var/lib/postgresql/data
+```
 
 # 使用
 

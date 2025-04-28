@@ -49,7 +49,10 @@
         ["基础", "nginx/nginx.md"]
     ],
     "数据库": [
-        ["PostgreSQL", "db/pgsql.md"]
+        ["DB", "db/db.md"]
+        ,["Redis", "db/redis.md"]
+        ,["PostgreSQL", "db/pgsql.md"]
+        ,["MySQL", "db/mysql.md"]
     ],
     "其他": [
         ["菜谱", "other/cookbook.md"],
