@@ -1,6 +1,7 @@
-body, html {
+body, html, #app {
     margin: 0;
     height: 100%;
+    position: relative;
 }
 html {
     background-color: black;
@@ -29,7 +30,8 @@ code:not([class]) {
     color: aqua;
 }
 .panel {
-    background-color: rgba(52, 66, 63, 0.39);
+    /* background-color: rgba(52, 66, 63, 0.4); */
+    background-color: rgba(23, 31, 38, 0.6);
     backdrop-filter: blur(29px);
 }
 blockquote {

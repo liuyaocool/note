@@ -4,7 +4,10 @@ const vm = Vue.createApp({
     data() {
         return {
             md: markdownit({highlight: this.highlight}),
-            isLocal: location.hostname === 'note.localhost',
+            isLocal: [
+                'note.localhost',
+                '192.168.3.20'
+            ].indexOf(location.hostname),
             showMenu: true,
             showTitle: false,
             windowwidth: window.innerWidth,
@@ -74,9 +77,9 @@ const vm = Vue.createApp({
             this.showTitle = false;
             location.hash = path;
         },
-        async setArticle(path) {
+        async setArticle(path, url) {
             if (!path) return;
-            let text = await fetchTextFile(path);
+            let text = await fetchTextFile(url || path);
             let temp = document.createElement('div');
             temp.innerHTML = this.md.render(text);
             let titles = temp.querySelectorAll('h1, h2, h3, h4, h5, h6');
@@ -107,6 +110,9 @@ const vm = Vue.createApp({
             setTimeout(() => {
                 document.getElementById(id).innerText = 'copy';
             }, 1000);
+        },
+        refresh() {
+            this.setArticle(this.currentPath, `${this.currentPath}?${uuid()}`);
         },
         highlight(code, lang, info) {
             let preCode = (typeof hljs !== "undefined" && null !== hljs && hljs.getLanguage(lang))

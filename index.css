@@ -1,7 +1,8 @@
+:root {
+    --title-panel-width: 270px;
+}
+
 #app {
-    padding: 10px;
-    height: calc(100% - 20px);
-    position: relative;
     color: white;
 }
 .content, .title, .header {
@@ -18,19 +19,21 @@
     /* justify-content: center; */
     align-items: center;
 }
-.content, .title { 
+.content, .title {
     top: 50px; 
     bottom: 5px; 
-    padding: 9px 18px;
     overflow: auto;
 }
 .header, .content { left: 10px; }
 .header, .title { right: 15px; }
 .content {
-    right: 300px;
+    right: calc(28px + var(--title-panel-width));
+    padding: 9px 18px;
 }
-.title {
-    width: 272px;
+.refresh {
+    position: absolute;
+    top: 54px;
+    right: calc(31px + var(--title-panel-width));
 }
 
 .header > div {
@@ -134,11 +137,24 @@ code ol {
 }
 
 .title {
+    width: var(--title-panel-width);
     /* color: #cecbcb; */
     font-size: 14px;
+    padding: 6px 12px;
 }
 .title > div {
     cursor: pointer;
+    border-left: 4px solid #a8a5a5;
+    border-image: linear-gradient( 
+        to bottom, 
+        transparent 15%, 
+        #a8a5a5 15%,
+        #a8a5a5 90%,
+        transparent 90% 
+        ) 1;
+    margin-top: 4px;
+    padding-left: 3px;
+    line-height: 16px;
 }
 .title > div:hover {
     background-color: rgba(255,255,255, 0.1);
@@ -146,12 +162,15 @@ code ol {
 .title-1 {
     font-size: 18px;
     color: #08ff00;
-    border-top: solid 1px white;
+    border: none !important;
+    padding: 0 !important;
 }
-.title-3 {padding-left: 20px;}
-.title-4 {padding-left: 40px;}
-.title-5 {padding-left: 60px;}
-.title-6 {padding-left: 80px;}
+.title-2 {
+}
+.title-3 {margin-left: 20px;}
+.title-4 {margin-left: 40px;}
+.title-5 {margin-left: 60px;}
+.title-6 {margin-left: 80px;}
 
 /* .title-1 { color: red;} */
 /* .title-2 { color: orange;} */

@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="theme.css"/>
     <link rel="stylesheet" href="index.css"/>
 
+    <!-- <script src="https://resource-8fp.pages.dev/js/my/util.js"></script> -->
     <script src="https://resource.liuyao.link/js/my/util.js"></script>
     <script>
         if (isMobile()) {
@@ -33,7 +34,7 @@
         </div>
         <menu v-show="showMenu"><ul id="menu_list"></ul></menu>
         <div class="panel content" v-for="(v, k) in articles" v-show="k == currentPath" v-html="v.html"></div>
-        <div v-show="isLocal" @click="setArticle(currentPath)" class="copy" style="position: absolute;top: 54px;right: 312px;">刷新</div>
+        <div v-show="isLocal" @click="refresh()" class="copy refresh">刷新</div>
         <div class="panel title" v-for="(v, k) in articles" v-show="k == currentPath">
             <div v-for="(v2, k2) in v.titles" :style="v2.style" :class="'title-'+v2.level" @click="jumpTo(v2.id)">{{v2.name}}</div>
         </div>
@@ -70,8 +71,9 @@
 <!-- <script src="https://resource-8fp.pages.dev/js/effect/mouseGerm.js" defer></script> -->
 <style>
     body {
-        background-image: url(https://resource.liuyao.link/img/background.gif);
+        background-image: url(https://resource.liuyao.link/img/coding.jpg);
         background-position: center;
+        background-size: contain;
     }
 </style>
 

@@ -9,9 +9,6 @@ h4 { font-size: 3vw; }
 body {
     color: white;
 }
-#app {
-    height: 100%;
-}
 .header {
     height: var(--top-h);
     font-size: 3vw;
@@ -148,13 +145,13 @@ code ol {
 
 .title-1 {
     font-size: 4vw;
-    color: white;
-    border-top: solid 1px white;
+    color: #08ff00;
+    /* border-top: solid 1px white; */
 }
-.title-3 {padding-left: 3vw;}
-.title-4 {padding-left: 6vw;}
-.title-5 {padding-left: 9vw;}
-.title-6 {padding-left: 12vw;}
+.title-3 {margin-left: 3vw;}
+.title-4 {margin-left: 6vw;}
+.title-5 {margin-left: 9vw;}
+.title-6 {margin-left: 12vw;}
 
 .copy {
     border-radius: 5px;
