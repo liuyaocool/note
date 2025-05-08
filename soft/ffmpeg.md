@@ -10,7 +10,22 @@ if [ $# -eq 0 ]; then
     echo "Usage: $0 img_path"
     exit 1
 fi
-ffmpeg -i "${1}" -q 6 -vf "scale=260:-1" "${1}.jpg"
+for file in "$@"; do
+    ffmpeg -i "${file}" -q 6 -vf "scale=260:-1" "${file}icon.jpg"
+done
+```
+
+## 压缩图片
+
+```bash
+#!/bin/bash
+if [ $# -eq 0 ]; then
+    echo "Usage: $0 img_path"
+    exit 1
+fi
+for file in "$@"; do
+    ffmpeg -i "${file}" -q:v 10 "${file}.jpg"
+done
 ```
 
 ## 视频转换为mp4

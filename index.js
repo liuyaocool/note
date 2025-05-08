@@ -7,7 +7,7 @@ const vm = Vue.createApp({
             isLocal: [
                 'note.localhost',
                 '192.168.3.20'
-            ].indexOf(location.hostname),
+            ].indexOf(location.hostname) >= 0,
             showMenu: true,
             showTitle: false,
             windowwidth: window.innerWidth,
