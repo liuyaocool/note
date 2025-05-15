@@ -38,3 +38,33 @@
     - 在右侧窗格中，右键单击空白区域，选择 新建 > DWORD (32 位) 值。
     - 将新值命名为 NoAutoUpdate，然后将其值设置为 1。
     - 关闭注册表编辑器并重启计算机。
+
+# win11
+
+## 关闭相关设置
+
+- 设置 → 系统 → 多任务处理 → 关闭“靠贴窗口”
+- 设置 → 个性化 → 锁屏界面
+- 设置 → 隐私和安全性 → 每个选项卡都找找
+
+## 关闭不必要的服务
+
+Win + r → 输入“services.msc” ， 关闭以下服务（常规 恢复 选项卡都要设置）
+
+- Intel(R) Driver & Support Assistant
+- Intel(R) Driver & Support Assistant Updater
+- Intel® Computing Improvement Program
+- Geolocation Service
+- Intel System Usage Report Service
+- 系统优化工具： Microsoft PC Manager Service
+- Secure Socket Tunneling Protocol Service
+- Windows Search
+- Windows 更新
+- Windows 推送通知系统服务
+- 数据使用量
+- 同步主机_2cbad4
+- 更新 Orchestrator 服务
+
+## 卸载无用软件
+
+- OnrDrive: 管理员权限运行 PowerShell， `winget uninstall Microsoft.OneDrive`
