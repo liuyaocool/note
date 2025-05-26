@@ -39,6 +39,23 @@
     - 将新值命名为 NoAutoUpdate，然后将其值设置为 1。
     - 关闭注册表编辑器并重启计算机。
 
+## 关闭防病毒程序
+
+1. Win键+R，输入 “gpedit.msc” 
+2. 依次打开 计算机配置 → 管理模板 → Windows组件 → Microsoft Defender防病毒
+3. 在右侧双击 “关闭Microsoft Defender防病毒程序”，选择启用
+
+## 触摸板滚轮
+
+1. Win键，搜索**设备管理器**，从**鼠标和其他指针设备**中找到触控板，双击打开
+2. 从**详细信息**选项卡中找到**硬件Id**，不要关闭
+3. **Win+R**，输入**regedit**，回车
+4. 导航到路径：**HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Enum\HID**
+5. 根据设备的VID和PID找到对应的触控板设备
+6. 在**Device Parameters**下找到**FlipFlopWheel**键值，将其值设置为**1**（如果不可用，尝试切换到十进制模式）。
+7. 重启
+
+
 # win11
 
 ## 关闭相关设置
