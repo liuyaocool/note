@@ -55,6 +55,17 @@
 6. 在**Device Parameters**下找到**FlipFlopWheel**键值，将其值设置为**1**（如果不可用，尝试切换到十进制模式）。
 7. 重启
 
+# mac安装win10
+
+## 触控板程序
+
+Trackpad++
+
+**问题**
+
+1. 三指拖动手势在结束三指后仍会被拖动
+2. 双指滚动惯性 跨应用后会继续
+
 
 # win11
 
@@ -85,3 +96,7 @@ Win + r → 输入“services.msc” ， 关闭以下服务（常规 恢复 选�
 ## 卸载无用软件
 
 - OnrDrive: 管理员权限运行 PowerShell， `winget uninstall Microsoft.OneDrive`
+
+# 好用程序
+
+- 截图: PixPin
