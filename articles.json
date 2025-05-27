@@ -19,6 +19,7 @@
     "java": [
         ["UML", "java/uml.md"]
         ,["设计模式", "java/design_patterns.md"]
+        ,["Zookeeper", "java/zookeeper.md"]
         ,["spring源码1-初识", "java/spring-01-first.md"]
     ],
     "linux": [

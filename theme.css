@@ -42,3 +42,6 @@ blockquote {
 strong {
     color: #f6fb5b;
 }
+img {
+    opacity: 0.8;
+}
