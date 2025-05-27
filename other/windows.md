@@ -105,7 +105,32 @@ Win + r → 输入“services.msc” ， 关闭以下服务（常规 恢复 选�
 
 ## 卸载无用软件
 
-- OnrDrive: 管理员权限运行 PowerShell， `winget uninstall Microsoft.OneDrive`
+- OneDrive: 管理员权限运行 PowerShell， `winget uninstall Microsoft.OneDrive`
+
+## 关闭防病毒程序
+
+1. 打开**Windows安全中心**，点左侧**病毒和威胁防护**
+2. 在**病毒和威胁防护**中，点**管理设置**
+3. 在下方找到**篡改防护**，将其关闭。确保后续的注册表修改能够生效
+4. **Win+R**，输入**regedit**
+5. 找到**计算机\HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender**
+6. 右键**Windows Defender**，新建 -> DWORD，添加以下值
+    - DisableAntiSpyware = 1
+    - DisableRealtimeMonitoring = 1 
+    - DisableAntiVirus = 1
+    - DisableSpecialRunningModes = 1
+    - DisableRoutinelyTakingAction = 1
+    - ServiceKeepAlive = 1
+7. 右键**Windows Defender**，新建项 -> 命名为 **Real-Time Protection**，并在此下添加以下值
+    - DisableBehaviorMonitoring = 1
+    - DisableOnAccessProtection = 1
+    - DisableRealtimeMonitoring = 1
+    - DisableScanOnRealtimeEnable = 1
+8. 右键**Windows Defender**，新建项 -> 命名为 **Signature Updates**，并在此下添加以下值
+    - ForceUpdateFromMU =1
+9. 右键**Windows Defender**，新建项 -> 命名为 **Spynet**，并在此下添加以下值
+    - DisableBlockAtFirstSeen = 1 
+10. 重启
 
 # 好用程序
 
