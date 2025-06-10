@@ -24,7 +24,6 @@
         ,["spring源码1-初识", "java/spring-01-first.md"]
     ],
     "linux": [
-        ["hk", "linux/hacker.md"],
         ["基础", "linux/linux.md"],
         ["设置", "linux/linux_setting.md"],
         ["软件", "linux/linux_soft.md"],
@@ -35,6 +34,10 @@
         ["Hyprland", "linux/hyprland.md"],
         ["termux", "linux/termux.md"],
         ["kde", "linux/plasma.md"]
+    ],
+    "hack": [
+        ["hk", "hack/hacker.md"]
+        ,["coolfire入门8篇", "hack/coolfire.md"]
     ],
     "软件": [
         ["vscode", "soft/vscode.md"]
