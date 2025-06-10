@@ -2,7 +2,7 @@
 
 ## 缩略图
 
-`vim ~/bin/imgzip`
+`vim ~/bin/imgicon`
 
 ```bash
 #!/bin/bash
@@ -16,6 +16,8 @@ done
 ```
 
 ## 压缩图片
+
+`vim ~/bin/imgzip`
 
 ```bash
 #!/bin/bash
