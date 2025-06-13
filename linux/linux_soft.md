@@ -197,6 +197,8 @@ syntax on           " 语法高亮
 set tabstop=4       " 设置制表符宽度为 4
 set shiftwidth=4    " 设置自动缩进宽度为 4
 " set expandtab       " 将制表符扩展为空格
+" 关闭文件类型检测的自动注释 粘贴会自动加上#
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 ```
 
 ## 格式化代码

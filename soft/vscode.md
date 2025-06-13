@@ -33,6 +33,29 @@
 
 # settings.json 设置
 
+## windows
+
+```json
+{
+    // 新标签打开文件
+    "workbench.editor.enablePreview": false,
+    // 新窗口打开新项目
+    "window.openFoldersInNewWindow": "on",
+    "diffEditor.ignoreTrimWhitespace": false,
+    "editor.fontFamily": "'Source Code Pro'",
+    // 这两项禁用 alt按键聚焦到菜单栏
+    "window.titleBarStyle": "custom",
+    "window.customMenuBarAltFocus": false,
+    "workbench.colorTheme": "Default Dark+",
+    "redhat.telemetry.enabled": true,
+    "workbench.startupEditor": "none"
+}
+```
+
+配置终端
+
+![](/soft/img/vscode-msys2.png)
+
 ## linux
 
 ```json

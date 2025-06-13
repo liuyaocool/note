@@ -4,10 +4,12 @@ const vm = Vue.createApp({
     data() {
         return {
             md: markdownit({highlight: this.highlight}),
-            isLocal: [
-                'note.localhost',
-                '192.168.3.20'
-            ].indexOf(location.hostname) >= 0,
+            // location.hostname 不包含端口
+            isLocal: location.hostname == 'localhost'
+                || location.hostname.endsWith('.localhost')
+                || location.hostname.startsWith('192.168.')
+                || location.hostname.startsWith('127.')
+            ,
             showMenu: true,
             showTitle: false,
             windowwidth: window.innerWidth,

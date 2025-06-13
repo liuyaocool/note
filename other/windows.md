@@ -132,6 +132,50 @@ Win + r → 输入“services.msc” ， 关闭以下服务（常规 恢复 选�
     - DisableBlockAtFirstSeen = 1 
 10. 重启
 
+# 终端Msys2
+
+## 安装
+
+使用pacman作为包管理工具， 基本与linux操作一致
+
+> 配置软件都与linux基本一致， 如zsh vim等
+
+1. 下载 https://github.com/msys2/msys2-installer/releases
+2. 为了节省麻烦 选择非msys2-base开头的exe下载
+3. 双击安装
+
+## 配置
+
+### 家目录
+
+1. 打开msys2
+2. `vim /etc/nsswitch.conf`
+3. 修改此处  `db_home: windows`
+
+### 颜色
+
+窗口界面点logo -> Options -> Looks > Theme 选择 “flat-ui”
+
+### 字体
+
+下载 选中字体 右键安装
+
+- UbuntuMono: https://design.ubuntu.com/font
+    - 四个UbuntuMono-*.ttf
+- Source Code pro: https://github.com/adobe-fonts/source-code-pro
+
+### 修改默认终端为zsh
+
+`vim  ~/.bash_profile`
+
+添加如下
+```bash
+# 自动启动 zsh（如果存在）
+if [ -f /bin/zsh ]; then
+  exec /bin/zsh
+fi
+```
+
 # 好用程序
 
 - 截图: PixPin
