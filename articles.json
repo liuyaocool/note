@@ -39,6 +39,9 @@
         ["hk", "hack/hacker.md"]
         ,["coolfire入门8篇", "hack/coolfire.md"]
     ],
+    "华为": [
+        ["鸿蒙开发", "huawei/harmonyos.md"]
+    ],
     "软件": [
         ["vscode", "soft/vscode.md"]
         ,["intellj idea", "soft/intellj_idea.md"]
