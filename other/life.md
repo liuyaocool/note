@@ -1,3 +1,8 @@
+# 海贼网站
+
+- https://www.pinterest.com/pin/151363237468087572/
+- https://www.deviantart.com/bodskih/art/Enel-God-of-Skypiea-685895892
+
 # 好用网站
 
 - 各银行利息: https://www.csai.cn/bankrate/
