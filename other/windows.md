@@ -141,8 +141,33 @@ Win + r → 输入“services.msc” ， 关闭以下服务（常规 恢复 选�
 > 配置软件都与linux基本一致， 如zsh vim等
 
 1. 下载 https://github.com/msys2/msys2-installer/releases
-2. 为了节省麻烦 选择非msys2-base开头的exe下载
+    - 为了节省麻烦 选择非msys2-base开头的exe下载
+2. 或官网下载 https://www.msys2.org/
 3. 双击安装
+
+## 换源
+
+### 1.备份
+
+1. 打开文件管理器， 打开安装目录`C:\msys64\`
+2. 备份 `安装目录\etc\pacman.d`
+
+### 2.换源
+
+1. 我习惯中科大源 https://mirrors.ustc.edu.cn/help/msys2.html
+2. 打开msys2, 按照教程执行命令
+
+## 文件管理器地址栏启动
+
+1. c盘根目录下创建文件夹 `bin`
+2. 将此文件夹添加至Path
+3. 此目录下创建文件`msys.bat`
+    - 添加内容
+    -   ```bat
+        @echo off
+        set MSYSTEM=MSYS
+        C:\msys64\msys2_shell.cmd -here -no-start
+        ```
 
 ## 配置
 
