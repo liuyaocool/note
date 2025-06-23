@@ -11,6 +11,7 @@
 # tty zsh-autosuggestions没颜色
 export PATH=$PATH:~/bin
 export TERM=xterm-256color
+export EDITOR=/usr/bin/vim
 export ZSH="$HOME/.oh-my-zsh"
 
 ZSH_THEME="agnoster"
@@ -373,6 +374,22 @@ regular4=d2e327
 # zsh-autosuggestions
 bright0=8C979F
 ```
+
+# Wine
+
+## wine 与 staging
+
+- wine: 稳定版
+- wine staging: 开发版
+
+## 安装
+
+1. arch linux 安装: `sudo pacman -S wine`
+2. 初始化配置: `winecfg`
+2. 安装软件运行: `wine /path/xxx.exe`
+3. 打开程序: 默认会创建 .desktop文件
+  - 如果没有创建，找到安装目录，运行: `wine 启动程序.exe`
+5. 卸载软件: `wine uninstaller`， 找到软件进行卸载
 
 # 常用软件全名
 

@@ -35,3 +35,16 @@ sudo systemctl restart libvirtd
    - 安装 `qemu-audio-spice `
 3. -chardev spicevmc,id=charchannel0,name=vdagent:'spicevmc' is not a valid char driver name
    - 安装 `qemu-chardev-spice`
+
+
+# Windows相关
+
+## 添加共享目录 未成功
+
+1. 虚拟机添加硬件 Filesystem
+   - 驱动: virtio-9p
+   - Source path: 要共享的目录
+   - Target path: 自定义目标名称
+2. windows安装驱动: https://github.com/virtio-win/virtio-win-pkg-scripts/blob/master/README.md
+   - 去磁盘管理中挂载磁盘
+   - ？？没有成功
