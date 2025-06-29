@@ -1,5 +1,17 @@
 # QEMU/KVM 虚拟机
 
+## virt网络设置
+
+### wifi桥接
+
+1. 网卡开启4addr (WDS)**: 主要用于无线分布式系统(WDS)和桥接场景
+   -  ```bash
+      sudo iw dev wlan0 set 4addr on  # 启用4地址模式
+      sudo ip link set wlan0 down     # 先禁用接口
+      sudo ip link set wlan0 up       # 重新启用
+      ```
+2. virt修改网卡配置为: macvtap
+
 ## archlinux安装
 
 ```bash
