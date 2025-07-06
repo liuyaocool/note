@@ -1,3 +1,53 @@
+# 网页版vscode
+
+## 下载
+
+1. 查看cpu架构: `dpkg --print-architecture`
+2. https://github.com/coder/code-server/releases 中找到适合自己机器的版本下载
+
+## 安装运行
+
+> 注：最好不要以root用户运行。网页客户端可以打开终端，以root运行会获得root权限
+
+### deb
+
+1 安装: `sudo dpkg -i code-server_xxx_amd64.deb`
+
+2 运行: `code-server >vscode.log 2>&1 &`
+
+3 修改样式: 
+
+```bash
+# 进入目录
+cd /usr/lib/code-server/
+cd lib/vscode/out/vs/
+
+# ---------- 按需修改样式 ----------
+sudo vi workbench/workbench.web.main.css
+
+sudo vi code/browser/workbench/workbench.html
+# ----------- 找到如下一行 添加样式版本号 ---------
+## <link data-name="vs/workbench/workbench.web.main" rel="stylesheet" href="{{WORKBENCH_WEB_BASE_URL}}/out/vs/workbench/workbench.web.main.css?v=1.0">
+```
+
+### tar
+
+1. 安装: `tar -zxvf code-server_xxx_amd64.deb`
+2. 运行: ``
+
+## 配置
+
+`vim ~/.config/code-server/config.yaml`
+
+```yaml
+bind-addr: 0.0.0.0:8080
+auth: password
+password: 登录密码
+cert: false
+```
+
+## 运行
+
 # 插件
 
 ## SFTP(Natizyskunk)
