@@ -11,16 +11,12 @@
 
 ### deb
 
-1 安装: `sudo dpkg -i code-server_xxx_amd64.deb`
-
-2 运行: `code-server >vscode.log 2>&1 &`
-
-3 修改样式: 
-
+1. 安装: `sudo dpkg -i code-server_xxx_amd64.deb`
+2. 运行: `code-server >vscode.log 2>&1 &`
+3. 修改样式: 
 ```bash
 # 进入目录
-cd /usr/lib/code-server/
-cd lib/vscode/out/vs/
+cd /usr/lib/code-server/lib/vscode/out/vs/
 
 # ---------- 按需修改样式 ----------
 sudo vi workbench/workbench.web.main.css
@@ -32,8 +28,21 @@ sudo vi code/browser/workbench/workbench.html
 
 ### tar
 
-1. 安装: `tar -zxvf code-server_xxx_amd64.deb`
-2. 运行: ``
+1. 安装: `tar -zxvf code-server_xxx_amd64.tar.gz`
+2. 运行: `code-server-xxx/bin/code-server`
+3. 页面源码位置: `code-server-xxx/lib/vscode/out/vs/code/browser/workbench`
+
+## 配置nginx
+
+```conf
+location /code/ {
+    proxy_pass http://localhost:9090/;
+    proxy_set_header Host $http_host;
+    proxy_set_header Upgrade $http_upgrade;
+    proxy_set_header Connection upgrade;
+    proxy_set_header Accept-Encoding gzip;
+}
+```
 
 ## 配置
 

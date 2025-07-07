@@ -1,6 +1,6 @@
 # virt虚拟机中开发
 
-## 真机调试配置
+## 真机调试连接配置
 
 nat模式无法在虚拟机中连接
 
@@ -20,6 +20,22 @@ sudo ip link set wlan0 up       # 重新启用
 
 ![](/huawei/img/virt-net.png)
 
+# 真机调试配置
+
+https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-run-device
+
+## hdc
+
+位置: 安装目录(DevEco Studio)/sdk/default/openharmony/toolchains
+
 ## 连接
 
-DevEco Studio -> Tools -> IP Connection 即可连接
+1. DevEco Studio -> Tools -> IP Connection 即可连接
+
+## 报错: pkcs7 file
+
+`failed to install bundle. error: fail to verify pkcs7 file. `
+
+**执行 没解决**
+
+`hdc shell param set persist.bms.ohCert.verify true`
