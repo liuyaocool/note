@@ -13,6 +13,14 @@ chsh -s tmux 用户名
 
 中科大源站
 
+1. 运行 `termux-change-repo`
+2. 空格选中 `Single mirror`, 点Ok
+3. 空格选中 `mirrors.ustc.edu.cn`, 点Ok
+4. 运行 `pkg upgrade`
+
+# 软件
+
+
 # 安卓12杀进程
 
 问题android12 phantom pricess killing
@@ -40,7 +48,7 @@ Android12+在使用Termux时，有时会显示`[Process completed (signal 9) - p
 - 字体(UbuntuMono): [~/.termux/font.ttf](file/termux/font.ttf)
 - 界面配置: [~/.termux/termux.properties](file/termux/termux.properties)
 
-# 颜色配置
+## 颜色配置
 
 ` ~/.termux/colors.properties `
 
@@ -79,7 +87,7 @@ cursor=#d1ba74
 foreground=#00ffa8
 ```
 
-# 界面配置
+## 界面配置
 
 ` ~/.termux/termux.properties `
 

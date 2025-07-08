@@ -15,6 +15,7 @@ export EDITOR=/usr/bin/vim
 export ZSH="$HOME/.oh-my-zsh"
 
 ZSH_THEME="agnoster"
+# ZSH_THEME="robbyrussell"
 
 DISABLE_MAGIC_FUNCTIONS=true
 
