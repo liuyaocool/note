@@ -167,3 +167,36 @@ fi
 sta=/tmp/statusline/sta_
 echo -ne "[`cat ${sta}thread`] [`cat ${sta}net`] [`cat ${sta}cpu`] [`cat ${sta}mem`]  $(date '+%u %m/%d %H:%M:%S')"
 ```
+
+## cloudflare
+
+### api
+
+- ZONE_ID: DNS点开，拉到底，右下角
+- DNS_RECORD_ID: 
+    - doc: `https://developers.cloudflare.com/api/resources/dns/subresources/records/methods/batch/`
+    - shell: `curl -X GET "https://api.cloudflare.com/client/v4/zones/{ZONE_ID}/dns_records" -H "Authorization: Bearer API_TOKEN"`
+- API_TOKEN: `https://dash.cloudflare.com/profile/api-tokens`
+- 认证请求头: 
+    - 官方文档方法失败， 这个成功 `Authorization: Bearer $API_TOKEN`
+    - 在这找到: https://dash.cloudflare.com/profile/api-tokens 点help
+
+### 修改dns记录
+
+https://developers.cloudflare.com/api/resources/dns/subresources/records/methods/edit/
+
+```bash
+#!/bin/bash
+
+ZONE_ID=
+DNS_RECORD_ID=
+API_TOKEN=
+
+ip=`curl -s "https://my.ip.cn/json/"`
+ip=$(jq -r '.data.ip' <<< "$ip")
+
+curl https://api.cloudflare.com/client/v4/zones/$ZONE_ID/dns_records/$DNS_RECORD_ID \
+    -X PATCH \
+    -H "Authorization: Bearer $API_TOKEN" \
+    -d "{\"name\": \"home13\", \"ttl\": 1, \"type\": \"A\", \"content\": \"${ip}\", \"proxied\": false}"
+```
