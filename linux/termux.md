@@ -20,6 +20,10 @@ chsh -s tmux 用户名
 
 # 软件
 
+## 与安卓文件互通
+
+1. `termux-setup-storage`
+2. `cd ~/storage`
 
 # 安卓12杀进程
 

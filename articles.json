@@ -44,6 +44,7 @@
     ],
     "软件": [
         ["vscode", "soft/vscode.md"]
+        ,["无线技术", "soft/wireless.md"]
         ,["intellj idea", "soft/intellj_idea.md"]
         ,["firefox", "soft/firefox.md"]
         ,["mpv", "soft/mpv.md"]

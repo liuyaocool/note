@@ -1,5 +1,59 @@
 # 脚本示例
 
+## firewall
+
+### add tcp port
+
+```bash
+#!/bin/bash
+
+usage() {
+    echo "Error($?), usage: $0 <port(-port)/tcp,udp>"
+    exit 1
+}
+# 捕获 ERR 信号（命令失败时触发）
+trap usage ERR
+
+# 检查参数个数
+if [ $# -lt 1 ]; then
+    usage
+fi
+
+sudo firewall-cmd --zone=public --add-port=${1} --permanent
+echo reloading...
+sudo firewall-cmd --reload
+```
+
+### remove tcp port
+
+```bash
+#!/bin/bash
+
+usage() {
+    echo "Error($?), usage: $0 <port(-port)/tcp,udp>"
+    exit 1
+}
+# 捕获 ERR 信号（命令失败时触发）
+trap usage ERR
+
+# 检查参数个数
+if [ $# -lt 1 ]; then
+    usage
+fi
+
+sudo firewall-cmd --zone=public --remove-port=${1} --permanent
+echo reloading...
+sudo firewall-cmd --reload
+```
+
+### list
+
+```bash
+#!/bin/bash
+sudo firewall-cmd --zone=public --list-ports
+```
+
+
 ## ~/bin/autossh127
 
 ```bash
