@@ -2,6 +2,7 @@
 const {createApp} = Vue;
 const vm = Vue.createApp({
     data() {
+        let pc = !isMobile();
         return {
             md: markdownit({highlight: this.highlight}),
             // location.hostname 不包含端口
@@ -11,7 +12,8 @@ const vm = Vue.createApp({
                 || location.hostname.startsWith('127.')
             ,
             showMenu: true,
-            showTitle: false,
+            isPc: pc,
+            showTitle: pc,
             windowwidth: window.innerWidth,
             currentPath: '',
             codeStr: {}, // {id: str} for copy
@@ -76,7 +78,7 @@ const vm = Vue.createApp({
             this.tags[pobj.parent][path] = pobj.name;
             this.currentPath = path;
             this.showMenu = false;
-            this.showTitle = false;
+            this.showTitle = (this.isPc || false);
             location.hash = path;
         },
         async setArticle(path, url) {

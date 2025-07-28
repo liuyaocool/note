@@ -59,6 +59,15 @@
         rgba(0, 0, 0, 0) 90%
     ) border-box;
 }
+.tag-container {
+    line-height: 20px;
+    width: 100%;
+    overflow: auto hidden;
+    height: 100%;
+    white-space: nowrap;
+    display: flex;
+    align-items: center; /* 垂直居中 */
+}
 .tag_group {
     margin-left: 10px;
     /* border-bottom: 1px solid greenyellow; */

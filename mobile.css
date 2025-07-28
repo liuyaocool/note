@@ -40,6 +40,7 @@ body {
     ) border-box;
 }
 .tag-container {
+    line-height: 20px;
     width: 100%;
     overflow: auto hidden;
     height: 100%;
@@ -102,6 +103,12 @@ menu ol > li {
 
 .content ul, .content ol {
     padding: 0 0 0 6vw;
+}
+
+.refresh {
+    position: absolute;
+    top: 26px;
+    right: 2px;
 }
 
 blockquote {
