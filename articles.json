@@ -34,6 +34,7 @@
         ["Hyprland", "linux/hyprland.md"],
         ["termux", "linux/termux.md"],
         ["kde", "linux/plasma.md"]
+        ,["路由", "linux/router.md"]
     ],
     "hack": [
         ["hk", "hack/hacker.md"]
@@ -68,8 +69,9 @@
         ["日常", "other/life.md"],
         ["软件配置", "other/soft_setting.md"],
         ["windows", "other/windows.md"],
-        ["mac", "other/mac.md"],
-        ["git", "other/git.md"]
+        ["mac", "other/mac.md"]
+        ,["git", "other/git.md"]
+        ,["game", "other/game.md"]
         ,["test", "other/test.md"]
     ]
 }
