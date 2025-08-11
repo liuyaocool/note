@@ -5,13 +5,26 @@
 1. 下载 https://firmware-selector.openwrt.org/ 按cpu型号下载固件
 2. 刷入固件: 各型号自行查找教程，本文后边提供360P2路由
 
-## 新机设置
+## 更换国内镜像 更新
 
-### 修改密码
+see: https://mirrors.ustc.edu.cn/help/openwrt.html
+
+```bash
+# 备份
+cd /etc/opkg
+cp distfeeds.conf distfeeds.conf.bak
+# 换源
+sed -i 's/downloads.openwrt.org/mirrors.ustc.edu.cn\/openwrt/g' /etc/opkg/distfeeds.conf
+
+# 若此命令出现证书错误 更新系统时间
+opkg update
+```
+
+## 修改密码
 
 浏览器打开 `192.168.1.1`, 帐号root，无密码 直接登录后修改密码, 之后即可用ssh登录进行操作了
 
-### 修改网络, 配置静态ip
+## 修改网络, 配置静态ip
 
 - `vim /etc/config/network`
 -   ```bash
@@ -25,14 +38,83 @@
         # option ip6assign '60'
     ```
 
+## 硬盘不够，usb扩展
+
+参考 [官方文档](https://openwrt.org/docs/guide-user/additional-software/extroot_configuration#configuring_extroot)
+
+> 此文档不适合linux小白, 看不懂请移步上方官方文档
+
+### 环境说明
+
+- 刷机时间: 2025-08-11
+- 设备: 360 P2路由器
+- 固件版本: [openwrt-24.10.2-ramips-mt76x8-mediatek_mt7628an-eval-board-squashfs-sysupgrade.bin](https://resource.liuyao.link/file/360P2/openwrt-24.10.2-ramips-mt76x8-mediatek_mt7628an-eval-board-squashfs-sysupgrade.bin)
+
+### 1 准备
+
+```bash
+opkg update
+opkg install block-mount kmod-fs-ext4 e2fsprogs parted kmod-usb-storage
+# 查看设备
+ls -l /sys/block
+```
+
+### 2. 分区 格式化 u盘
+
+```bash
+DISK="/dev/sda"
+parted -s ${DISK} -- mklabel gpt mkpart extroot 2048s -2048s
+DEVICE="${DISK}1"
+mkfs.ext4 -L extroot ${DEVICE}
+```
+
+### 3. 配置 extroot
+
+```bash
+eval $(block info ${DEVICE} | grep -o -e 'UUID="\S*"')
+eval $(block info | grep -o -e 'MOUNT="\S*/overlay"')
+uci -q delete fstab.extroot
+uci set fstab.extroot="mount"
+uci set fstab.extroot.uuid="${UUID}"
+uci set fstab.extroot.target="${MOUNT}"
+uci commit fstab
+```
+
+### 4. 配置 rootfs_data / ubifs
+
+```bash
+ORIG="$(block info | sed -n -e '/MOUNT="\S*\/overlay"/s/:\s.*$//p')"
+uci -q delete fstab.rwm
+uci set fstab.rwm="mount"
+uci set fstab.rwm.device="${ORIG}"
+uci set fstab.rwm.target="/rwm"
+uci commit fstab
+```
+
+### 5. 复制系统文件到u盘
+
+```bash
+mount ${DEVICE} /mnt
+tar -C ${MOUNT} -cvf - . | tar -C /mnt -xf -
+```
+
+### 6. 重启
+
+`reboot` or 断电重插
+
+```bash
+# 测试
+root@OpenWrt:~# df -h
+Filesystem                Size      Used Available Use% Mounted on
+/dev/root                 4.0M      4.0M         0 100% /rom
+tmpfs                    60.2M    176.0K     60.0M   0% /tmp
+/dev/sda1                 3.6G      5.1M      3.3G   0% /overlay
+overlayfs:/overlay        3.6G      5.1M      3.3G   0% /
+tmpfs                   512.0K         0    512.0K   0% /dev
+/dev/mtdblock6            2.2M      1.7M    484.0K  78% /rwm
+```
+
 ## 连接wifi
-
-## 更新
-
-- 配置中科大源
-- 时间校准
-    - 不然更新失败， 所有需要整数的网络操作都会报错
-- 执行 `opkg update`
 
 ## 5G频段不能用
 
