@@ -30,17 +30,7 @@
 
 ## 鱼香肉丝
 
-```
-http://www.meishij.net/zuofa/yuxiangrousi_80.html
-http://www.haochu.com/caipu/28769.html
-```
-
 ## 炸酱面
-
-```
-http://www.haodou.com/recipe/341865/
-http://www.meishij.net/chufang/diy/gaodianxiaochi/38266.html
-```
 
 ## 茄子
 

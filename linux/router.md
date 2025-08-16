@@ -114,11 +114,31 @@ tmpfs                   512.0K         0    512.0K   0% /dev
 /dev/mtdblock6            2.2M      1.7M    484.0K  78% /rwm
 ```
 
-## 连接wifi
+## nginx
 
-## 5G频段不能用
+打开管理页面->系统->软件->搜索并安装
 
-opkg search kmod-mt76x2
+## openclash
+
+[github原文档](https://github.com/vernesong/OpenClash/releases)
+
+dnsmasq-full 安装失败: 卸载 `opkg remove dnsmasq`,  然后重新安装
+
+## 软件
+
+- git: `opkg install git git-http ca-bundle`
+
+## 主题 argon
+
+[github原文档](https://github.com/jerrykuku/luci-theme-argon/blob/master/README_ZH.md)
+
+```bash
+opkg install luci-compat
+opkg install luci-lib-ipkg
+# 下边网址打不开用可以这个: https://resource.liuyao.link/file/360P2/luci-theme-argon_2.3.2-r20250207_all.ipk
+wget --no-check-certificate https://github.com/jerrykuku/luci-theme-argon/releases/download/v2.3.2/luci-theme-argon_2.3.2-r20250207_all.ipk
+opkg install luci-theme-argon*.ipk
+```
 
 # 360p2 刷入 OpenWrt
 
@@ -160,3 +180,9 @@ opkg search kmod-mt76x2
     - 路由器断电，按住reset后通电
     - 浏览器打开: `192.168.1.1` -> `固件更新` -> `固件` -> `上传`, 完成后重启路由 刷新页面
     - 后续设置见本文 OpenWRT
+
+## 5G频段不能用
+
+由于 mt7612 闭源 所以没有相应的开放固件
+
+opkg search kmod-mt76x2

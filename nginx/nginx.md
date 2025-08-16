@@ -130,8 +130,9 @@ make && make install
 
 ```nginx
 server {
-	listen                          443 ssl;
-	server_name                     xxx.com;
+	listen                          443 ssl default_server; # 注意需要配置default_server才能保证未定义的域名访问到此配置
+	# server_name                     xxx.com;
+	server_name                     _; # 匹配所有未定义的host
 	ssl_certificate                 ssl/xxx.com.pem;
 	ssl_certificate_key             ssl/xxx.com.key;
 	ssl_session_timeout             5m;
