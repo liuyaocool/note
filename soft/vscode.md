@@ -193,6 +193,14 @@ cert: false
             "}"
         ]
     },
+    "fork":{
+        "prefix": "fork",
+        "body": [
+            "for (let ${k} in ${obj}) {",
+            "\t${body}",
+            "}"
+        ]
+    },
     "if":{
         "prefix": "iff",
         "body": [
