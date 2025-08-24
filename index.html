@@ -13,15 +13,17 @@
     <!-- 淡 蓝 系 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/vs2015.min.css"/>
     <link rel="stylesheet" href="theme.css"/>
+    <link rel="stylesheet" href="css/iconfont.css"/>
 
     <!-- <script src="https://resource-8fp.pages.dev/js/my/util.js"></script> -->
     <script src="https://resource.liuyao.link/js/my/util.js?v=0.1"></script>
     <script>includeCss('index.css?v=0.1', 'mobile.css?v=0.2');</script>
 </head>
 <body>
-    <div id="app">
+<div id="app">
         <div class="panel header">
-            <div class="logo" @click="showMenu=!showMenu">LY</div>
+            <div esc-ex class="logo" @click="openMenu()">LY</div>
+            <div esc-ex class="search-btn iconfont icon-search" @click="openSearch()"></div>
             <div class="header-split"></div>
             <div class="tag-container">
                 <div v-for="(v_tags, parent) in tags" class="tag_group">
@@ -37,8 +39,25 @@
         <div class="panel title" v-for="(v, k) in articles" v-show="showTitle && k == currentPath">
             <div v-for="(v2, k2) in v.titles" :style="v2.style" :class="'title-'+v2.level" @click="jumpTo(v2.id)">{{v2.name}}</div>
         </div>
+    
+    <input esc-ex class="search-input panel" type="text"
+        ref="searchInput" v-show="showSearch"
+        @input="doSearch($event.target.value)"
+        @keydown.up.exact.prevent="searchNext(-1)"
+        @keydown.down.exact.prevent="searchNext(1)"
+        @keydown.enter.exact.prevent="searchEnter"
+        placeholder="space for and">
+    <div class="search-box panel" v-show="showSearch" esc-ex>
+        <div class="search-input-bottom"></div>
+        <div v-for="(row, i) in searchList" class="search-item" 
+            @click="openArticle(row.path)"
+            :class="i == searchIdx ? 'search-item-select' : ''">
+            <div v-html="row.title" class="search-item-title"></div>
+            <div v-for="(line, i) in row.linesHL" v-html="line" class="search-item-line"></div>
+        </div>
     </div>
 
+</div>
 <!-- <script src="https://cdn.jsdelivr.net/gh/liuyaocool/jslib/vue/vue3.global.js"></script> -->
 <!-- <script src="https://unpkg.com/vue@3.4.25/dist/vue.global.js"></script> -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.5.4/vue.global.min.js"></script>
@@ -65,7 +84,7 @@
 
 <script src="index.js?v=0.1"></script>
 
-<script>const ly_germ_color = [[0, 20], [0, 20], [0, 20]];</script>
+<!-- <script>const ly_germ_color = [[0, 20], [0, 20], [0, 20]];</script> -->
 <!-- <script src="https://resource-8fp.pages.dev/js/effect/bgRgbDown.js" defer></script> -->
 <!-- <script src="https://resource-8fp.pages.dev/js/effect/mouseGerm.js" defer></script> -->
 <style>

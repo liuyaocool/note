@@ -21,6 +21,7 @@ const vm = Vue.createApp({
              *  {
              *      path: {
              *          name: '',
+             *          file: '', // 原始文件文本.split('\n')
              *          html: '',
              *          parent: '',
              *          titles: [{
@@ -41,10 +42,37 @@ const vm = Vue.createApp({
              *  }
              */
             tags: {},
+            /**
+             *  [
+             *      {
+             *          path: '',
+             *          title: '', // parent:name
+             *          titleHL: '', // hight light
+             *          lines: [], // match lines
+             *          linesHL: [], // hight light
+             *      }
+             *  ]
+             */
+            searchList: [],
+            searchHL: new HightlightAnd(k => `<span class="search-high-light">${k}</span>`),
+            searchIdx: 0,
+            showSearch: false,
+            searchInput: '',
         }
     },
-    created() {
-        fetchTextFile('articles.json').then(text => {
+    async created() {
+        addEscListener(this.esc);
+        // addEscListener(e => console.error('aaa'));
+        window.addEventListener('keydown', e => {
+            switch(e.key) {
+                case 'Escape': this.esc(); break;
+                case '/': this.openSearch(); break;
+                default: return;
+            }
+            // 不加这个会触发浏览器事件 导致触发blur事件
+            e.preventDefault();
+        });
+        let text = await fetchTextFile('articles.json');
             let mjson = JSON.parse(text);
             let mstr = '', mmstr;
             let articles = {};
@@ -61,29 +89,38 @@ const vm = Vue.createApp({
             }
             this.articles = articles;
             document.getElementById('menu_list').innerHTML = mstr;
-            if (location.hash) {
-                this.openArticle(location.hash.substr(1));
+        if (mstr = location.hash.substring(1)) {
+            this.articles[mstr].file = (await fetchTextFile(mstr)).split('\n');
+            this.openArticle(mstr);
+        }
+        for(let path in this.articles) {
+            if (!this.articles[path].file) {
+                fetchTextFile(path).then(text => 
+                    this.articles[path].file = text.split('\n'));
             }
-        });
+        }
     },
     methods: {
+        openMenu() {
+            let showMenu = this.showMenu;
+            this.esc();
+            this.showMenu = !showMenu;
+        },
         openArticle(path) {
             let pobj = this.articles[path];
             if (!pobj.html) {
-                this.setArticle(path);
+                this.toMd(path, this.articles[path].file.join('\n'));
             }
             if (!this.tags[pobj.parent]) {
                 this.tags[pobj.parent] = {};
             }
             this.tags[pobj.parent][path] = pobj.name;
             this.currentPath = path;
-            this.showMenu = false;
             this.showTitle = (this.isPc || false);
             location.hash = path;
+            this.esc();
         },
-        async setArticle(path, url) {
-            if (!path) return;
-            let text = await fetchTextFile(url || path);
+        toMd(path, text) {
             let temp = document.createElement('div');
             temp.innerHTML = this.md.render(text);
             let titles = temp.querySelectorAll('h1, h2, h3, h4, h5, h6');
@@ -115,8 +152,67 @@ const vm = Vue.createApp({
                 document.getElementById(id).innerText = 'copy';
             }, 1000);
         },
-        refresh() {
-            this.setArticle(this.currentPath, `${this.currentPath}?${uuid()}`);
+        async refresh() {
+            this.toMd(this.currentPath, await fetchTextFile(`${this.currentPath}?${uuid()}`));
+        },
+        openSearch() {
+            this.esc();
+            this.searchList = [];
+            this.showSearch = true; // 异步渲染
+            // 使用 $refs 来访问元素
+            this.$nextTick(() => {
+                this.$refs.searchInput.focus()
+                // 浏览器会将原本的按键事件应用到新获得焦点的输入框中 这里清空输入框，反正是要清空的
+                this.$refs.searchInput.value = '';
+            });
+        },
+        doSearch(key) {
+            let searchList = this.searchList, searchInput = this.searchInput;
+            this.searchList = [];
+            this.searchInput = key = key.trim();
+            if (key.length < 2)
+                return;
+            this.searchHL.setKeyword(key);
+            this.searchIdx = 0;
+                // 关键词是否是追加
+            if (key.startsWith(searchInput) && searchList.length > 0) {
+                searchList.forEach(e => this.fillSearch(e.path, e.title, e.lines));
+                return;
+            }
+            for (let path in this.articles) {
+                this.fillSearch(path,
+                    `${this.articles[path].parent} :: ${this.articles[path].name}`,
+                    this.articles[path].file);
+            }
+        },
+        fillSearch(path, title, lines) {
+            let lineHL, lineList = [], lineListHL = [], 
+                titleHl = this.searchHL.highlight(title);
+            lines.forEach(line => {
+                if (lineHL = this.searchHL.highlight(line)) {
+                    lineList.push(line);
+                    lineListHL.push(lineHL);
+                }
+            });
+            if (titleHl || lineList.length > 0) {
+                this.searchList.push({
+                    path: path,
+                    title: title, // parent:name
+                    titleHL: titleHl || title,
+                    lines: lineList, // match lines
+                    linesHL: lineListHL,
+                });
+            }
+        },
+        searchNext(offset) {
+            this.searchIdx = (this.searchIdx + offset) % this.searchList.length;
+        },
+        searchEnter() {
+            this.openArticle(this.searchList[this.searchIdx].path);
+        },
+        esc() {
+            this.showSearch = false;
+            this.showMenu = false;
         },
         highlight(code, lang, info) {
             let preCode = (typeof hljs !== "undefined" && null !== hljs && hljs.getLanguage(lang))

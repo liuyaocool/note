@@ -5,7 +5,7 @@
 #app {
     color: white;
 }
-.content, .title, .header {
+.content, .title, .header, .search-box {
     position: fixed;
     border-radius: 6px;
 }
@@ -41,6 +41,8 @@
 }
 .logo {
     cursor: pointer;
+    font-family: RainbowParty;
+    user-select: none;
 }
 .header-split {
     margin: 0 5px;
@@ -203,4 +205,94 @@ blockquote {
 }
 .ly_germ {
     opacity: 0.3;
+}
+
+:root {
+    --search-zindex: 9;
+    --search-padding-x: 10px;
+    --search-width: 90%;
+    --search-top: 1%;
+}
+
+.search-btn {
+    margin-left: 8px;
+    /* 宽高比 */
+    aspect-ratio: 1;
+    min-width: 20px;
+    text-align: center;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.search-btn:hover {
+    background-color: #ffffff57;
+}
+
+.search-box {
+    top: var(--search-top);
+    width: var(--search-width);
+    max-height: 96%;
+    left: 5%;
+    padding: var(--search-padding-x);
+    overflow: auto;
+    /* box-shadow: 1px 1px 1px -1px rgba(0, 0, 0, 0.4); */
+    box-shadow: 2px 2px 1px -1px rgba(0, 0, 0, 0.5);
+    z-index: var(--search-zindex);
+}
+
+.search-input {
+    position: fixed;
+    z-index: calc(var(--search-zindex) + 1);
+    top: calc(var(--search-top) * 1.5);
+    left: calc((100% - var(--search-width))/2 + var(--search-padding-x));
+    width: calc(var(--search-width) - var(--search-padding-x) * 2);
+    color: white;
+    font-size: 15px;
+    padding: 8px 10px;
+    border-width: 0;
+    border-radius: 5px;
+    outline: none;
+    background-color: hsla(240, 3%, 12.9%, 0.35) !important;
+    border-bottom: 1px solid hsla(0, 0%, 100%, 0.2);
+    border-top: 1px solid hsla(0, 0%, 0%, 0.15);
+    box-shadow: inset 1px 1px 1px 0px rgba(0, 0, 0, 0.35);
+}
+
+.search-input-bottom {
+    height: 40px;
+}
+
+.search-high-light {
+    color: #10f900;
+}
+
+.search-item-select {
+    background-color: #252525 !important;
+}
+
+.search-item {
+    padding: 5px;
+    font-size: 13px;
+    position: relative;
+    text-align: left;
+    cursor: pointer;
+}
+
+.search-item:hover {
+    background-color: #62626230;
+}
+
+.search-item-title {
+    color: white;
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.search-item-line {
+    color: #b7b2b2;
+    white-space: nowrap; /* 不换行 */
+    overflow: hidden;
+    text-overflow: ellipsis; /* 显示省略号 */
 }
