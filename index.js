@@ -4,7 +4,14 @@ const vm = Vue.createApp({
     data() {
         let pc = !isMobile();
         return {
-            md: markdownit({highlight: this.highlight}),
+            md: markdownit({
+                html: true,
+                // xhtmlOut: false,
+                // breaks: false,
+                // linkify: true,
+                // typographer: false,
+                highlight: this.highlight
+            }),
             // location.hostname 不包含端口
             isLocal: location.hostname == 'localhost'
                 || location.hostname.endsWith('.localhost')

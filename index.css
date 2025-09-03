@@ -201,7 +201,12 @@ code ol {
 }
 
 blockquote {
-    padding: 8px 20px;
+    /* padding: 8px 20px; */
+    padding: 1px 10px;
+    margin: 5px 0px;
+}
+blockquote p {
+    margin: 7px auto;
 }
 .ly_germ {
     opacity: 0.3;
