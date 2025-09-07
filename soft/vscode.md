@@ -140,11 +140,60 @@ cert: false
     "window.customMenuBarAltFocus": false,
     "workbench.colorTheme": "Default Dark+",
     "redhat.telemetry.enabled": true,
-    "workbench.startupEditor": "none"
+    "workbench.startupEditor": "none",
+    "[markdown]": {
+        "editor.quickSuggestions": {
+            "other": "on"
+        },
+    },
 }
 ```
 
 # Snippets 代码提示
+
+## markdown.json
+
+```json
+{
+	"Html Img": {
+		"prefix": "img",
+		"body": [
+			"<img src=\"/${RELATIVE_FILEPATH/\\/[^\\/]*$//}/${1:}\" alt=\"image\" style=\"zoom: ${2:50}%;\"/>",
+		],
+		"description": "生成Markdown图片代码"
+	},
+	"Md Img": {
+		"prefix": "mimg",
+		"body": [
+			"![](${1:link})"
+		],
+		"description": "生成Markdown图片代码"
+	},
+	"Md Link": {
+		"prefix": "link",
+		"body": [
+			"[${1:text}](${2:url})"
+		],
+		"description": "生成Markdown链接"
+	},
+	"加粗": {
+		"prefix": "mb",
+		"body": [
+			"**${1:text}**"
+		],
+		"description": "加粗"
+	},
+	"多行代码": {
+		"prefix": "code",
+		"body": [
+			"```${1:type}",
+			"${2:code}",
+			"```"
+		],
+		"description": "多行代码"
+	},
+}
+```
 
 ## rust.json
 
