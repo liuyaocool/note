@@ -1,4 +1,68 @@
+# 路由介绍
+
+[路由统计网站](https://mao.fan/select)
+
+## 芯片对比
+
+| 芯片     | 频率                   |    版本      |  无线速率(Mbps)               | NAT 性能 |
+| ------- | :---------             |  ---------  | ---                          | --- |
+| MT7986A | 2 * 2.0GHz ARM-A53     | 中高端 wifi6 | 1148(2.4G) + 4804(5G) = 6000 | ~5 Gbps+ (由NPU卸载，不占CPU) |
+| MT7981B | 1 * 1.3GHz ARM-A53     | wifi6       | 574(2.4G) + 2402(5G) = 3000  | ~3 Gbps+ (由NPU卸载，不占CPU) |
+| MT7621A | 2 * 880MHz MIPS-1004Kc | wifi5       | 外接芯片，常见1200Mbps         | ~1 Gbps (由CPU处理，CPU占用高) |
+
+eMMC： 嵌入式存储
+
+## 各芯片路由器推荐
+
+### MT7986A AX6000
+
+| 型号            | 内存     | 闪存   |  eMMC存储  |  2.5G网口         | USB     |
+| :-------       | -----    | ---   | --------  | ------            | -----   |
+| 红米AX6000      | 512M     | 128M  |    no     |  no               | no      |
+| 锐捷X60Pro      | 512M     | 128M  |    x      | 1 = 1 wan/lan     | no      |
+| 磊科N60Pro      | 512M/2G  | 128M  |    x      | 2 = 1 wan + 1 lan | USB3.0  |
+| XDR6088        |          |       |           |                    |         |
+| 爱快Q6000       |          |       |           |                    |         |
+| 京东云AX6000百里 |          |       |           |                    |         |
+
+### MT7981B AX3000
+
+| 型号                | 内存  | 闪存   | eMMC存储  | USB    |
+| :-------            | ----- | ---   | -------- | -----  |
+| 360T7               | 256M  | 128M  |    x     |   x    |
+| 小米WR30U           | 256M  | 128M  |     x    |   x    |
+| 小米AX3000T         | 256M  | 128M  |     x    |   x    |
+| 新华三NX30Pro        | 256M  | 128M  |    x     |   x    |
+| CMCC RAX3000M算力版  | 512M  |   x   |   64G    | USB3.0 |
+| 思创CT3003(电信)     | 256M  | 128M  |    x     |   x    |
+| 诺基亚贝尔AX3000     | 256M  | 128M  |    x     |   x    |
+| 司络SL3000          | 1G    | 32M   |   128G   |   x    |
+
+### MT7621A
+
+热门机型： 
+- 斐讯K2P(推荐)
+- 红米AC2100(推荐)
+- 小米R3G
+- 极路由B70
+- 新路由3
+- 京东无线宝一代(推荐)
+- 友华WR1200JS、
+- 360P2 (128M内存+60M闪存)
+
+# ImmortalWrt
+
+OpenWRT 大陆优化版
+
 # OpenWRT
+
+## opkg
+
+```bash
+opkg update
+opkg search
+
+```
 
 ## 安装
 
@@ -40,9 +104,7 @@ opkg update
 
 ## 硬盘不够，usb扩展
 
-参考 [官方文档](https://openwrt.org/docs/guide-user/additional-software/extroot_configuration#configuring_extroot)
-
-> 此文档不适合linux小白, 看不懂请移步上方官方文档
+> 此文档不适合linux小白, 看不懂请移步 [官方文档](https://openwrt.org/docs/guide-user/additional-software/extroot_configuration)
 
 ### 环境说明
 
