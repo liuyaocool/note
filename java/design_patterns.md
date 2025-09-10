@@ -1043,17 +1043,111 @@ class UserService {
 content
 
 
-# 07. 结构型-桥接模式
+# 07. 结构型-桥接模式: 多层继承
 
 ## 定义
 
-桥接模式原理的核心是, 首先要识别出一个类所具有的的两个独立变化维度, 将它们设计为两个独立的继承等级结构, 为两个维度都提供抽象层, 并建立抽象耦合. 总结一句话就是: 抽象角色引用实现角色
+桥接模式(bridge pattern) 的定义是： 将抽象部分与它的实现部分分离，使它们都可以独立地变化。
 
-> 比如我们拿毛笔举例, 尺寸和颜色是毛笔的两个维度
-> - 尺寸是其固有的维度,所以抽象出一个毛笔类,而将各种尺寸的毛笔作为其子类,也就是下图的右侧抽象部分内容.
-> - 颜色是毛笔的另一个维度, 它与毛笔之间存在一种设置的关系,因此可以提供一个抽象的颜色接口,将具体颜色作为该接口的子类.
+桥接模式用一种巧妙的方式处理**多层继承**存在的问题,用**抽象关联来取代**传统的多层继承,将类之间的静态继承关系转变为动态的组合关系,使得系统更加灵活,并易于扩展,有效的控制了系统中类的个数 (避免了继承层次的指数级爆炸).
 
-![](/java/img/dp/bridge02.jpg)
+> 比如礼物  
+> 礼物类型有: 实体、虚拟、贵的、手工、温暖、。。。  
+> 而具体礼物又有: 书、花、项链、衣服、。。。  
+> 如果不用任何设计模式则代码就会是
+> ```java
+> abstract class Gift { }
+> class PhysicalGift extends Gift { }
+> class VirtualGift extends Gift { }
+> class ExpensiveGift extends Gift { }
+> class HandmadeGift extends Gift { }
+> class WarmGift extends Gift { }
+> // ......
+> // 可以从Gift继承； 也可以从PhysicalGift继承
+> class PhysicalBook extends Gift { }
+> class VirtualBook extends VirtualGift { }
+> class ExpensiveBook extends Gift { }
+> class HandmadeBook extends Gift { }
+> class WarmBook extends Gift { }
+> class PhysicalFlower extends Gift { }
+> class VirtualFlower extends Gift { }
+> class ExpensiveFlower extends Gift { }
+> class HandmadeFlower extends Gift { }
+> class WarmFlower extends Gift { }
+> // ......就会出现m*n个类
+> ```
+
+## 原理
+
+<img src="/java/img/dp/bridge1.jpg" alt="image" style="zoom: 50%;"/>
+
+- **抽象化（Abstraction）** 角色：主要负责定义出该角色的行为 ,并包含一个对实现化对象的引用。
+- **扩展抽象化（RefinedAbstraction）** 角色：是抽象化角色的子类，实现父类中的业务方法，并通过组合关系调用实现化角色中的业务方法。
+- **实现化（Implementor）** 角色 ：定义实现化角色的接口，包含角色必须的行为和属性,并供扩展抽象化角色调用。
+- **具体实现化（Concrete Implementor）** 角色 ：给出实现化角色接口的具体实现。
+
+桥接模式原理的核心是: 首先有要识别出一个类所具有的的两个独立变化维度,将它们设计为两个独立的继承等级结构,为两个维度都提供抽象层,并建立抽象耦合.总结一句话就是: 抽象角色引用实现角色
+
+## 应用实例
+
+就像前边说到的礼物， 礼物类型为抽象化， 而具体的礼物为实现化
+
+将之前的代码的用桥接模式重构
+
+<img src="/java/img/dp/bridge2.jpg" alt="image"/>
+
+```java
+abstract class Gift {
+    GiftImpl impl;
+    public Gift(GiftImpl impl) {
+        this.impl = impl;
+    }
+}
+class PhysicalGift extends Gift { PhysicalGift(GiftImpl impl) { super(impl);} }
+class VirtualGift extends Gift { VirtualGift(GiftImpl impl) { super(impl);} }
+class ExpensiveGift extends Gift { ExpensiveGift(GiftImpl impl) { super(impl);} }
+class HandmadeGift extends Gift { HandmadeGift(GiftImpl impl) { super(impl);} }
+class WarmGift extends Gift { WarmGift(GiftImpl impl) { super(impl);} }
+
+class GiftImpl { }
+
+class Flower extends GiftImpl { }
+class Book extends GiftImpl { }
+class Necklace extends GiftImpl { }
+class Clothes extends GiftImpl { }
+
+//测试
+public class GG {
+    public void chase() {
+        Gift g = new PhysicalGift(new Flower());
+        give(g);
+    }
+    public void give(Gift g) {}
+}
+```
+
+代码重构完成后,结构更加清晰整洁, 可读性和易用性更高,外部的使用接口的用户不需要关心具体实现.桥接模式满足了单一职责原则和开闭原则,让每一部分都更加清晰并且易扩展.
+
+## 优缺点
+
+**优点**
+
+1. 分离抽象接口及其实现部分.桥接模式使用"对象间的关联关系"**解耦了抽象和实现**之间固有的绑定关系,使得抽象和实现可以沿着各自的维度来变化.
+2. 在很多情况下,桥接模式可以**取代多层继承方案**.多层继承方案违背了单一职责原则,复用性差,类的个数多.桥接模式很好的解决了这些问题.
+3. 桥接模式**提高**了系统的**扩展性**,在两个变化维度中任意扩展一个维度都不需要修改原有系统,符合开闭原则.
+
+**缺点**
+
+1. 桥接模式的使用会增加系统的理解和**设计难度**,由于关联关系建立在抽象层,要求开发者一开始就要对抽象层进行设计和编程
+2. 桥接模式要求**正确识别**出系统中的**两个独立变化的维度**,因此具有一定的局限性,并且如果正确的进行维度的划分,也需要相当丰富的经验.
+
+## 使用场景
+
+1. 需要提供平台独立性的应用程序时。 比如，不同数据库的 JDBC 驱动程序、硬盘驱动程序等。
+2. 需要在某种统一协议下增加更多组件时。 比如，在支付场景中，我们期望支持微信、支付宝、各大银行的支付组件等。这里的统一协议是收款、支付、扣款，而组件就是微信、支付宝等。
+3. 基于消息驱动的场景。 虽然消息的行为比较统一，主要包括发送、接收、处理和回执，但其实具体客户端的实现通常却各不相同，比如，手机短信、邮件消息、QQ 消息、微信消息等。
+4. 拆分复杂的类对象时。 当一个类中包含大量对象和方法时，既不方便阅读，也不方便修改。
+5. 希望从多个独立维度上扩展时。 比如，系统功能性和非功能性角度，业务或技术角度等。
 
 
 # 08. 结构型-装饰器模式: 扩展
@@ -3206,6 +3300,7 @@ public class Client {
 
 ## 适用场景
 
+- **操作方法不会增加的情况适用**
 - 对象根据自身状态的变化来进行不同行为的操作时， 比如，购物订单状态。
 - 对象需要根据自身变量的当前值改变行为，不期望使用大量 if-else 语句时， 比如，商品库存状态。
 - 对于某些确定的状态和行为，不想使用重复代码时， 比如，某一个会员当天的购物浏览记录。
@@ -3613,8 +3708,156 @@ public class Client {
 
 * 需要在运行时动态决定使用哪些对象和方法的时候。 比如，对于监控系统来说，很多时候需要监控运行时的程序状态，但大多数时候又无法预知对象编译时的状态和参数，这时使用访问者模式就可以动态增加监控行为。
 
+# 20. 对象行为型-命令模式: 封装 回退
 
-# 20. 对象行为型-备忘录模式: 历史
+## 定义
+
+命令模式(command pattern)的定义: 命令模式**将请求（命令）封装**为一个对象，这样可以使用不同的请求**参数化**其他对象（将不 同请求依赖注入到其他对象），并且能够支持请求（命令）的排队执行、记录日志、撤销等 （附加控制）功能。
+
+别名: Action / Transaction
+
+**命令模式经常用来实现undo(回退)的功能**
+
+命令模式的核心是将指令信息封装成一个对象,并将此对象作为参数发送给接收方去执行,达到使**命令的请求与执行方解耦**,双方只通过传递各种命令对象来完成任务.
+
+在实际的开发中，如果你用到的编程语言并不支持用函数作为参数来传递，那么就可以借助命令模式**将函数封装为对象**来使用。
+
+> 我们知道，C语言支持函数指针，我们可以把函数当作变量传递来传递去。但是，在大部分编程语言中，函数没法儿作为参数传递给其他函数，也没法儿赋值给变量。借助命令模式，我们可以将函数封装成对象。具体来说就是，设计一个包含这个函数的类，实例化一个对象传来传去，这样就可以实现把函数像对象一样使用。
+
+## 原理
+
+<img src="/java/img/dp/command01.jpg" alt="image" style="zoom: 50%;"/>
+
+- **抽象命令类（Command）**： 定义命令的接口，声明执行的方法。
+- **具体命令（Concrete  Command）**：具体的命令，实现命令接口；通常会**持有接收者**，并调用接收者的功能来完成命令要执行的操作。
+- **实现者/接收者（Receiver）**： 接收者，真正执行命令的对象。任何类都可能成为一个接收者，只要它能够实现命令要求实现的相应功能。
+- **调用者/请求者（Invoker）**： 要求命令对象执行请求，通常会**持有命令对象**，可以持有很多的命令对象。这个是客户端真正触发命令并要求命令执行相应操作的地方，也就是说相当于使用命令对象的入口。
+
+## 应用实例
+
+模拟酒店后厨的出餐流程,来对命令模式进行一个演示,命令模式角色的角色与案例中角色的对应关系如下:
+
+- 调用者-服务员: 由她来发起命令.
+- 接收者-厨师: 真正执行命令的对象.
+- 订单: 命令中包含订单
+
+```java
+/** 订单类 **/
+@Getter
+@Setter
+public class Order {
+    private int diningTable;  //餐桌号码
+    //存储菜名与份数
+    private Map<String,Integer> foodMenu = new HashMap<>();
+}
+/** 厨师类 -> Receiver角色 **/
+public class Chef {
+    public void makeFood(int num,String foodName){
+        System.out.println(num + "份," + foodName);
+    }
+}
+/** 抽象命令接口 **/
+public interface Command {
+    void execute(); //只需要定义一个统一的执行方法
+}
+/** 具体命令 **/
+public class OrderCommand implements Command {
+    //持有接收者对象
+    private Chef receiver;
+    private Order order;
+    public OrderCommand(Chef receiver, Order order) {
+        this.receiver = receiver;
+        this.order = order;
+    }
+    @Override
+    public void execute() {
+        System.out.println(order.getDiningTable() + "桌的订单: ");
+        Set<String> keys = order.getFoodMenu().keySet();
+        for (String key : keys) {
+            receiver.makeFood(order.getFoodMenu().get(key),key);
+        }
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.out.println(order.getDiningTable() + "桌的菜已上齐.");
+    }
+}
+/** 服务员-> Invoker调用者 **/
+public class Waiter {
+    //可以持有很多的命令对象
+    private ArrayList<Command> commands;
+    public Waiter() {
+        commands = new ArrayList();
+    }
+    public Waiter(ArrayList<Command> commands) {
+        this.commands = commands;
+    }
+    public void setCommands(Command command) {
+        commands.add(command);
+    }
+    //发出命令 ,指挥厨师工作
+    public void orderUp(){
+        System.out.println("服务员: 叮咚,有新的订单,请厨师开始制作......");
+        for (Command cmd : commands) {
+            if(cmd != null){
+                cmd.execute();
+            }
+        }
+    }
+}
+
+public class Client {
+    public static void main(String[] args) {
+        Order order1 = new Order();
+        order1.setDiningTable(1);
+        order1.getFoodMenu().put("鲍鱼炒饭",1);
+        order1.getFoodMenu().put("茅台迎宾",1);
+
+        Order order2 = new Order();
+        order2.setDiningTable(3);
+        order2.getFoodMenu().put("海参炒面",1);
+        order2.getFoodMenu().put("五粮液",1);
+
+        //创建接收者
+        Chef receiver = new Chef();
+
+        //将订单和接收者封装成命令对象
+        OrderCommand cmd1 = new OrderCommand(receiver,order1);
+        OrderCommand cmd2 = new OrderCommand(receiver,order2);
+
+        //创建调用者
+        Waiter invoke = new Waiter();
+        invoke.setCommands(cmd1);
+        invoke.setCommands(cmd2);
+
+        //将订单发送到后厨
+        invoke.orderUp();
+    }
+}
+```
+
+## 优缺点 
+
+优点
+
+* **降低耦合度**, 命令模式能将调用操作的对象与实现该操作的对象解耦。
+* **增加或删除**命令非常**方便**。采用命令模式增加与删除命令不会影响其他类，它满足“开闭原则”，对扩展比较灵活。
+* 可以实现**宏**命令。命令模式可以与组合模式结合，将多个命令装配成一个组合命令，即宏命令。
+
+缺点
+
+* 使用命令模式可能会导致某些系统有过多的具体命令类。
+* 系统结构更加**复杂**。
+
+## 适用场景
+
+* 系统需要将请求调用者和请求接收者解耦，使得调用者和接收者不直接交互。
+* 系统需要在不同的时间指定请求、将请求排队和执行请求。
+* 系统需要支持命令的撤销(Undo)操作和恢复(Redo)操作。
+
+# 21. 对象行为型-备忘录模式: 快照
 
 ## 定义
 
@@ -3625,6 +3868,11 @@ public class Client {
 <img src="/java/img/dp/memento01.jpg" alt="image" style="zoom: 50%;"/>
 
 > 很多软件都提供了撤销（Undo）操作，如 Word、记事本、Photoshop、IDEA等软件在编辑时按 Ctrl+Z 组合键时能撤销当前操作，使文档恢复到之前的状态；还有在 浏览器 中的后退键、数据库事务管理中的回滚操作、玩游戏时的中间结果存档功能、数据库与操作系统的备份操作、棋类游戏中的悔棋功能等都属于这类。
+
+## 与命令模式区别
+
+- 此模式可以直接恢复到最开始的状态
+- 命令模式需要一个一个的undo回去
 
 ## 原理
 
@@ -3841,151 +4089,6 @@ public class Clent {
 
 1. 需要保存一个对象在某一时刻的状态时,可以使用备忘录模式.
 2. 不希望外界直接访问对象内部状态时.
-
-# 21. 对象行为型-命令模式: 封装
-
-## 定义
-
-命令模式(command pattern)的定义: 命令模式**将请求（命令）封装**为一个对象，这样可以使用不同的请求**参数化**其他对象（将不 同请求依赖注入到其他对象），并且能够支持请求（命令）的排队执行、记录日志、撤销等 （附加控制）功能。
-
-命令模式的核心是将指令信息封装成一个对象,并将此对象作为参数发送给接收方去执行,达到使**命令的请求与执行方解耦**,双方只通过传递各种命令对象来完成任务.
-
-在实际的开发中，如果你用到的编程语言并不支持用函数作为参数来传递，那么就可以借助命令模式**将函数封装为对象**来使用。
-
-> 我们知道，C语言支持函数指针，我们可以把函数当作变量传递来传递去。但是，在大部分编程语言中，函数没法儿作为参数传递给其他函数，也没法儿赋值给变量。借助命令模式，我们可以将函数封装成对象。具体来说就是，设计一个包含这个函数的类，实例化一个对象传来传去，这样就可以实现把函数像对象一样使用。
-
-## 原理
-
-<img src="/java/img/dp/command01.jpg" alt="image" style="zoom: 50%;"/>
-
-- **抽象命令类（Command）**： 定义命令的接口，声明执行的方法。
-- **具体命令（Concrete  Command）**：具体的命令，实现命令接口；通常会**持有接收者**，并调用接收者的功能来完成命令要执行的操作。
-- **实现者/接收者（Receiver）**： 接收者，真正执行命令的对象。任何类都可能成为一个接收者，只要它能够实现命令要求实现的相应功能。
-- **调用者/请求者（Invoker）**： 要求命令对象执行请求，通常会**持有命令对象**，可以持有很多的命令对象。这个是客户端真正触发命令并要求命令执行相应操作的地方，也就是说相当于使用命令对象的入口。
-
-## 应用实例
-
-模拟酒店后厨的出餐流程,来对命令模式进行一个演示,命令模式角色的角色与案例中角色的对应关系如下:
-
-- 调用者-服务员: 由她来发起命令.
-- 接收者-厨师: 真正执行命令的对象.
-- 订单: 命令中包含订单
-
-```java
-/** 订单类 **/
-@Getter
-@Setter
-public class Order {
-    private int diningTable;  //餐桌号码
-    //存储菜名与份数
-    private Map<String,Integer> foodMenu = new HashMap<>();
-}
-/** 厨师类 -> Receiver角色 **/
-public class Chef {
-    public void makeFood(int num,String foodName){
-        System.out.println(num + "份," + foodName);
-    }
-}
-/** 抽象命令接口 **/
-public interface Command {
-    void execute(); //只需要定义一个统一的执行方法
-}
-/** 具体命令 **/
-public class OrderCommand implements Command {
-    //持有接收者对象
-    private Chef receiver;
-    private Order order;
-    public OrderCommand(Chef receiver, Order order) {
-        this.receiver = receiver;
-        this.order = order;
-    }
-    @Override
-    public void execute() {
-        System.out.println(order.getDiningTable() + "桌的订单: ");
-        Set<String> keys = order.getFoodMenu().keySet();
-        for (String key : keys) {
-            receiver.makeFood(order.getFoodMenu().get(key),key);
-        }
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        System.out.println(order.getDiningTable() + "桌的菜已上齐.");
-    }
-}
-/** 服务员-> Invoker调用者 **/
-public class Waiter {
-    //可以持有很多的命令对象
-    private ArrayList<Command> commands;
-    public Waiter() {
-        commands = new ArrayList();
-    }
-    public Waiter(ArrayList<Command> commands) {
-        this.commands = commands;
-    }
-    public void setCommands(Command command) {
-        commands.add(command);
-    }
-    //发出命令 ,指挥厨师工作
-    public void orderUp(){
-        System.out.println("服务员: 叮咚,有新的订单,请厨师开始制作......");
-        for (Command cmd : commands) {
-            if(cmd != null){
-                cmd.execute();
-            }
-        }
-    }
-}
-
-public class Client {
-    public static void main(String[] args) {
-        Order order1 = new Order();
-        order1.setDiningTable(1);
-        order1.getFoodMenu().put("鲍鱼炒饭",1);
-        order1.getFoodMenu().put("茅台迎宾",1);
-
-        Order order2 = new Order();
-        order2.setDiningTable(3);
-        order2.getFoodMenu().put("海参炒面",1);
-        order2.getFoodMenu().put("五粮液",1);
-
-        //创建接收者
-        Chef receiver = new Chef();
-
-        //将订单和接收者封装成命令对象
-        OrderCommand cmd1 = new OrderCommand(receiver,order1);
-        OrderCommand cmd2 = new OrderCommand(receiver,order2);
-
-        //创建调用者
-        Waiter invoke = new Waiter();
-        invoke.setCommands(cmd1);
-        invoke.setCommands(cmd2);
-
-        //将订单发送到后厨
-        invoke.orderUp();
-    }
-}
-```
-
-## 优缺点 
-
-优点
-
-* **降低耦合度**, 命令模式能将调用操作的对象与实现该操作的对象解耦。
-* **增加或删除**命令非常**方便**。采用命令模式增加与删除命令不会影响其他类，它满足“开闭原则”，对扩展比较灵活。
-* 可以实现**宏**命令。命令模式可以与组合模式结合，将多个命令装配成一个组合命令，即宏命令。
-
-缺点
-
-* 使用命令模式可能会导致某些系统有过多的具体命令类。
-* 系统结构更加**复杂**。
-
-## 适用场景
-
-* 系统需要将请求调用者和请求接收者解耦，使得调用者和接收者不直接交互。
-* 系统需要在不同的时间指定请求、将请求排队和执行请求。
-* 系统需要支持命令的撤销(Undo)操作和恢复(Redo)操作。
 
 # 22. 对象行为型-观察者模式: 回调
 
