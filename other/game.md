@@ -4,8 +4,9 @@
 
 ### 修改
 
-https://mbf.bsquest.xyz/
-https://computerelite.github.io/
+- 修改网站 https://mbf.bsquest.xyz/
+- 修改网站 https://computerelite.github.io/
+- 自定义歌曲网站 https://beatsaver.com/
 
 ## 软件 sidequest
 
