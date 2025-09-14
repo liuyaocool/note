@@ -1,5 +1,12 @@
 # meta quest3
 
+## 光剑节奏
+
+### 修改
+
+https://mbf.bsquest.xyz/
+https://computerelite.github.io/
+
 ## 软件 sidequest
 
 优点 支持linux
