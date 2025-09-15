@@ -192,6 +192,34 @@ cert: false
 		],
 		"description": "多行代码"
 	},
+	"java": {
+		"prefix": "java",
+		"body": [
+			"```java",
+			"${1:code}",
+			"```"
+		],
+		"description": "java代码"
+	},
+	"bash": {
+		"prefix": "bash",
+		"body": [
+			"```bash",
+			"${1:code}",
+			"```"
+		],
+		"description": "bash代码"
+	},
+	"表格": {
+		"prefix": "tb",
+		"body": [
+			"| ${1:th} | ${2:th}   |",
+			"| ------- | --------- |",
+			"| ${3:tb} | ${4:tb}   |",
+		],
+		"description": "表格"
+	},
+	
 }
 ```
 
