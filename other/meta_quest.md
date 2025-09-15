@@ -43,6 +43,11 @@ adb shell settings put global captive_portal_https_url https://www.google.cn/gen
 
 # 节奏光剑
 
+## 下载
+
+- [VR魔趣网](https://www.vrmoo.net/?s=beat+saber&type=post)
+- [DLC解锁_v1.40.6_6407.1661](https://www.vrmoo.net/72.html)
+
 ## 修改教程
 
 - 修改网站 `https://mbf.bsquest.xyz/`
