@@ -73,7 +73,7 @@
         ["windows", "other/windows.md"],
         ["mac", "other/mac.md"]
         ,["git", "other/git.md"]
-        ,["game", "other/game.md"]
+        ,["meta", "other/meta_quest.md"]
         ,["test", "other/test.md"]
     ]
 }
