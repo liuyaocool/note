@@ -50,8 +50,9 @@ adb shell settings put global captive_portal_https_url https://www.google.cn/gen
 
 ## 修改教程
 
-- 修改网站 `https://mbf.bsquest.xyz/`
-- mod查看网站 `https://computerelite.github.io/`
+- [在线mod修改](https://mbf.bsquest.xyz/)
+- [Oculus工具](https://computerelite.github.io/)
+- [mod查询](https://mods.bsquest.xyz/1.40.6_6407/)
 
 ## mod说明
 
@@ -62,7 +63,8 @@ adb shell settings put global captive_portal_https_url https://www.google.cn/gen
 
 ### 光剑模型
 
-- 模型下载: [discord](http://www.questmodding.com/) 中加入discord
+- 模型下载:
+    - discord： [http://www.questmodding.com/](http://www.questmodding.com/) 中加入discord
 - v1.35.0 v1.37.0
     - 安装模块: Qosmetics Core(核心模块)
     - 模型安装路径: `/sdcard/ModData/com.beatgames.beatsaber/Mods/Qosmetics/` + 下边表格path
