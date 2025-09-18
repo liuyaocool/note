@@ -56,10 +56,12 @@ adb shell settings put global captive_portal_https_url https://www.google.cn/gen
 
 ## mod说明
 
+- **所有mod数据路径**: `/sdcard/ModData/com.beatgames.beatsaber/Mods/`
+
 ### 自定义歌曲
 
 - 下载网址: [https://beatsaver.com](https://beatsaver.com/?q=Th%20Power&order=Latest)
-- v1.40.6 安装位置: `/sdcard/ModData/com.beatgames.beatsaber/Mods/SongCore/CustomLevels/`
+- v1.40.6 安装位置: `mod路径/SongCore/CustomLevels/`
 
 ### 光剑模型
 
@@ -67,11 +69,11 @@ adb shell settings put global captive_portal_https_url https://www.google.cn/gen
     - discord： [http://www.questmodding.com/](http://www.questmodding.com/) 中加入discord
 - v1.35.0 v1.37.0
     - 安装模块: Qosmetics Core(核心模块)
-    - 模型安装路径: `/sdcard/ModData/com.beatgames.beatsaber/Mods/Qosmetics/` + 下边表格path
+    - 模型安装路径: `mod路径/Qosmetics/` + 下边表格path
 - v1.40.6
     - 源码: [github源码](https://github.com/Metalit/CustomModels/)
     - 安装模块: Custom models
-    - 模型安装路径: `/sdcard/ModData/com.beatgames.beatsaber/Mods/CustomModels/` + 下边表格path
+    - 模型安装路径: `mod路径/CustomModels/` + 下边表格path
 
 | 模型  | 后缀                   | v1.40.6 path | v1.35.0 v1.37.0 mod | v1.35.0 v1.37.0 path |
 | ---   | -------                | ------       | ---                 | ---         |
@@ -80,3 +82,24 @@ adb shell settings put global captive_portal_https_url https://www.google.cn/gen
 |  方块 | .cyoob                 | ./Notes      | Qosmetics Cyoobs    | ./cyoobs    |
 |       | .qsaber .qwall, .qbloq | ./Legacy     |                     |
 |       | .zip                   | ./Zips       |                     |
+
+
+### 声音mod
+
+- mod名称: QuestSounds
+- 源码: [github](https://github.com/EnderdracheLP/QuestSounds/)
+
+**路径**
+
+| 修改地方             | 路径 `mod路径/QuestSounds/`+ |
+| :-------            | :--------- |
+| MenuMusic           | ./MenuMusic/           |
+| LobbyMusic          | ./LobbyMusic/          |
+| MenuClicks          | ./MenuClicks/          |
+| HitSounds   (击中)   | ./HitSounds/           |
+| BadHitSounds        | ./BadHitSounds/        |
+| NoteMissedSounds    | ./NoteMissedSounds/    |
+| BombExplosionSounds | ./BombExplosionSounds/ |
+| LevelCleared        | ./LevelCleared/        |
+| LevelFailed         | ./LevelFailed/         |
+| Firework            | ./Fireworks/           |
