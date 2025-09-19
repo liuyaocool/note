@@ -174,10 +174,11 @@ const vm = Vue.createApp({
             });
         },
         doSearch(key) {
-            let searchList = this.searchList, searchInput = this.searchInput;
+            let searchList = this.searchList, 
+                searchInput = this.searchInput;
             this.searchList = [];
             this.searchInput = key = key.trim();
-            if (key.length < 2)
+            if (key.length < 2 || searchInput == this.searchInput)
                 return;
             this.searchHL.setKeyword(key);
             this.searchIdx = 0;
@@ -196,7 +197,7 @@ const vm = Vue.createApp({
             let lineHL, lineList = [], lineListHL = [], 
                 titleHl = this.searchHL.highlight(title);
             lines.forEach(line => {
-                if (lineHL = this.searchHL.highlight(line)) {
+                if (lineHL = this.searchHL.highlight(line.replaceAll('<', '〈'))) {
                     lineList.push(line);
                     lineListHL.push(lineHL);
                 }
