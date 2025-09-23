@@ -1,5 +1,22 @@
 # 脚本示例
 
+## file
+
+### 复制最新截图到当前目录
+
+```bash
+#!/bin/bash
+set -e
+set -o pipefail
+
+# 哨兵检查 + 获取文件
+# set -e: 管道命令整体不会报错, 
+# set -o pipefail: 加了此行 即使管道内部命令报错也会退出
+file=`ls -t ~/Desktop/swappy-* | head -n 1`
+echo copy: $file
+cp "$file" ./
+```
+
 ## firewall
 
 ### add tcp port
