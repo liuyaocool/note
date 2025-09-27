@@ -11,7 +11,11 @@ if [ $# -eq 0 ]; then
     exit 1
 fi
 for file in "$@"; do
-    ffmpeg -i "${file}" -q 6 -vf "scale=260:-1" "${file}icon.jpg"
+    dir=$(dirname "$file")/icon
+    name=$(basename "$file")
+    name=${name%.*}
+    mkdir -p $dir
+    ffmpeg -i "${file}" -q 6 -vf "scale=260:-1" "${dir}/${name}.jpg"
 done
 ```
 
