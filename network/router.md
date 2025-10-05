@@ -98,6 +98,19 @@ DMIPS（Dhrystone MIPS）是一种经典的CPU整数运算能力基准。计算�
 
 OpenWRT 大陆优化版
 
+# ImmortalWRT
+
+## 配置旁路由
+
+1. 网络 -> 接口 -> “编辑lan”
+    - 常规设置
+        - 协议: 静态地址
+        - IPv4地址: 192.168.x.2
+        - IPv4网关: 192.168.x.1
+    - DHCP服务 -> 常规设置
+        - 忽略此接口: 勾选
+2. 路由器lan口接旁路由lan口
+
 # OpenWRT
 
 ## opkg
@@ -299,7 +312,7 @@ opkg search kmod-mt76x2
 
 - NAND（普通版）: 只有CH
 - EMMC（算力版）: CH后面还跟着EC
-    - <img src="/network/img/rax3000mEMMC.jpg" alt="image" style="zoom: 50%;"/>
+    - <img src="/network/img/rax3000mEMMC.jpg" alt="image"/>
 
 ## 相关教程
 
@@ -644,3 +657,27 @@ NAND Flash instructions:
    ubiupdatevol /dev/ubi0_2 openwrt-mediatek-filogic-cmcc_rax3000m-initramfs-recovery.itb
 10. Perform sysupgrade.
 </pre>
+
+## 救砖
+
+> https://github.com/lgs2007m/Actions-OpenWrt/blob/main/Tutorial/RAX3000M-eMMC_XR30-eMMC.md
+
+### 1. 准备
+
+1. usb转ttl设备， 比如ch340G， 并安装驱动
+2. 电脑安装putty
+
+### 2. 连接ttl
+
+用夹子夹上或直接焊接, 如下， 用usb转ttl设备连接电脑
+
+<img src="/network/img/rax3000mTTL.jpg" alt="image" style="zoom: 50%;"/>
+
+### 3. 开始操作
+
+1. 打开设备管理器， 找到串口, 双击查看
+    - <img src="/network/img/rax3000mCOM3.png" alt="image" style="zoom: 50%;"/>
+    - <img src="/network/img/rax3000mRATE.png" alt="image" style="zoom: 50%;"/>
+2. putty,  连接串口
+3. 路由器插电源，在如下界面 按任意键打断boot
+    - <img src="/network/img/rax3000mTTLConsole.png" alt="image" style="zoom: 50%;"/>

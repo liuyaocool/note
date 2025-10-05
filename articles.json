@@ -19,9 +19,10 @@
     "java": [
         ["UML", "java/uml.md"]
         ,["JVM", "java/jvm.md"]
+        ,["JUC", "java/juc.md"]
         ,["设计模式", "java/design_patterns.md"]
         ,["Zookeeper", "java/zookeeper.md"]
-        ,["spring源码1-初识", "java/spring-01-first.md"]
+        ,["gradle", "java/gradle.md"]
     ],
     "linux": [
         ["基础", "linux/linux.md"],
@@ -34,7 +35,6 @@
         ["Hyprland", "linux/hyprland.md"],
         ["termux", "linux/termux.md"],
         ["kde", "linux/plasma.md"]
-        ,["路由", "linux/router.md"]
     ],
     "hack": [
         ["hk", "hack/hacker.md"]
@@ -59,6 +59,7 @@
         ["基础", "network/base.md"],
         ["nginx基础", "network/nginx.md"]
         ,["v2ray", "network/v2ray.md"]
+        ,["路由", "network/router.md"]
     ],
     "数据库": [
         ["DB", "db/db.md"]
