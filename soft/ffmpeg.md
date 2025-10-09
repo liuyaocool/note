@@ -41,23 +41,29 @@ done
 ```bash
 #!/bin/bash
 if [ $# -eq 0 ]; then
-	echo "Usage: $0 video_path"
+    echo "Usage: $0 video_path"
     exit 1
 fi
 for file in "$@"; do
-	codec=$(ffprobe -v error -select_streams v:0 -show_entries stream=codec_name -of csv=p=0 "$file" | head -n 1)
-	# %.*: 去除后缀
-	fna="${file%.*}"
-	case "$codec" in
-	   h264|avc)
-	       echo "检测到 H.264/AVC 编码, 直接复制"
-	       ffmpeg -i "$file" -c:v copy -c:a copy -movflags +faststart "${fna}.h264.mp4"
-	       ;;
-	   *)
-	       echo "检测到编码 $codec， 转换为av1， 时间较长 请耐心等待......"
-			ffmpeg -i "$file" -c:v libaom-av1 -crf 16 -b:v 0 -row-mt 1 -cpu-used 8 -c:a copy -movflags +faststart "${fna}.av1.mp4"
-	       ;;
-	esac
+    # codec=$(ffprobe -v error -select_streams v:0 -show_entries stream=codec_name -of default=nokey=1:noprint_wrappers=1 "${file}")
+    # 去除可能的换行符
+    # codec=$(echo "$codec" | tr -d '\n')
+    codec=$(ffprobe -v error -select_streams v:0 -show_entries stream=codec_name -of csv=p=0 "$file" | head -n 1)
+    # %.*: 去除后缀
+    output="${file%.*}.h264.mp4"
+    echo "......检测到编码 $codec, 转换为h.264"
+    case "$codec" in
+        h264|avc)
+            ffmpeg -i "$file" -c:v copy -c:a copy -movflags +faststart "$output"
+            ;;
+        hevc|h265)
+            ffmpeg -i "$file" -c:v libx264 -crf 18 -preset slow -c:a aac "$output"
+            ;;
+        *)
+            ffmpeg -i "$file" -c:v libx264 -crf 20 -preset slow -c:a aac "$output"
+#            ffmpeg -i "$file" -c:v libaom-av1 -crf 16 -b:v 0 -row-mt 1 -cpu-used 8 -c:a aac -movflags +faststart "${output}"
+            ;;
+    esac
 done
 ```
 
