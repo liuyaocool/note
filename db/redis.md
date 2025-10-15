@@ -29,45 +29,6 @@
   - ./redis-cli shutdown
   - 或 在命令行客户端 执行shutdown命令
 
-## 做成服务 
-
-个人不推荐 跟其他应用乱 有的成服务 有的不成 有的开机启动 有的不启动
-
-干脆 不做成服务 不做成开机启动
-
-- 先编译
-
-- 安装路径添加到path: /opt/soft/redis6/bin
-
-- cd utils → 执行 ./install_server.sh  --重复此步骤可安装多个服务 并多启
-
-- 根据提示输入配置信息或直接回车选择默认值
-
-- 会在/etc/init.d文件夹生成 redis_号码(端口号) 启动脚本
-      /etc/redis/9001.conf
-      /var/log/redis_9001.log
-      /var/lib/redis/9001
-      /opt/soft/redis6/bin/redis-server
-      /opt/soft/redis6/bin/redis-cli
-
-- 错误: This systems seems to use systemd.  
-
-  - ./install_server.sh中注释以下代码
-
-  - ```sh
-    #bail if this system is managed by systemd
-    #_pid_1_exe="$(readlink -f /proc/1/exe)"
-    #if [ "${_pid_1_exe##*/}" = systemd ]
-    #then
-    #       echo "This systems seems to use systemd."
-    #       echo "Please take a look at the provided example service unit files in this directory, and adapt and install them. Sorry!"
-    #       exit 1
-    #fi
-    ```
-
-- 启动服务: service redis_号码 start/stop/status
-
-
 ## 开放端口 
 
 见linux 防火墙
