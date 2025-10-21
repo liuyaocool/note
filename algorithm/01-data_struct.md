@@ -49,8 +49,8 @@ TreeMap  增删改查 都是logN
 
 # 跳表
 
-ConcurrentSkipListMap
+ConcurrentSkipListMap.java
 
-![](img/algorithm_skip-table.png)
+<img src="/algorithm/img/skip-table.png" alt="image"/>
 
 多加了索引链表

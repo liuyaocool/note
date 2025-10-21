@@ -261,7 +261,7 @@ public void heapify(int[] arr, int heapSize, int index) {
 - 如 `Srting[] strs = {"abc", "abd", "bcd", "abde", "badc", "cacd"};`
 - 将字符串的每个字母遍历加到树上, 通过某一节点 则此节点pass++, 若结尾则end++, 最终得到下图
 
-![](img/datastruct_pretree.png)
+<img src="/algorithm/img/datastruct_pretree.png" alt="image"/>
 
 > 说明: pass=通过此节点的数量 end=以此节点结尾的数量
 

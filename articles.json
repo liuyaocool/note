@@ -6,6 +6,7 @@
         ["排序", "algorithm/02-sort.md"],
         ["二进制", "algorithm/03-bit.md"],
         ["题", "algorithm/question.md"]
+        ,["贪心", "algorithm/021-tanxin.md"]
     ],
     "c": [
         ["编译", "c/00-run_c.md"]
