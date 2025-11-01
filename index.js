@@ -15,6 +15,7 @@ const vm = Vue.createApp({
             // location.hostname 不包含端口
             isLocal: location.hostname == 'localhost'
                 || location.hostname.endsWith('.localhost')
+                || location.hostname.endsWith('.w.com')
                 || location.hostname.startsWith('192.168.')
                 || location.hostname.startsWith('127.')
             ,

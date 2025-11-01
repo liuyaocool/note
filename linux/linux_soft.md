@@ -239,13 +239,12 @@ Name=rime
 
 **注意:**
 - [Groups/0/Items/0] 中Name设置为rime, 如果是keyboard-xxx则需要修改
-- 修改配置文件 ~/.config/fcitx5/profile 时，请务必退出fcitx5, 因为fcitx5退出时会覆盖profile；
+- 修改配置文件 ~/.config/fcitx5/profile 前，先退出fcitx5, 因为fcitx5退出时会覆盖profile；
 - 修改其他配置文件可以不用退出 fcitx5 输入法，重启生效。
-
 
 ## rime 输入引擎设置
 
-**设置shift按键功能，快捷键**
+### 设置shift按键功能，快捷键
 
 ```sh
 vi /usr/share/rime-data/default.yaml
@@ -263,7 +262,7 @@ schema_list:
   - schema: luna_pinyin_simp
 ```
 
-**修改默认英文输入**
+### 修改默认英文输入
 
 ```sh
 # 修改简体字默认为英文
@@ -273,6 +272,28 @@ switchs:
   - name: ascii_mode
     reset: 1 # 这一行默认使用下标为1的 
     states: [ 中[34m~V~G, 西[34m~V~G ]
+```
+
+### 符号直接上屏
+
+`vim /usr/share/rime-data/luna_pinyin.custom.yaml`, 没有文件则创建
+
+```yaml
+patch:
+  # 符号直接上屏（解决 @#$%* 问题）
+  "punctuator/half_shape":
+    "@": "@"
+    "#": "#"
+    "$": "$"
+    "%": "%"
+    "*": "*"
+    "/": "/"
+    "~": "~"
+    "`": "`"
+    "[": "【"
+    "]": "】"
+    "{": ["｛", "『", "〖", "「", "〔", "［", "〚", "〘"]
+    "}": ["｝", "』", "〗", "」", "〕", "］", "〛", "〙"]
 ```
 
 ## 皮肤

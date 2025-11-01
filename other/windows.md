@@ -89,19 +89,22 @@
 
 Win + r → 输入“services.msc” ， 关闭以下服务（常规 恢复 选项卡都要设置）
 
-- Intel(R) Driver & Support Assistant
-- Intel(R) Driver & Support Assistant Updater
-- Intel® Computing Improvement Program
-- Geolocation Service
-- Intel System Usage Report Service
-- 系统优化工具： Microsoft PC Manager Service
-- Secure Socket Tunneling Protocol Service
-- Windows Search
-- Windows 更新
-- Windows 推送通知系统服务
-- 数据使用量
-- 同步主机_2cbad4
-- 更新 Orchestrator 服务
+| 名称 | 服务   | 功能 |
+| :------- | :--------- | :--- |
+|                      | Intel(R) Driver & Support Assistant         |  |
+|                      | Intel(R) Driver & Support Assistant Updater |  |
+|                      | Intel® Computing Improvement Program        |  |
+|                      | Geolocation Service                         |  |
+|                      | Intel System Usage Report Service           |  |
+| 系统优化工具          | Microsoft PC Manager Service                |  |
+|                      | Secure Socket Tunneling Protocol Service    |  |
+|                      | Windows Search                              |  |
+|                      | Windows 更新                                |  |
+|                      | Windows 推送通知系统服务                     |  |
+|                      | 数据使用量                                  |  |
+|                      | 同步主机_2cbad4                             |  |
+|                      | 更新 Orchestrator 服务                      |  |
+| microsoft 兼容性遥测  | Connected User Experiences and Telemetry   | 自动反馈和系统健康数据收集器 |
 
 ## 卸载无用软件
 
