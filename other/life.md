@@ -41,20 +41,22 @@
 | dns | https://dash.cloudflare.com/ |  |
 | VPS3 | 搬瓦工 |  |
 
-## 教程
-
-### v2ray
-
-https://v2rayssr.com/teach-vless.html
-
 ## 其他账号
 
 - 真实赛车3: qq邮箱(ios)
 - 街头篮球: liu2809957275	阳生
-- sijishe: jiangziya L.....4
+- sijishe: jiangziya .....4
 - douyin: 同上
 - haijiao: jiangziya61 同上
 - cloudflare: 163邮箱 同上!
+- steam: 163邮箱 同上
+
+# 教程
+
+## v2ray
+
+https://v2rayssr.com/teach-vless.html
+
 
 # 卧虎
 
