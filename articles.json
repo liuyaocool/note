@@ -25,10 +25,7 @@
         ,["spring源码", "java/spring.md"]
         ,["spring-boot源码", "java/springboot.md"]
         ,["spring-mvc源码", "java/springmvc.md"]
-        ,["mybatis源码", "java/mybatis.md"]
-        ,["tomcat源码", "java/tomcat.md"]
         ,["Zookeeper", "java/zookeeper.md"]
-        ,["spark", "java/spark.md"]
         ,["gradle", "java/gradle.md"]
     ],
     "linux": [
