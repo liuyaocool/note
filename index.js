@@ -62,6 +62,7 @@ const vm = Vue.createApp({
              *  ]
              */
             searchList: [],
+            searchListHis: {}, // {hotkey: searchList}
             searchHL: new HightlightAnd(k => `<span class="search-high-light">${k}</span>`),
             searchIdx: 0,
             showSearch: false,
@@ -70,7 +71,6 @@ const vm = Vue.createApp({
     },
     async created() {
         addEscListener(this.esc);
-        // addEscListener(e => console.error('aaa'));
         window.addEventListener('keydown', e => {
             switch(e.key) {
                 case 'Escape': this.esc(); break;
@@ -167,6 +167,7 @@ const vm = Vue.createApp({
             this.esc();
             this.searchList = [];
             this.showSearch = true; // 异步渲染
+            this.searchListHis = {};
             // 使用 $refs 来访问元素
             this.$nextTick(() => {
                 this.$refs.searchInput.focus()
@@ -174,27 +175,50 @@ const vm = Vue.createApp({
                 this.$refs.searchInput.value = '';
             });
         },
-        doSearch(key) {
-            let searchList = this.searchList, 
-                searchInput = this.searchInput;
-            this.searchList = [];
-            this.searchInput = key = key.trim();
-            if (key.length < 2 || searchInput == this.searchInput)
+        doSearch(e) {
+            const prevInput = this.searchInput, key = e.target.value.trim();
+            this.searchInput = key;
+            // 输入一致, 去除 空格 tab等
+            if (key == prevInput) {
                 return;
-            this.searchHL.setKeyword(key);
+            }
+            // 有效字符不小于2个
+            if (key.length < 2) {
+                this.searchList = [];
+                return;
+            }
+            // 是否追加词
+            const isAdd = key.startsWith(prevInput);
+            // 先前输入没有匹配到， 后续就不必要走匹配逻辑了 ??
+            if (isAdd && this.searchList.length == 0 && key.replaceAll(' ', '').length > 2) {
+                return;
+            }
             this.searchIdx = 0;
-                // 关键词是否是追加
-            if (key.startsWith(searchInput) && searchList.length > 0) {
-                searchList.forEach(e => this.fillSearch(e.path, e.title, e.lines));
+            // 完全匹配 一般是尾删
+            if (this.searchListHis[key]) {
+                this.searchList = this.searchListHis[key];
                 return;
             }
-            for (let path in this.articles) {
-                this.fillSearch(path,
-                    `${this.articles[path].parent} :: ${this.articles[path].name}`,
-                    this.articles[path].file);
+            this.searchHL.setKeyword(key);
+            // 中部删除 或 追加(尾部去几个即是) 或 中部追加(也是尾部删除)
+            let findKey = e.target.value.substring(0, e.target.selectionStart - (e.data || '').length).trim();
+            let searchList = [], findList = this.searchListHis[findKey];
+            for (let i = key.length-1; i > 1 && !findList; i--) {
+                findList = this.searchListHis[key.substring(0, i)];
             }
+            if (findList) {
+                findList.forEach(e => this.fillSearch(searchList, e.path, e.title, e.lines));
+            } else {
+                for (let path in this.articles) {
+                    this.fillSearch(searchList, path,
+                        `${this.articles[path].parent} :: ${this.articles[path].name}`,
+                        this.articles[path].file);
+                }
+            }
+            this.searchList = searchList;
+            this.searchListHis[key] = searchList;
         },
-        fillSearch(path, title, lines) {
+        fillSearch (searchList, path, title, lines) {
             let lineHL, lineList = [], lineListHL = [], 
                 titleHl = this.searchHL.highlight(title);
             lines.forEach(line => {
@@ -204,11 +228,13 @@ const vm = Vue.createApp({
                 }
             });
             if (titleHl || lineList.length > 0) {
-                this.searchList.push({
+                searchList.push({
                     path: path,
+                    // 这俩 下次匹配
                     title: title, // parent:name
-                    titleHL: titleHl || title,
                     lines: lineList, // match lines
+                    // 这俩 页面显示
+                    titleHL: titleHl || title,
                     linesHL: lineListHL,
                 });
             }

@@ -43,11 +43,11 @@
     
     <input esc-ex class="search-input panel" type="text"
         ref="searchInput" v-show="showSearch"
-        @input="doSearch($event.target.value)"
+        @input="doSearch($event)"
         @keydown.up.exact.prevent="searchNext(-1)"
         @keydown.down.exact.prevent="searchNext(1)"
         @keydown.enter.exact.prevent="searchEnter"
-        placeholder="space for and">
+        placeholder="space for and， char >= 2">
     <div class="search-box panel" v-show="showSearch" esc-ex>
         <div class="search-input-bottom"></div>
         <div v-for="(row, i) in searchList" class="search-item" 
@@ -84,7 +84,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/xml.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/groovy.min.js"></script>
 
-<script src="index.js?v=0.1"></script>
+<script src="index.js?v=0.2"></script>
 
 <!-- <script>const ly_germ_color = [[0, 20], [0, 20], [0, 20]];</script> -->
 <!-- <script src="https://resource-8fp.pages.dev/js/effect/bgRgbDown.js" defer></script> -->
