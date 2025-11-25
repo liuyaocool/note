@@ -94,11 +94,9 @@ DMIPS（Dhrystone MIPS）是一种经典的CPU整数运算能力基准。计算�
 - 友华WR1200JS、
 - 360P2 (128M内存+60M闪存)
 
-# ImmortalWrt
+# ImmortalWRT
 
 OpenWRT 大陆优化版
-
-# ImmortalWRT
 
 ## 配置旁路由
 
@@ -110,6 +108,126 @@ OpenWRT 大陆优化版
     - DHCP服务 -> 常规设置
         - 忽略此接口: 勾选
 2. 路由器lan口接旁路由lan口
+3. 本机无法上网
+    - 网络 -> 接口
+    - 添加 DHCP client
+
+## 配置中科大源
+
+https://mirrors.ustc.edu.cn/help/immortalwrt.html
+
+```bash
+sed -e 's|https://downloads.immortalwrt.org|https://mirrors.ustc.edu.cn/immortalwrt|g' \
+    -e 's|https://mirrors.vsean.net/openwrt|https://mirrors.ustc.edu.cn/immortalwrt|g' \
+    -i.old /etc/opkg/distfeeds.conf
+```
+
+## 配置nas
+
+```bash
+# 安装 samba4-server luci-app-samba4(Web管理端)
+```
+
+## nginx
+
+### 安装
+
+`opkg install openssl-util nginx-full`
+
+### 根配置
+
+`vim /etc/nginx/nginx.conf`
+
+```conf
+user root;
+worker_processes 1;
+
+pid /etc/nginx/nginx.pid;
+
+events {
+    worker_connections 512;
+    use epoll;
+}
+
+http {
+    include /etc/nginx/mime.types;
+    default_type application/octet-stream;
+    
+    sendfile on;
+    tcp_nopush on;
+    tcp_nodelay on;
+    keepalive_timeout 65;
+    types_hash_max_size 2048;
+    
+    gzip on;
+    gzip_min_length 1024;
+    gzip_types text/plain text/css application/json application/javascript text/xml application/xml;
+    
+    include /etc/nginx/conf.d/*.conf;
+}
+```
+
+### 配置nginx代理uhttpd
+
+1. 修改uhttpd端口: `vim /etc/config/uhttpd`
+2. 配置nginx添加 server, `vim /etc/nginx/conf.d/luci.conf`
+    ```conf
+    server {
+        listen 80;
+        listen [::]:80;
+        server_name _;
+        location / {
+            proxy_pass  http://127.0.0.1:81/;
+        }
+    }
+    ```
+
+### 文件服务器(不推荐)
+
+> 路由器专门做网络转发就行了, 添加其他功能 其实是增加负担(路由器的运算能力并不高, 高的只有网络处理能力), 如果没有其他nas可用 再通过路由器配置nas
+ 
+`vim /etc/nginx/conf.d/fs.conf`
+
+```conf
+server {
+    listen 80;
+    server_name fs.com;
+    charset utf-8;
+    location / {
+        # 这里可配置html文件管理web界面
+    }
+    location /api {
+        alias /mnt/sda2;
+        autoindex on;
+        autoindex_exact_size off;
+        autoindex_localtime on;
+        autoindex_format json;
+        default_type application/json;
+        charset utf-8;
+    }
+}
+```
+
+## vim
+
+- type vim: `vim is an alias for vi`
+- 安装: `opkg install vim`
+- `vim ~/.vimrc`
+    ```vim
+    set tabstop=4       " 设置制表符宽度为 4
+    set shiftwidth=4    " 设置自动缩进宽度为 4
+    " 始终开启 paste 模式（不推荐）
+    set paste
+    " 同时禁用一些可能冲突的功能
+    set noautoindent
+    set nosmartindent
+    set nocindent
+    set formatoptions=
+    ```
+- `vim ~/.profile`
+    ```bash
+    export TERM=ansi
+    ```
 
 # OpenWRT
 
@@ -118,7 +236,6 @@ OpenWRT 大陆优化版
 ```bash
 opkg update
 opkg search
-
 ```
 
 ## 安装
@@ -569,6 +686,17 @@ Partition size: 57.3G      <span style="color: red">← 这里继续回车</span
 mkfs.ext4 /dev/mmcblk0p6
 # 挂载: 系统-> 软件包 -> 安装 'automount'
 # 重启
+```
+
+# 挂载 overlay
+
+登录后台管理界面， 找到 系统 -> 挂载点， 配置如下
+
+```bash
+UUID: xxx (/dev/mmcblk0p6, 57.26 GiB)	/overlay	auto (ext4)	    defaults
+UUID: xxx (/dev/fit0, 8.57 MiB)	        /rom	    auto (squashfs) defaults
+# 原overlay挂载点
+UUID: xxx (/dev/fitrw, 283.87 MiB)	    /mnt/fitrw  auto (f2fs)	    defaults
 ```
 
 ### 官方原文

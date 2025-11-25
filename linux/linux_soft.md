@@ -201,6 +201,15 @@ set shiftwidth=4    " 设置自动缩进宽度为 4
 " set expandtab       " 将制表符扩展为空格
 " 关闭文件类型检测的自动注释 粘贴会自动加上#
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+
+" 始终开启 paste 模式（不推荐）
+set paste
+
+" 同时禁用一些可能冲突的功能
+set noautoindent
+set nosmartindent
+set nocindent
+set formatoptions=
 ```
 
 ## 格式化代码
