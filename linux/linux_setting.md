@@ -6,8 +6,6 @@
 
 ## 创建服务-用户级
 
->用户级不会随开机启动， 需要登录用户后才会启动
-
 `vim ~/.config/systemd/user/xxx.service`
 
 ```bash
@@ -25,6 +23,43 @@ RestartSec=30s
 
 [Install]
 WantedBy=default.target
+```
+### 设置用户服务开机启动
+
+```bash
+# 允许用户服务在未登录时运行
+sudo loginctl enable-linger username
+# 检查状态
+loginctl show-user username | grep Linger
+```
+
+### init
+
+> 当修改了init.service后， 若之前enable过服务， 需要重新enable服务
+
+```bash
+ w  ~  cat .config/systemd/user/init.service
+[Unit]
+Description=init scripe
+After=network.target
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=%h/bin/init
+
+[Install]
+WantedBy=default.target
+
+ w  ~  cat bin/init     
+#!/bin/bash
+# 这里设置并不能影响全局
+# export PATH=$PATH:~/bin
+~/bin/nginx &
+~/bin/p-client q2 &
+# ssh执行需要终端?
+# ssh -N qqvps &
+~/bin/javarun ~/bin/lib/bs > /dev/null 2>&1  &
 ```
 
 ## 创建服务-系统级
