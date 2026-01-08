@@ -108,6 +108,96 @@ LV80
 紫演武符(4649040) = 情缘 * 0.47
 ```
 
+## 图片
+
+### 逍遥
+
+<img src="/other/img/wohu/xiaoyao_shenqi_1.jpg" alt="image" style="zoom: 30%;"/>
+<img src="/other/img/wohu/xiaoyao_shenqi_2.jpg" alt="image" style="zoom: 30%;"/>
+<img src="/other/img/wohu/xiaoyao_shenqi_3.jpg" alt="image" style="zoom: 30%;"/>  
+<img src="/other/img/wohu/xiaoyao_shenqi_4.jpg" alt="image" style="zoom: 30%;"/>  
+<img src="/other/img/wohu/xiaoyao_shenqi_5.jpg" alt="image" style="zoom: 30%;"/>  
+<img src="/other/img/wohu/xiaoyao_shenqi_6.jpg" alt="image" style="zoom: 30%;"/>  
+
+### 明教
+
+<img src="/other/img/wohu/mingjiao_shenqi_1.jpg" alt="image" style="zoom: 30%;"/>
+<img src="/other/img/wohu/mingjiao_shenqi_2.jpg" alt="image" style="zoom: 30%;"/>
+<img src="/other/img/wohu/mingjiao_shenqi_3.jpg" alt="image" style="zoom: 30%;"/>  
+<img src="/other/img/wohu/mingjiao_shenqi_4.jpg" alt="image" style="zoom: 30%;"/>  
+<img src="/other/img/wohu/mingjiao_shenqi_5.jpg" alt="image" style="zoom: 30%;"/>  
+<img src="/other/img/wohu/mingjiao_shenqi_6.jpg" alt="image" style="zoom: 30%;"/>  
+
+### 血刀
+
+### 神龙
+
+<img src="/other/img/wohu/shenlong_shenqi_1.jpg" alt="image" style="zoom: 30%;"/>
+<img src="/other/img/wohu/shenlong_shenqi_2.jpg" alt="image" style="zoom: 30%;"/>
+<img src="/other/img/wohu/shenlong_shenqi_3.jpg" alt="image" style="zoom: 30%;"/>  
+<img src="/other/img/wohu/shenlong_shenqi_4.jpg" alt="image" style="zoom: 30%;"/>  
+<img src="/other/img/wohu/shenlong_shenqi_5.jpg" alt="image" style="zoom: 30%;"/>  
+<img src="/other/img/wohu/shenlong_shenqi_6.jpg" alt="image" style="zoom: 30%;"/>  
+
+### 武当
+
+<img src="/other/img/wohu/wudang_shenqi_1.jpg" alt="image" style="zoom: 30%;"/>
+<img src="/other/img/wohu/wudang_shenqi_2.jpg" alt="image" style="zoom: 30%;"/>
+<img src="/other/img/wohu/wudang_shenqi_3.jpg" alt="image" style="zoom: 30%;"/>  
+<img src="/other/img/wohu/wudang_shenqi_4.jpg" alt="image" style="zoom: 30%;"/>  
+<img src="/other/img/wohu/wudang_shenqi_5.jpg" alt="image" style="zoom: 30%;"/>  
+<img src="/other/img/wohu/wudang_shenqi_6.jpg" alt="image" style="zoom: 30%;"/>  
+
+### 丐帮
+
+<img src="/other/img/wohu/gaibang_shenqi_1.jpg" alt="image" style="zoom: 30%;"/>
+<img src="/other/img/wohu/gaibang_shenqi_2.jpg" alt="image" style="zoom: 30%;"/>
+<img src="/other/img/wohu/gaibang_shenqi_3.jpg" alt="image" style="zoom: 30%;"/>  
+<img src="/other/img/wohu/gaibang_shenqi_4.jpg" alt="image" style="zoom: 30%;"/>  
+<img src="/other/img/wohu/gaibang_shenqi_5.jpg" alt="image" style="zoom: 30%;"/>  
+<img src="/other/img/wohu/gaibang_shenqi_6.jpg" alt="image" style="zoom: 30%;"/>  
+
+### 天龙
+
+<img src="/other/img/wohu/tianlong_shenqi_n1.jpg" alt="image" style="zoom: 42%;"/>
+<img src="/other/img/wohu/tianlong_shenqi_n2.jpg" alt="image" style="zoom: 42%;"/>
+<img src="/other/img/wohu/tianlong_shenqi_1.jpg" alt="image" style="zoom: 30%;"/>
+<img src="/other/img/wohu/tianlong_shenqi_2.jpg" alt="image" style="zoom: 30%;"/>
+<img src="/other/img/wohu/tianlong_shenqi_3.jpg" alt="image" style="zoom: 30%;"/>  
+<img src="/other/img/wohu/tianlong_shenqi_4.jpg" alt="image" style="zoom: 30%;"/>  
+<img src="/other/img/wohu/tianlong_shenqi_5.jpg" alt="image" style="zoom: 30%;"/>  
+<img src="/other/img/wohu/tianlong_shenqi_6.jpg" alt="image" style="zoom: 30%;"/>  
+<img src="/other/img/wohu/tianlong_shenqi_p1.jpg" alt="image" style="zoom: 20%;"/>
+<img src="/other/img/wohu/tianlong_shenqi_p2.jpg" alt="image" style="zoom: 20%;"/>
+<img src="/other/img/wohu/tianlong_shenqi_p3.jpg" alt="image" style="zoom: 20%;"/>
+<img src="/other/img/wohu/tianlong_shenqi_p4.jpg" alt="image" style="zoom: 20%;"/>
+
+### 五毒
+
+<img src="/other/img/wohu/wudu_shenqi_1.jpg" alt="image" style="zoom: 30%;"/>
+<img src="/other/img/wohu/wudu_shenqi_2.jpg" alt="image" style="zoom: 30%;"/>
+<img src="/other/img/wohu/wudu_shenqi_3.jpg" alt="image" style="zoom: 30%;"/>  
+<img src="/other/img/wohu/wudu_shenqi_4.jpg" alt="image" style="zoom: 30%;"/>  
+<img src="/other/img/wohu/wudu_shenqi_5.jpg" alt="image" style="zoom: 30%;"/>  
+<img src="/other/img/wohu/wudu_shenqi_6.jpg" alt="image" style="zoom: 30%;"/>  
+<img src="/other/img/wohu/wudu_shenqi_p1.jpg" alt="image" style="zoom: 20%;"/>
+<img src="/other/img/wohu/wudu_shenqi_p2.jpg" alt="image" style="zoom: 20%;"/>
+<img src="/other/img/wohu/wudu_shenqi_p3.jpg" alt="image" style="zoom: 20%;"/>
+<img src="/other/img/wohu/wudu_shenqi_p4.jpg" alt="image" style="zoom: 20%;"/>
+
+### 唐门
+
+<img src="/other/img/wohu/tangmen_shenqi_1.jpg" alt="image" style="zoom: 30%;"/>
+<img src="/other/img/wohu/tangmen_shenqi_2.jpg" alt="image" style="zoom: 30%;"/>
+<img src="/other/img/wohu/tangmen_shenqi_3.jpg" alt="image" style="zoom: 30%;"/>  
+<img src="/other/img/wohu/tangmen_shenqi_4.jpg" alt="image" style="zoom: 30%;"/>  
+<img src="/other/img/wohu/tangmen_shenqi_5.jpg" alt="image" style="zoom: 30%;"/>  
+<img src="/other/img/wohu/tangmen_shenqi_6.jpg" alt="image" style="zoom: 30%;"/>  
+<img src="/other/img/wohu/tangmen_shenqi_p1.jpg" alt="image" style="zoom: 23%;"/>
+<img src="/other/img/wohu/tangmen_shenqi_p2.jpg" alt="image" style="zoom: 23%;"/>
+<img src="/other/img/wohu/tangmen_shenqi_p3.jpg" alt="image" style="zoom: 23%;"/>
+<img src="/other/img/wohu/tangmen_shenqi_p4.jpg" alt="image" style="zoom: 23%;"/>
+
 ## 号
 
 ```
@@ -115,36 +205,35 @@ LV80
 
 ====== 主号 ======
 28 天龙男 卧虎区
+99 神龙男 v5 黑豹
 1994 天龙男 福利区
 
-====== 十年区 ======
-186  83级不能登录
-109  南 唐男80 45锭 乌龟
-99   中 神男100 v5 124锭 黑豹
+====== 亦如区 ======
+L99Y 西 血女
 ```
 
-| 号   | 卧虎区 `满级号`                | 福利区         | 寒雪区     | 自在区           |
-| :--- | :---------                   | :---          | :---      | :---            |
-| 186  | 西 逍男48 ￥25 心55 柔攻 橙装   | `西 逍男`      | `天龙 男`  | 西 逍男35        |
-| 109  | ✗                            |              | `神龙 男`  | `西 明男 50锭神器` |
-| 103  | `西 逍女 妻子` 橙装             |              | 南 毒女    | 中12 + 南35       |
-| L28  | `南 唐女 帮会` 橙装             |              | `西 逍女`  | 西 明男35  帮会错  |
-| 28LY | 西 明女35 ￥1  白饵3            | 西 逍男80     |           | 南 天男62         |
-| LY28 | 南 毒男55 ￥21 白饵60 心2 橙装   |              | 南 毒男    | `南 毒女94 50锭`  |
-| Y28  | 南 天女64 ￥1.3 白饵56 心17 橙装 |              |           | 南 唐男36        |
-| L28Y | 西 血女51 ￥2.6 白饵30 紫装      |
-| 99   | 中 丐男78 ￥26  白饵47 心39 紫装 | `南 神男`     |           | 南 毒女36        |
-| 99LY | ✗                            |
-| L99  | 南 毒女57 ￥33 白饵8 心8        | 南 唐女80     | 西 血女    | 中 丐女7          |
-| LY99 | 西 明女72 ￥39 心3 橙装         |              | 中 武女    | 西 明女62 44锭    |
-| LL99 | 南 唐男45 心11                 | 南 唐男 特殊号 | 西 逍男    | 中 武男42         |
-| L99Y | 南 唐男31 心5                  |              | 南 唐女    | 西 血女32         |
-| Y99L | ✗                            |              | 中 丐男    | 西 逍女35         |
-| Y991471 | ✗                         | `中 武女`     | 南 唐男    | `中 丐男`         |
-| bang01 | 南 毒女36 心17              | √             |           | 中               |
-| bang02 | 南 唐男35 心1 白饵5          | √             |          | 中               |
-| bang03 | 南 唐女38 心6 白饵7          | √             |          | 中               |
-| bang04 | 南 毒男37 心4               | √             |           | 中               |
+| 号   | 卧虎区 `满级号`                | 福利区         | 寒雪区     | 自在区           | 十年区                               |
+| :--- | :---------                   | :---          | :---      | :---            | :---                                |
+| 186  | 西 逍男48 ￥25 心55 柔攻 橙装   | `西 逍男`      | `天龙 男`  | 西 逍男35        | 西 逍男69 ￥468 `+` 83级不能登录       |
+| 109  | ✗                            |              | `神龙 男`  | `西 明男 50锭神器` | 南 唐男80 `￥45锭` 乌龟               |
+| 103  | `西 逍女 妻子` 橙装             |              | 南 毒女    | 中12 + 南35       | 西 血女75 ￥5锭 轻功13+5 `+` 中 武女48 |
+| L28  | `南 唐女 帮会` 橙装             |              | `西 逍女`  | 西 明男35  帮会错  | 南 神女36 `+` 南 毒女26 `+` 中 丐男25  |
+| 28LY | 西 明女35 ￥1  白饵3            | 西 逍男80     |           | 南 天男62         | ✗ |
+| LY28 | 南 毒男55 ￥21 白饵60 心2 橙装   | 中 武女65     | 南 毒男    | `南 转唐女 雷神兵` | ✗ |
+| Y28  | 南 天女64 ￥1.3 白饵56 心17 橙装 | 西 血女65     |           | 南 唐男36        | ✗ |
+| L28Y | 西 血女51 ￥2.6 白饵30 紫装      |  ✗          | ✗         | ✗               | ✗ |
+| 99   | 中 丐男78 ￥26  白饵47 心39 紫装 | `中 神男`     |           | 南 毒女36        | `主号` + 中 神男65 ￥255 轻功0+3       |
+| 99LY | ✗                            | 南 天女68     | ✗         | ✗               | ✗ |
+| L99  | 南 毒女57 ￥33 白饵8 心8        | 南 唐女80     | `西 血女`  | 中 丐女7          | ✗ |
+| LY99 | 西 明女72 ￥39 心3 橙装         | 中 神女40     | 中 武女    | 西 明女63 44锭    | ✗ |
+| LL99 | 南 唐男45 心11                 | 南 唐男 特殊号 | 西 逍男    | 中 武男42         | 南 唐男49 ￥91                       |
+| L99Y | 南 唐男31 心5                  | 西 血男63     | 南 唐女    | 西 血女32         | ✗ |
+| Y99L | ✗                            | 南 毒女70     | 中 丐男    | 西 逍女35         | ✗ |
+| Y991471 | ✗                         | `中 武女`     | 南 唐男    | `中 丐男`         | ✗ |
+| bang01 | 南 毒女36 心17              | √             | ✗         | 中 丐男64 ￥39锭  | 中 武女64 ￥506                      |
+| bang02 | 南 唐男35 心1 白饵5          | √             | ✗         | 中               | 中 丐男19                           |
+| bang03 | 南 唐女38 心6 白饵7          | √             | ✗         | 中               | ✗ |
+| bang04 | 南 毒男37 心4               | √             | ✗         | ✗               | ✗ |
 
 # 路由器
 
