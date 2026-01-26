@@ -213,3 +213,58 @@ fi
 ## 磁盘
 
 1. 添加磁盘后虚拟机中找不到: windows中打开磁盘工具， 将空间分配
+
+# 脚本
+
+## 定时关机
+
+> 如果 shutdown -s 命令执行了重启  
+> 1. ~~win+r 运行`sysdm.cpl` → 高级 → 启动和故障恢复 → 设置, 取消勾选‘系统失败’那块的“自动重新启动”~~
+
+```bat
+@echo off
+@REM 修改字符编码utf-8
+chcp 65001 >nul
+title 定时关机
+@REM 修改颜色为绿色
+color 0A
+
+@REM 标记 用于goto跳转到这
+:start
+@REM 清屏
+cls
+echo ========================================
+echo 定时关机
+echo ========================================
+echo.
+echo 常用:
+echo   0    = 取消
+echo   60   = 1分钟
+echo   300  = 5分钟
+echo   1800 = 30分钟
+echo   3600 = 1小时
+echo   7200 = 2小时
+echo.
+set /p "seconds=请输入秒数: "
+
+if "%seconds%"=="0" (
+    shutdown -a
+    echo.
+    echo 已取消定时关机！
+) else (
+    @REM -f:强制关机 -s:关机 -t:时间(秒)
+    shutdown -s -f -t %seconds%
+    echo.
+    if %seconds% GEQ 300 (
+        set /a minutes=seconds/60
+        echo 约 %minutes% 分钟 后关机！
+    ) else (
+        echo 约 %seconds% 秒 后关机！
+    )
+)
+
+echo.
+echo 按任意键继续，或按Ctrl+C退出...
+pause >nul
+goto start
+```

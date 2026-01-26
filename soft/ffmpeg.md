@@ -1,5 +1,36 @@
 # 脚本
 
+## 裁剪
+
+```bash
+#!/bin/bash
+if [ $# -lt 5 ]; then
+    echo "Usage: $0 <上%> <右%> <下%> <左%> img_path"
+    echo "such: $0 14 18 29 25 ~/pic/i.png"
+    exit 1
+fi
+
+w=0$(echo "scale=4; (100-$2-$4)/100" | bc | sed 's/0*$//; s/\.$//')
+h=0$(echo "scale=4; (100-$1-$3)/100" | bc | sed 's/0*$//; s/\.$//')
+x=0$(echo "scale=4; $4/100" | bc | sed 's/0*$//; s/\.$//')
+y=0$(echo "scale=4; $1/100" | bc | sed 's/0*$//; s/\.$//')
+
+echo "$w $h $x $y"
+# 移动前4个参数，这样 $@ 就从第5个开始了
+shift 4
+
+for file in "$@"; do
+    dir=$(dirname "$file")/cut
+    name=$(basename "$file")
+    name=${name%.*}
+    mkdir -p $dir
+    echo $file
+    ffmpeg -i "${file}" \
+        -filter_complex "[0]crop=w=iw*${w}:h=ih*${h}:x=iw*${x}:y=ih*${y}" \
+        "${dir}/${name}.jpg"
+done
+```
+
 ## 缩略图
 
 `vim ~/bin/imgicon`
