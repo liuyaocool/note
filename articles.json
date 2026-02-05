@@ -79,7 +79,7 @@
         ["windows", "other/windows.md"],
         ["mac", "other/mac.md"]
         ,["git", "other/git.md"]
-        ,["meta", "other/meta_quest.md"]
+        ,["游戏", "other/game.md"]
         ,["电视盒子", "other/tvbox.md"]
         ,["test", "other/test.md"]
     ]

@@ -23,6 +23,7 @@
 - 磁盘: `iostat`(sysstat), `iotop`
 - cpu、内存: `htop`
 - 系统基础信息: `neofetch`
+- 流量监控: `nethogs`
 
 # 装机
 
