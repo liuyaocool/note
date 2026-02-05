@@ -108,3 +108,161 @@ adb shell settings put global captive_portal_https_url https://www.google.cn/gen
 ## 指令
 
 - `-apneng` ai模式下正常金币正常经验
+
+
+# 卧虎
+
+## 升级
+
+```
+====== 升级相关 ======
+经验符 + 37%
+
+84级:
+低一段橙符: 19611246
+一本段紫符: 10548184
+一本段橙符: 21096368
+
+LV:60- （测试账号LV40）
+铜人阵: 一个怪经验(橙色) = 情缘 / 183.25
+闯门派: 一个怪经验(橙色) = 情缘 / 44.32  * 91个怪
+紫色桃木: 情缘*1.78
+
+LV65
+情缘: 7505784
+情缘 = 0.179 * 升级需要经验
+铜人阵: 一个怪经验(橙色) = 情缘 / 240
+闯门派: 一个怪经验(橙色) = 情缘 / 55
+橙令 = 情缘 * 1.9
+紫令 = 情缘 * 1
+橙演武符:
+紫演武符: 0.41 * 情缘
+
+LV72
+情缘: 8594944
+情缘 = 0.118 * 升级需要经验
+铜人阵: 一个怪经验(橙色) = 情缘 /        紫：321
+闯门派: 一个怪经验(橙色) = 情缘 / 46
+橙令 = 情缘 * 2
+紫令 = 情缘 * 1
+橙演武符: 0.9 * 情缘
+紫演武符:  0.45 * 情缘
+
+LV80
+情缘: 9805528
+升级需要: 128036400
+情缘 = 0.076 * 升级需要经验
+铜人阵一个怪(橙色:55624) = 情缘 / 176
+闯门派一个怪(橙色:247217)*91 = 22496747 = 情缘 * 2.3
+橙令(19611246) = 情缘 * 2
+紫令(9805622) = 情缘 * 1
+橙演武符(9427220) = 情缘 * 0.96
+紫演武符(4649040) = 情缘 * 0.47
+```
+
+## 图片
+
+### 逍遥
+
+<img src="/other/img/whcl/xiaoyao_shenqi_1.jpg" style="zoom: 25%;"/>
+<img src="/other/img/whcl/xiaoyao_shenqi_2.jpg" style="zoom: 25%;"/>
+<img src="/other/img/whcl/xiaoyao_shenqi_3.jpg" style="zoom: 25%;"/>
+<img src="/other/img/whcl/xiaoyao_shenqi_4.jpg" style="zoom: 25%;"/>
+
+### 明教
+
+<img src="/other/img/whcl/mingjiao_shenqi_1.jpg" style="zoom: 35%;"/>
+<img src="/other/img/whcl/mingjiao_shenqi_2.jpg" style="zoom: 35%;"/>
+<img src="/other/img/whcl/mingjiao_shenqi_3.jpg" style="zoom: 35%;"/>
+<img src="/other/img/whcl/mingjiao_shenqi_4.jpg" style="zoom: 35%;"/>
+
+### 血刀
+
+### 神龙
+
+<img src="/other/img/whcl/shenlong_shenqi_1.jpg" style="zoom: 25%;"/>
+<img src="/other/img/whcl/shenlong_shenqi_2.jpg" style="zoom: 25%;"/>
+<img src="/other/img/whcl/shenlong_shenqi_3.jpg" style="zoom: 25%;"/> 
+<img src="/other/img/whcl/shenlong_shenqi_4.jpg" style="zoom: 25%;"/>
+
+### 武当
+
+<img src="/other/img/whcl/wudang_shenqi_1.jpg" style="zoom: 28%;"/>
+<img src="/other/img/whcl/wudang_shenqi_2.jpg" style="zoom: 28%;"/>
+<img src="/other/img/whcl/wudang_shenqi_3.jpg" style="zoom: 28%;"/>
+<img src="/other/img/whcl/wudang_shenqi_4.jpg" style="zoom: 28%;"/>
+
+### 丐帮
+
+<img src="/other/img/whcl/gaibang_shenqi_1.jpg" style="zoom: 38%;"/>
+<img src="/other/img/whcl/gaibang_shenqi_2.jpg" style="zoom: 38%;"/>
+<img src="/other/img/whcl/gaibang_shenqi_3.jpg" style="zoom: 38%;"/>
+<img src="/other/img/whcl/gaibang_shenqi_4.jpg" style="zoom: 38%;"/>
+
+### 天龙
+
+<img src="/other/img/wohu/tianlong_shenqi_n1.jpg" style="zoom: 30%;"/>
+<img src="/other/img/wohu/tianlong_shenqi_n2.jpg" style="zoom: 30%;"/>
+<img src="/other/img/whcl/tianlong_shenqi_1.jpg" style="zoom: 33%;"/>
+<img src="/other/img/whcl/tianlong_shenqi_2.jpg" style="zoom: 33%;"/>
+<img src="/other/img/whcl/tianlong_shenqi_3.jpg" style="zoom: 33%;"/>
+<img src="/other/img/whcl/tianlong_shenqi_4.jpg" style="zoom: 33%;"/>
+<img src="/other/img/wohu/tianlong_shenqi_p1.jpg" style="zoom: 13%;"/>
+<img src="/other/img/wohu/tianlong_shenqi_p2.jpg" style="zoom: 13%;"/>
+<img src="/other/img/wohu/tianlong_shenqi_p3.jpg" style="zoom: 13%;"/>
+<img src="/other/img/wohu/tianlong_shenqi_p4.jpg" style="zoom: 13%;"/>
+
+### 五毒
+
+<img src="/other/img/whcl/wudu_shenqi_1.jpg" style="zoom: 30%;"/>
+<img src="/other/img/whcl/wudu_shenqi_2.jpg" style="zoom: 30%;"/>
+<img src="/other/img/whcl/wudu_shenqi_3.jpg" style="zoom: 30%;"/>
+<img src="/other/img/whcl/wudu_shenqi_6.jpg" style="zoom: 30%;"/>
+<img src="/other/img/wohu/wudu_shenqi_p1.jpg" style="zoom: 10%;"/>
+<img src="/other/img/wohu/wudu_shenqi_p2.jpg" style="zoom: 10%;"/>
+<img src="/other/img/wohu/wudu_shenqi_p3.jpg" style="zoom: 10%;"/>
+<img src="/other/img/wohu/wudu_shenqi_p4.jpg" style="zoom: 10%;"/>
+
+### 唐门
+
+<img src="/other/img/whcl/tangmen_shenqi_1.jpg" style="zoom: 35%;"/>
+<img src="/other/img/whcl/tangmen_shenqi_2.jpg" style="zoom: 35%;"/>
+<img src="/other/img/whcl/tangmen_shenqi_3.jpg" style="zoom: 35%;"/>
+<img src="/other/img/whcl/tangmen_shenqi_4.jpg" style="zoom: 35%;"/>
+<img src="/other/img/wohu/tangmen_shenqi_p1.jpg" style="zoom: 13%;"/>
+<img src="/other/img/wohu/tangmen_shenqi_p2.jpg" style="zoom: 13%;"/>
+<img src="/other/img/wohu/tangmen_shenqi_p3.jpg" style="zoom: 13%;"/>
+<img src="/other/img/wohu/tangmen_shenqi_p4.jpg" style="zoom: 13%;"/>
+
+## 号
+
+```
+------ 3v3 密码: 111111
+卧虎区 28 天龙男
+福利区 1994 天龙男
+十年区 99 神龙男 v5 黑豹
+```
+
+| 号   | 卧虎区 `满级号`       | 福利区    | 寒雪区     | 十年区                         | 无限区 |
+| :--- | :---------          | :---     | :---      | :---                          | :--- |
+| 99   | `中 丐男82 ￥ 白饵47` | `中 神男` | ✗        | `主号` + 南 毒女36 + 中 神男65   |
+| 186  | 西 逍男48 ￥25 柔攻   | `西 逍男` | `天男`    | `西 逍男` + 西 逍男72            |
+| 109  | ✗                  | ✗        | `神男`    | `南 唐男` + `西 明男 神器`        |
+| 103  | `西 逍女 妻子` 橙装   | 西 逍女61 | 南 毒女40 | 西 血女80`轻功`+中武女62+南唐男35+南武男13￥9锭 | 天男61 |
+| L28  | `南 唐女 帮会` 橙装   | 中 丐男65 | 西 逍女61 | 中神女36+南毒女26+中丐男30+所有毒女 | 毒女43 |
+| LY28 | 南 毒男55 ￥21 白饵60 | 中 武女65 | 南 毒男37 | `南 转唐女 雷神兵 ￥509`          | 毒女67 |
+| Y991471 | ✗               | `中 武女`  | 南 唐男   | `中 丐男` ￥6锭                 |
+| bang01 | `南 毒女69`       | 南 毒女35  | ✗        | 中丐男64 ￥39锭 + 中武女64       |
+| bang02 | 南 唐男35 白饵5    | 南 毒男35  | ✗        | 中丐男40 + 中武女27￥70锭        |
+| bang03 | 南 唐女38 白饵7    | 南 唐女36  | ✗        | 西 明男35                       |
+| bang04 | 南 毒男37         | 南 唐男36  | ✗        | 西 逍女39                       |
+| ———— | ——————————         | —————     | ————     | —————————————————              | ——— |
+| 99LY | 中 武女23           | 南 天女68  |
+| L28Y | 西 血女51 ￥2 白饵30 | 西 明男65  |
+| L99  | 南 毒女57 ￥33 白饵8 | 南 唐女80  | 西 血女61 |
+| LY99 | `西 明女77 ￥39`    | 中 神女40  | 中 武女   | 西 明女63 ￥44锭               |
+| Y99L | 南 毒女23           | 南 毒女70  | 中 丐男   | 西 逍女35                     |
+| L99Y | 南 唐男31           | 西 血男63  | 南 唐女   | 西 血女32 + 西 血女47          |
+| 28LY | 西 明女35 白饵3      | 西 逍男80  | ✗        | 南 天男62 + 西 明女35          | 西 明男63 |
+| Y28  | `南 天女64 白饵56`   | 西 血女65  | ✗        | ✗                           | 西 明男1  |
+| LL99 | 南 唐男45           | `南唐男38` | 西 逍男17 | 南 唐男49                     | 中 丐男61 |
