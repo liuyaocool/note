@@ -1,0 +1,15 @@
+{
+  "name": "Note",
+  "short_name": "Note",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#373636",
+  "theme_color": "#373636",
+  "icons": [
+    {
+      "src": "icon.png",
+      "sizes": "300x300",
+      "type": "image/png"
+    }
+  ]
+}
