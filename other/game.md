@@ -109,6 +109,9 @@ adb shell settings put global captive_portal_https_url https://www.google.cn/gen
 
 - `-apneng` ai模式下正常金币正常经验
 
+## 软件
+
+- 改键: [war3key.exe](file/game/war3key.exe)
 
 # 卧虎
 
