@@ -1,0 +1,71 @@
+@define-color text white;
+
+* {
+    font-size: 11px;
+    font-weight: bold;
+}
+#custom-clock, #clock, #memory, #cpu, #network{
+    font-family: Source Code Pro,Roboto, Helvetica, Arial, sans-serif, otf-font-awesome;
+}
+#window {
+    font-family: 华康翩翩体W5P,Source Code Pro,Roboto, Helvetica, Arial, sans-serif, otf-font-awesome;
+}
+
+window#waybar {
+    background-color: rgba(100,100,100,0.7);
+	background-size: cover;
+	background-repeat: no-repeat;
+    /*background: linear-gradient(to top, shade(alpha(@borders, 0.95), 1.15), shade(alpha(@borders, 0.9), 1.25));*/
+    /*border-bottom: 1px solid alpha(@borders, 0.95);*/
+}
+
+#workspaces button {
+	border-radius: 0px;
+    padding: 0 2px;
+    color: #ffffff;
+    /* Use box-shadow instead of border so the text isn't offset */
+    box-shadow: inset 0 -2px transparent;
+}
+#workspaces button:hover {
+    background: rgba(0, 0, 0, 0.1);
+}
+#workspaces button.focused {
+    background-color: #64727D;
+    box-shadow: inset 0 -2px #ffffff;
+}
+#workspaces button.visible {
+    /* background-color: #64727D; */
+    box-shadow: inset 0 -2px #ffffff;
+}
+#workspaces button.active {
+    box-shadow: inset 0 -20px #00ffff;
+    background-color: #00ffff;
+	color: black;
+}
+#workspaces button.urgent {
+    background-color: #eb4d4b;
+}
+#workspaces button.empty {
+	color: gray;
+}
+
+#clock, #memory {
+	padding: 0 10px;
+}
+#custom-clock {
+	padding: 0 3px;
+}
+#custom-clock, #clock, #memory, #cpu, #network{
+	border-radius: 3px;
+	margin: 3px 5px 3px 0;
+    background: rgba(0, 151, 121, 0.5);
+    color: @text;
+}
+
+#network {
+    min-width: 220px;
+}
+#cpu {
+    min-width: 54px;
+}
+

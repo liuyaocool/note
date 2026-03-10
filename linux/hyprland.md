@@ -2,6 +2,60 @@
 
 - [~/.config/hypr/hyprland.conf](file/hyprland/hyprland.conf)
 
+# 类dwm配置
+
+## 官方推荐
+
+1. 安装插件
+  - ```bash
+    hyprpm add https://github.com/zjeffer/split-monitor-workspaces # Add the plugin repository
+    hyprpm enable split-monitor-workspaces # Enable the plugin
+    hyprpm reload # Reload the plugins
+    ```
+2. Hyprland.conf配置插件
+  - [~/.confi/hypr/hyprland.conf](file/hyprland/02dwmlike/hyprland.conf)
+  - ```conf
+    bind = $MOD, j, focusmonitor, l
+    bind = $MOD, l, focusmonitor, r
+    # 向右移动：将当前窗口移动到其他显示器的当前工作区
+    bind = $MOD SHIFT, j,  split-changemonitorsilent, -1
+    bind = $MOD SHIFT, l, split-changemonitorsilent, +1
+
+    plugin {
+        split-monitor-workspaces {
+            count = 10
+            keep_focused = 0
+            enable_notifications = 0
+            enable_persistent_workspaces = 1
+
+            # set this to 1 for gnome-like workspace switching
+            link_monitors = 0
+
+            # if you want a different monitor order
+            # monitor_priority = DP-1, DVI-D-1
+
+            # you can also set max workspaces per monitor
+            # max_workspaces = DP-1, 9
+            # max_workspaces = DVI-D-1, 5
+        }
+    }
+    bind=$MOD,20,split-workspace,-1
+    bind=$MOD,21,split-workspace,+1
+    bind=$MOD SHIFT,20,split-movetoworkspacesilent,-1
+    bind=$MOD SHIFT,21,split-movetoworkspacesilent,+1
+    bind=$MOD,1,split-workspace,1
+    bind=$MOD,2,split-workspace,2
+    ...
+    bind=$MOD SHIFT,1,split-movetoworkspacesilent,1
+    bind=$MOD SHIFT,2,split-movetoworkspacesilent,2
+    ...
+    ```
+3. 配置waybar
+  - [~/.conf/waybar/config](file/waybar/03HyprlandDwmlike/config)
+  - [~/.conf/waybar/style.css](file/waybar/03HyprlandDwmlike/style.css)
+  
+
+
 # shell
 
 ## ~~rofi -show window 自动聚焦窗口脚本 (新版本使用以上配置已经默认启用)~~
