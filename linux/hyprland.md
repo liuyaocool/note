@@ -2,19 +2,18 @@
 
 - [~/.config/hypr/hyprland.conf](file/hyprland/hyprland.conf)
 
-# 类dwm配置
+# 多屏类dwm配置
 
-## 官方推荐
+## ~~官方推荐~~
 
 1. 安装插件
-  - ```bash
+    ```bash
     hyprpm add https://github.com/zjeffer/split-monitor-workspaces # Add the plugin repository
     hyprpm enable split-monitor-workspaces # Enable the plugin
     hyprpm reload # Reload the plugins
     ```
-2. Hyprland.conf配置插件
-  - [~/.confi/hypr/hyprland.conf](file/hyprland/02dwmlike/hyprland.conf)
-  - ```conf
+2. Hyprland.conf配置插件: [~/.confi/hypr/hyprland.conf](file/hyprland/02dwmlike/hyprland.conf) <-点击下载
+    ```conf
     bind = $MOD, j, focusmonitor, l
     bind = $MOD, l, focusmonitor, r
     # 向右移动：将当前窗口移动到其他显示器的当前工作区
@@ -51,9 +50,16 @@
     ...
     ```
 3. 配置waybar
-  - [~/.conf/waybar/config](file/waybar/03HyprlandDwmlike/config)
-  - [~/.conf/waybar/style.css](file/waybar/03HyprlandDwmlike/style.css)
-  
+    - [~/.conf/waybar/config](file/waybar/03HyprlandDwmlike/config)
+    - [~/.conf/waybar/style.css](file/waybar/03HyprlandDwmlike/style.css)
+
+## 自己的配置
+
+1. 主要是 切换workspace 和 将窗口移动到workspace
+2. 安装 [github](https://github.com/liuyaocool/hyprland-exp)
+3. 配置waybar
+    - [~/.conf/waybar/config](file/waybar/03HyprlandDwmlike/config)
+    - [~/.conf/waybar/style.css](file/waybar/03HyprlandDwmlike/style.css)
 
 
 # shell

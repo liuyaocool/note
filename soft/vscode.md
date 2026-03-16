@@ -135,17 +135,27 @@ cert: false
             "path": "zsh"
         }
     },
+    "editor.copyWithSyntaxHighlighting": false,
     // 这两项禁用 alt按键聚焦到菜单栏
     "window.titleBarStyle": "custom",
     "window.customMenuBarAltFocus": false,
-    "workbench.colorTheme": "Default Dark+",
     "redhat.telemetry.enabled": true,
     "workbench.startupEditor": "none",
+    "cmake.showOptionsMovedNotification": false,
+    "cmake.pinnedCommands": [
+        "workbench.action.tasks.configureTaskRunner",
+        "workbench.action.tasks.runTask"
+    ],
+    "security.workspace.trust.untrustedFiles": "open",
+    "glassit.alpha": 255,
+    "extensions.ignoreRecommendations": true,
     "[markdown]": {
         "editor.quickSuggestions": {
             "other": "on"
         },
     },
+    "debug.onTaskErrors": "debugAnyway",
+    "editor.detectIndentation": false,
 }
 ```
 
