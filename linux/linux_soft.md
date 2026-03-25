@@ -1,3 +1,7 @@
+# 美化终端
+
+- [On My Posh](https://ohmyposh.dev/docs/themes)
+
 # zsh
 
 ## 配置文件 
