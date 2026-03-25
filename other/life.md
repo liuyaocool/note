@@ -5,6 +5,7 @@
 
 # 好用网站
 
+- 联通官方测速平台: http://60.217.44.4/index.jsp
 - 各银行利息: https://www.csai.cn/bankrate/
 - 中国法律服务网：12348.gov.cn
 - 合同示范文本库：https://lihetong.com/

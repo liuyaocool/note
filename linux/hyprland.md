@@ -4,7 +4,7 @@
 
 # 多屏类dwm配置
 
-## ~~官方推荐~~
+## ~~官方推荐(容易崩溃)~~
 
 1. 安装插件
     ```bash
@@ -54,6 +54,8 @@
     - [~/.conf/waybar/style.css](file/waybar/03HyprlandDwmlike/style.css)
 
 ## 自己的配置
+
+> 官方支持左右屏切换和左右屏移动，只需实现左右当前监视器的切换即可
 
 1. 主要是 切换workspace 和 将窗口移动到workspace
 2. 安装 [github](https://github.com/liuyaocool/hyprland-exp)
