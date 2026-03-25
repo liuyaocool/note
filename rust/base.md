@@ -388,6 +388,14 @@ enum Result<T, E> {
 
 ### 闭包
 
+
+#### move
+
+```rust
+move
+```
+
+
 ### turbofish语法
 
 `args[2].parse::<i32>()`
@@ -494,10 +502,208 @@ fn ow_str2(str: String) -> String {
 
 ### 创建
 
-
-
-### 移动
+- `thread::spawn(|| {})`
 
 ```rust
-move
+use std::thread;
+use std::time::Duration;
+struct Point {
+    x: i32,
+    z: String
+}
+fn main() {
+    // 这里i32 实现了copy trait， 所有在线程里是直接copy过去了
+    let mut p = Point {x: 1, z: String::from("p")};
+    // 默认借用
+    let t1 = thread::spawn(move || {
+        for i in 0..3 {
+            print!("t1 i={i}");
+            // i32 实现了copy trait， 所有在线程里是直接copy
+            print!(" p.x={}", p.x);
+            // 而 String没有实现copy， 所以这里会有所有权
+            print!(" p.z={}", p.z);
+            println!();
+            p.x = 4;
+            thread::sleep(Duration::from_secs(1));
+        }
+    });
+    let t2 = thread::spawn(move || {
+        thread::sleep(Duration::from_millis(500));
+        for i in 0..3 {
+            print!("t2 i={i}");
+            // i32 实现了copy trait， 所有在线程里是直接copy
+            print!(" p.x={}", p.x);
+            // 而 String没有实现copy， 所以这里会有所有权
+            // print!(" p.z={}", p.z);
+            println!();
+            thread::sleep(Duration::from_secs(1));
+        }
+    });
+    t1.join().unwrap();
+    t2.join().unwrap();
+}
 ```
+
+### 智能指针Box
+
+- 内存分配在堆上
+- 只能有一个所有权人
+
+```rust
+use std::thread;
+use std::time::Duration;
+struct Point {
+    x: i32,
+    z: String
+}
+fn main() {
+    let mut p = Box::new(Point {x: 1, z: String::from("p")});
+    // 默认借用
+    let t1 = thread::spawn(move || {
+        for i in 0..3 {
+            print!("t1 i={i}");
+            println!(" p.x={} p.z={}", p.x, p.z);
+            p.x = 4;
+            thread::sleep(Duration::from_secs(1));
+        }
+    });
+    let t2 = thread::spawn(move || {
+        thread::sleep(Duration::from_millis(500));
+        for i in 0..3 {
+            print!("t2 i={i}");
+            // 内存分配在堆上 这里不会copy, 而box所有权只有一个， 这里拿不到了
+            // println!(" p.x={} p.z={}", p.x, p.z);
+            thread::sleep(Duration::from_secs(1));
+        }
+    });
+    t1.join().unwrap();
+    t2.join().unwrap();
+}
+```
+
+### 智能指针 Rc
+
+- 引用计数(Reference Counting)
+- 分配在堆上
+- 只读！！！
+- 可以有多个所有权
+- 不能用于多线程， 非线程安全
+
+```rust
+use std::rc::Rc;
+struct Point {
+    x: i32,
+    z: String
+}
+fn main() {
+    let p = Rc::new(Point {x: 1, z: String::from("p")});
+    let p1 = Rc::clone(&p);
+    let p2 = Rc::clone(&p);
+    println!("p  x={} z={}", p.x, p.z);
+    println!("p1 x={} z={}", p1.x, p1.z);
+    println!("p2 x={} z={}", p2.x, p2.z);
+}
+```
+
+### 智能指针 Arc
+
+- 原子引用计数(Atomic Reference Counting)
+- 分配在堆上
+- 只读！！！
+- 可以有多个所有权
+- 可用于多线程， 线程安全
+
+```rust
+use std::sync::Arc;
+use std::thread;
+use std::time::Duration;
+struct Point {
+    x: i32,
+    z: String
+}
+fn main() {
+    let p = Arc::new(Point {x: 1, z: String::from("p")});
+    let p1 = Arc::clone(&p);
+    let p2 = Arc::clone(&p);
+
+    // 默认借用
+    let t1 = thread::spawn(move || {
+        for i in 0..3 {
+            println!("t1 i={i} x={} z={}", p1.x, p1.z);
+            thread::sleep(Duration::from_secs(1));
+        }
+    });
+    let t2 = thread::spawn(move || {
+        thread::sleep(Duration::from_millis(500));
+        for i in 0..3 {
+            println!("t2 i={i} x={} z={}", p2.x, p2.z);
+            thread::sleep(Duration::from_secs(1));
+        }
+    });
+    t1.join().unwrap();
+    t2.join().unwrap();
+}
+```
+
+### 智能指针 Mutex
+
+- 可变不共享: 直接保护数据，也有锁但你看不到， 而java是保护对数据修改的操作
+- 分配在堆上
+- 不可用于多线程
+
+```rust
+use std::sync::Mutex;
+use std::thread;
+struct Point {
+    x: i32,
+    z: String
+}
+fn main() {
+    // 内存模型： p ----> 智能指针Mutex(带一把锁) ------> 数据
+    let p = Mutex::new(Point {x: 1, z: String::from("p")});
+    let mut lock_p = p.lock().unwrap();
+    lock_p.x += 1;
+    println!("p.x = {}", lock_p.x);
+
+    let t1 = thread::spawn(move || {
+        let mut pp = p.lock().unwrap();
+    });
+    t1.join().unwrap();
+}
+```
+
+### 组合指针 Arc+Mutex
+
+- 可实现多线程读写
+
+```rust
+use std::sync::{Arc, Mutex};
+use std::thread;
+use std::time::Duration;
+struct Point {
+    x: i32,
+    z: String
+}
+fn main() {
+    let p = Arc::new(Mutex::new(Point {x: 0, z: String::from("p")}));
+    let mut threads = vec![];
+    for i in 1..10 {
+        let pp = Arc::clone(&p);
+        threads.push(thread::spawn(move || {
+            let mut pp_lock = pp.lock().unwrap();
+            pp_lock.x += 1;
+            println!("t{} x={} z={}", i, pp_lock.x, pp_lock.z);
+            // 手动释放锁
+            drop(pp_lock);
+            thread::sleep(Duration::from_secs(1));
+        }));
+    }
+    for t in threads {
+        t.join().unwrap();
+    }
+
+    let p_lock = p.lock().unwrap();
+    println!("final p.x={} p.z={}", p_lock.x, p_lock.z);
+}
+```
+
