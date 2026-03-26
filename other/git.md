@@ -14,9 +14,18 @@ Host github.com
   ProxyCommand nc -x 127.0.0.1:1080 %h %p
 ```
 
-> 1080 为本地端口
->
-> 此配置添加完成后 需要执行 `	ssh -N qqvps  ` 才能连接远程， 从而实现外网搭桥
+- 1080 为本地端口
+- 此配置添加完成后 需要执行 `	ssh -N qqvps  ` 才能连接远程， 从而实现外网搭桥
+- 或者添加执行脚本
+    ```bash
+    #!/bin/bash
+    if pgrep -f "ssh -N qqvps" > /dev/null; then
+        # echo "✅ SSH 隧道已经运行"
+    else
+        ssh -N qqvps &
+        echo "SSH 隧道启动中..."
+    fi
+    ```
 
 
 # 常用命令
