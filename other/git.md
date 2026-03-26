@@ -19,13 +19,10 @@ Host github.com
 - 或者添加执行脚本
     ```bash
     #!/bin/bash
-    if pgrep -f "ssh -N qqvps" > /dev/null; then
-        # echo "✅ SSH 隧道已经运行"
-    else
+    if ! pgrep -f "ssh -N qqvps" > /dev/null; then
         ssh -N qqvps &
         echo "SSH 隧道启动中..."
     fi
-    ```
 
 
 # 常用命令
