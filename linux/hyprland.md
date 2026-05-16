@@ -50,19 +50,20 @@
     ...
     ```
 3. 配置waybar
-    - [~/.conf/waybar/config](file/waybar/03HyprlandDwmlike/config)
-    - [~/.conf/waybar/style.css](file/waybar/03HyprlandDwmlike/style.css)
+    - [~/.config/waybar/config](file/waybar/03HyprlandDwmlike/config)
+    - [~/.config/waybar/style.css](file/waybar/03HyprlandDwmlike/style.css)
 
 ## 自己的配置
 
-> 官方支持左右屏切换和左右屏移动，只需实现左右当前监视器的切换即可
+> 官方支持左右屏切换和左右屏移动，只需实现当前显示器的切换即可
 
 1. 主要是 切换workspace 和 将窗口移动到workspace
 2. 安装 [github](https://github.com/liuyaocool/hyprland-exp)
 3. 配置waybar
-    - [~/.conf/waybar/config](file/waybar/03HyprlandDwmlike/config)
-    - [~/.conf/waybar/style.css](file/waybar/03HyprlandDwmlike/style.css)
-
+    - 安装: `yay -S waybar-cava-git`
+    - [~/.config/waybar/config](file/waybar/03HyprlandDwmlike/config)
+    - [~/.config/waybar/style.css](file/waybar/03HyprlandDwmlike/style.css)
+    - [~/.config/waybar/cava](file/waybar/03HyprlandDwmlike/cava)
 
 # shell
 
@@ -82,17 +83,6 @@ handle() {
 
 socat -U - UNIX-CONNECT:$XDG_RUNTIME_DIR/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.socket2.sock | while read -r line; do handle "$line"; done
 ```
-
-# waybar
-
-## install
-
-`sudo pacman -S waybar`
-
-## config
-
-- [~/.config/waybar/config](file/waybar/02hyprland/config)
-- [~/.config/waybar/style.css](file/waybar/02hyprland/style.css)
 
 # rofi
 
