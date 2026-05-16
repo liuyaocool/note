@@ -36,6 +36,18 @@ ustc源搜brew, 点brew.git后help， 内有安装教程和换源教程
     - `sudo launchctl start com.openssh.sshd`
 - ok
 
+# 设置
+
+- 插电自动启动独显(电池不生效): `sudo pmset -c gpuswitch 1`
+    - 关闭: `sudo pmset -c gpuswitch 2`
+    - 独显功率高， 默认不启动
+
+## 关闭进程
+
+- spotlight搜索-占cpu高
+    - 关闭: `sudo launchctl disable system/com.apple.metadata.mds`
+    - 启动: `sudo launchctl enable system/com.apple.metadata.mds`
+
 # 痛点
 
 ## command+q

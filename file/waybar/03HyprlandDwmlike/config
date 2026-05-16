@@ -4,7 +4,9 @@
 		"hyprland/workspaces",
 		"hyprland/window"
 	],
-	"modules-center": [],
+	"modules-center": [
+        "cava"
+    ],
 	"modules-right": [
 		"network",
 		"cpu",
@@ -18,18 +20,12 @@
 	"hyprland/workspaces": {
 		"format": "{icon}",
 		"format-icons": {
-			"11": "1",
-			"12": "2",
-			"13": "3",
-			"14": "4",
-			"15": "5",
-			"16": "6",
-			"17": "7",
-			"18": "8",
-			"19": "9",
-			"20": "10"
 		}
 	},
+    "cava": {
+        "cava_config": "$HOME/.config/waybar/cava"
+        ,"format-icons": [" ", "▁", "▂", "▃", "▄", "▅", "▆", "▇", "█" ]
+    },
 	"clock": {
         "format": "{:%A, %B %d, %Y (%V) | %r}",
         "format-alt": "{:%a, %b %d, %Y | %I:%M %p}",
@@ -83,16 +79,6 @@
     "hyprland/workspaces": {
         "format": "{icon}",
         "format-icons": {
-			"11": "1",
-			"12": "2",
-			"13": "3",
-			"14": "4",
-			"15": "5",
-			"16": "6",
-			"17": "7",
-			"18": "8",
-			"19": "9",
-			"20": "10"
         }
     }
 }]

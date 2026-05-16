@@ -113,6 +113,17 @@ adb shell settings put global captive_portal_https_url https://www.google.cn/gen
 
 - 改键: [war3key.exe](file/game/war3key.exe)
 
+## linux玩
+
+1. 安装wine
+2. 运行`wine xxx/war3.exe`, 会安装一堆库
+3. 启动内存报错， 修改注册表， 跳过开场动画
+    - 命令行运行 `regedit`
+    - 没有则创建： `HKEY_CURRENT_USER\Software\Blizzard Entertainment\Warcraft III\Misc`
+    - `Misc`下新建 DWORD(32位)值， 命名为`seenintromovie`， 修改数值为`1`
+4. 重新启动， 修改分辨率后重启
+5. 改键
+
 # 卧虎
 
 ## 升级
