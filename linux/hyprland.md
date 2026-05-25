@@ -64,6 +64,9 @@
     - [~/.config/waybar/config](file/waybar/03HyprlandDwmlike/config)
     - [~/.config/waybar/style.css](file/waybar/03HyprlandDwmlike/style.css)
     - [~/.config/waybar/cava](file/waybar/03HyprlandDwmlike/cava)
+4. 安装图标
+    - [ ~/.local/share/fonts/waybar-icon.ttf](file/waybar/03HyprlandDwmlike/waybar-icon.ttf)
+    - 执行 `fc-cache -fv`
 
 # shell
 

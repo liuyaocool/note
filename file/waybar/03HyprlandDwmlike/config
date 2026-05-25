@@ -9,6 +9,7 @@
     ],
 	"modules-right": [
 		"network",
+        "pulseaudio",
 		"cpu",
 		"memory",
 		"custom/clock"
@@ -22,6 +23,15 @@
 		"format-icons": {
 		}
 	},
+    "pulseaudio": {
+        "format": "\ue8b8 {volume}%",
+        "format-bluetooth": "\ue8b8 {volume}%  {icon}",
+        "format-muted": "\ueca9 {volume}%",
+        "scroll-step": 5,
+        "reverse-mouse-scrolling": true,
+        "on-click": "pavucontrol",
+        "on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle"
+    },
     "cava": {
         "cava_config": "$HOME/.config/waybar/cava"
         ,"format-icons": [" ", "▁", "▂", "▃", "▄", "▅", "▆", "▇", "█" ]

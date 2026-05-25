@@ -4,8 +4,8 @@
     font-size: 11px;
     font-weight: bold;
 }
-#custom-clock, #clock, #memory, #cpu, #network{
-    font-family: Source Code Pro,Roboto, Helvetica, Arial, sans-serif, otf-font-awesome;
+#custom-clock, #clock, #memory, #cpu, #network, #pulseaudio{
+    font-family: Source Code Pro,Roboto, Helvetica, Arial, sans-serif, otf-font-awesome, waybar-icon;
 }
 #window {
     font-family: 华康翩翩体W5P,Source Code Pro,Roboto, Helvetica, Arial, sans-serif, otf-font-awesome;
@@ -49,26 +49,32 @@ window#waybar {
 	color: gray;
 }
 
-#clock, #memory {
-	padding: 0 10px;
-}
-#custom-clock {
-	padding: 0 3px;
-}
-#custom-clock, #clock, #memory, #cpu, #network{
+#custom-clock, #clock, #memory, #cpu, #network, #pulseaudio{
 	border-radius: 3px;
 	margin: 3px 5px 3px 0;
     background: rgba(0, 151, 121, 0.5);
     color: @text;
 }
 
+#clock, #memory {
+	padding: 0 10px;
+}
+#custom-clock {
+	padding: 0 3px;
+}
+#pulseaudio {
+    min-width: 55px;
+}
+#pulseaudio.muted {
+    /* color: #bebebe; */
+    background: rgba(1, 63, 50, 0.5);
+}
 #network {
     min-width: 220px;
 }
 #cpu {
     min-width: 54px;
 }
-
 #cava {
     color: #00FFFF;
     font-family: "Hack Nerd Font", "Fira Code", monospace;
