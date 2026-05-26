@@ -4,7 +4,7 @@
     font-size: 11px;
     font-weight: bold;
 }
-#custom-clock, #clock, #memory, #cpu, #network, #pulseaudio{
+#custom-clock, #clock, #memory, #cpu-temp, #network, #pulseaudio{
     font-family: Source Code Pro,Roboto, Helvetica, Arial, sans-serif, otf-font-awesome, waybar-icon;
 }
 #window {
@@ -49,10 +49,12 @@ window#waybar {
 	color: gray;
 }
 
-#custom-clock, #clock, #memory, #cpu, #network, #pulseaudio{
+#custom-clock, #clock, #memory, #cpu-temp, #network, #pulseaudio {
+    background: rgba(0, 151, 121, 0.5);
+}
+#custom-clock, #clock, #memory, #cpu-temp, #network, #pulseaudio, #mpris {
 	border-radius: 3px;
 	margin: 3px 5px 3px 0;
-    background: rgba(0, 151, 121, 0.5);
     color: @text;
 }
 
@@ -66,19 +68,39 @@ window#waybar {
     min-width: 55px;
 }
 #pulseaudio.muted {
-    /* color: #bebebe; */
     background: rgba(1, 63, 50, 0.5);
 }
 #network {
     min-width: 220px;
 }
+#cpu-temp {
+    min-width: 90px;
+}
 #cpu {
     min-width: 54px;
 }
 #cava {
+    padding: 0 5px;
     color: #00FFFF;
-    font-family: "Hack Nerd Font", "Fira Code", monospace;
-    font-size: 8px;
-    letter-spacing: 1px;
     margin: 0 0 -5px 0;
+    font-family: waybar-cava-bar32;
+    letter-spacing: 2px;
+}
+
+@keyframes blink-mpris {
+  0% { background: transparent; }
+  50% { background: rgba(0, 180, 0, 1); }
+  100% { background: transparent; }
+}
+
+#mpris {
+    padding: 0 10px;
+    background: rgba(0, 180, 0, 1);
+}
+
+#mpris.playing {
+    animation-name: blink-mpris;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
 }

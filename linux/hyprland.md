@@ -66,7 +66,49 @@
     - [~/.config/waybar/cava](file/waybar/03HyprlandDwmlike/cava)
 4. 安装图标
     - [ ~/.local/share/fonts/waybar-icon.ttf](file/waybar/03HyprlandDwmlike/waybar-icon.ttf)
+    - [ ~/.local/share/fonts/waybar-cava-bar32.ttf](file/waybar/03HyprlandDwmlike/waybar-cava-bar32.ttf)
     - 执行 `fc-cache -fv`
+
+### 字体 waybar-cava-bar32.ttf 生成方法
+1. 安装软件fontforge: `sudo pacman -S fontforge`
+2. 创建文件 `bar32.py`, 内容如下
+    ```python
+    import fontforge
+
+    NAME = "waybar-cava-bar32"
+    EM = 2048 # 高度
+    WIDTH = 800 # 宽度
+    LEVELS = 32 # 高度平分字符个数
+    ASCENT = 1900
+    DESCENT = 148
+    STEP = EM // LEVELS
+    START = 0xE000
+    
+    font = fontforge.font()
+    font.fontname = NAME
+    font.familyname = NAME
+    font.fullname = NAME
+    font.em = EM
+    font.ascent = ASCENT
+    font.descent = DESCENT
+    BOTTOM = -DESCENT
+    for i in range(LEVELS):
+        code = START + i
+        glyph = font.createChar(code)
+        height = STEP * i + 1
+        pen = glyph.glyphPen()
+        # 真正贴底
+        pen.moveTo((0, BOTTOM))
+        pen.lineTo((WIDTH, BOTTOM))
+        pen.lineTo((WIDTH, BOTTOM + height))
+        pen.lineTo((0, BOTTOM + height))
+        pen.closePath()
+        glyph.width = WIDTH
+
+    font.generate(NAME + ".ttf")
+    print("Generated " + NAME + ".ttf")
+    ```
+3. 执行 `fontforge -script bar32.py` 生成图标
 
 # shell
 

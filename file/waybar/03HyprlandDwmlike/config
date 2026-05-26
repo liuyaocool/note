@@ -8,9 +8,10 @@
         "cava"
     ],
 	"modules-right": [
-		"network",
+        "mpris",
         "pulseaudio",
-		"cpu",
+		"network",
+        "group/cpu-temp",
 		"memory",
 		"custom/clock"
 	],
@@ -23,6 +24,19 @@
 		"format-icons": {
 		}
 	},
+    "mpris": {
+        "format": "{status_icon} [{player} {position}/{length}]  <i>{title}</i>",
+        "format-paused": "{status_icon} [{player} {position}/{length}]  {title}",
+        "title-len": 20,
+        "player-icons": {
+            "default": "\ue632"
+        },
+        "status-icons": {
+            "paused": "\ue600",
+            "playing": "\ue601",
+            "stopped": "\ueb18"
+        }
+    },
     "pulseaudio": {
         "format": "\ue8b8 {volume}%",
         "format-bluetooth": "\ue8b8 {volume}%  {icon}",
@@ -33,8 +47,14 @@
         "on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle"
     },
     "cava": {
-        "cava_config": "$HOME/.config/waybar/cava"
-        ,"format-icons": [" ", "▁", "▂", "▃", "▄", "▅", "▆", "▇", "█" ]
+        "format-icons": [
+            "\ue000", "\ue001", "\ue002", "\ue003", "\ue004", "\ue005", "\ue006", "\ue007", 
+            "\ue008", "\ue009", "\ue00a", "\ue00b", "\ue00c", "\ue00d", "\ue00e", "\ue00f",
+            "\ue010", "\ue011", "\ue012", "\ue013", "\ue014", "\ue015", "\ue016", "\ue017", 
+            "\ue018", "\ue019", "\ue01a", "\ue01b", "\ue01c", "\ue01d", "\ue01e", "\ue01f"
+        ]
+        // 默认读取 .config/cava/config, 如果不要glsl模式， 则需删除
+        ,"cava_config": "$HOME/.config/waybar/cava"
     },
 	"clock": {
         "format": "{:%A, %B %d, %Y (%V) | %r}",
@@ -46,9 +66,18 @@
 		"format": "M {used:0.1f}/{total:0.1f}",
         "interval": 1
     },
+    "group/cpu-temp": {
+		"orientation": "horizontal",
+		"modules": [ "cpu", "temperature#cpu"]
+	},
 	"cpu": {
         "format": "C {usage}%",
         "interval": 1
+    },
+    "temperature#cpu": {
+        "thermal-zone": 2,
+        "format": "{temperatureC}°C",
+        "interval": 3
     },
 	"network": {
         "format-wifi": "{essid} ({signalStrength}%) ↟{bandwidthUpBytes} ↡{bandwidthDownBytes}",

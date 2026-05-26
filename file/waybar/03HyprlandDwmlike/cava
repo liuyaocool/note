@@ -1,7 +1,7 @@
 [general]
 autosens = 1
 sensitivity = 150
-bars = 60
+bars = 64
 
 [input]
 method = pulse
