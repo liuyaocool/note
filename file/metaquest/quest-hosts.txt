@@ -1,0 +1,4 @@
+157.240.11.49 graph.oculus.com
+157.240.11.49 www2.oculus.com
+157.240.8.49 scontent.oculuscdn.com
+157.240.8.49 securecdn.oculus.com

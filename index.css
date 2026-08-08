@@ -125,6 +125,11 @@ menu ol > li:hover {
     padding: 8px;
     white-space: pre-wrap;
     position: relative;
+    box-shadow: 0px 0px 5px 4px #0007;
+    width: fit-content;
+    max-width: 1000px;
+    word-break: break-all;
+    padding-right: 6px;
 }
 
 .content img {
@@ -139,12 +144,22 @@ code ol {
 }
 
 .language-tip {
-    position: absolute;
-    right: 5px;
-    top: 5px;
+/*    position: absolute; right: 5px; top: 5px;*/
+    float: right;
     color: gray;
     font-size: 12px;
     user-select: none;
+    margin: -5px -3px;
+}
+
+.copy {
+    border-radius: 5px;
+/*    display: inline-block;*/
+    text-align: center;
+    padding: 2px 5px;
+    background: gray;
+    color: white;
+    cursor: pointer;
 }
 
 .title {
@@ -189,16 +204,6 @@ code ol {
 /* .title-4 { color: green;} */
 /* .title-5 { color: blue;} */
 /* .title-6 { color: purple;} */
-
-.copy {
-    border-radius: 5px;
-    display: inline-block;
-    text-align: center;
-    padding: 2px 5px;
-    background: gray;
-    color: white;
-    cursor: pointer;
-}
 
 blockquote {
     /* padding: 8px 20px; */

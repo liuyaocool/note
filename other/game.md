@@ -31,6 +31,12 @@ adb shell settings put global captive_portal_https_url https://www.google.cn/gen
 4. 控制面板>网络和共享中心>更改适配器设置: 右键SSTAP 属性 共享 共享到“本地连接*10”
 5. 设备连接开启的热点即可开启更新
 
+## 投屏
+
+1. quest设备安装 [virtualhosts.apk](file/metaquest/virtualhosts.apk)
+2. quest打开`virtualhosts.apk`, 添加文件 [quest-hosts.txt](file/metaquest/quest-hosts.txt)
+3. 手机(平板)安装 [CastReceiver.apk](https://bigfile.liuyao.link/apk/CastReceiver.apk)
+
 ## 软件
 
 - ES文件管理器

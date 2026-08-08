@@ -252,7 +252,7 @@ echo -ne "[`cat ${sta}thread`] [`cat ${sta}net`] [`cat ${sta}cpu`] [`cat ${sta}m
     - 官方文档方法失败， 这个成功 `Authorization: Bearer $API_TOKEN`
     - 在这找到: https://dash.cloudflare.com/profile/api-tokens 点help
 
-### 修改dns记录
+### 修改dns记录(ddns)
 
 https://developers.cloudflare.com/api/resources/dns/subresources/records/methods/edit/
 
@@ -263,8 +263,7 @@ ZONE_ID=
 DNS_RECORD_ID=
 API_TOKEN=
 
-ip=`curl -s "https://my.ip.cn/json/"`
-ip=$(jq -r '.data.ip' <<< "$ip")
+ip=`curl -sS ifconfig.me`
 
 curl https://api.cloudflare.com/client/v4/zones/$ZONE_ID/dns_records/$DNS_RECORD_ID \
     -X PATCH \

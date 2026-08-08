@@ -155,9 +155,10 @@ const vm = Vue.createApp({
         },
         copyCode(id) {
             copyToClipboard(this.codeStr[id])
+            let tip = document.getElementById(id).innerText;
             document.getElementById(id).innerText = 'copied';
             setTimeout(() => {
-                document.getElementById(id).innerText = 'copy';
+                document.getElementById(id).innerText = tip;
             }, 1000);
         },
         async refresh() {
@@ -219,6 +220,7 @@ const vm = Vue.createApp({
             this.searchListHis[key] = searchList;
         },
         fillSearch (searchList, path, title, lines) {
+            if (!lines) return;
             let lineHL, lineList = [], lineListHL = [], 
                 titleHl = this.searchHL.highlight(title);
             lines.forEach(line => {
@@ -255,7 +257,7 @@ const vm = Vue.createApp({
             let id = uuid();
             this.codeStr[id] = code;
             preCode = preCode.split('\n');
-            code = `<div class="language-tip">${lang} <span class="copy" id="${id}" onclick="vm.copyCode('${id}')">copy</span></div><ol class="code-ol">`;
+            code = `<div class="language-tip copy" id="${id}" onclick="vm.copyCode('${id}')">${lang || 'copy'}</div><ol class="code-ol">`;
             for (let i = 0; i < preCode.length; i++) {
                 if(i == preCode.length-1 && !preCode[i]) break;
                 code += `<li>${preCode[i]}</li>`;
