@@ -37,7 +37,7 @@
         </div>
         <menu v-show="showMenu"><ul id="menu_list"></ul></menu>
         <div class="panel content" v-for="(v, k) in articles" v-show="k == currentPath" v-html="v.html"></div>
-        <div v-show="isLocal" @click="refresh()" class="copy refresh">刷新</div>
+        <div v-show="isLocal" @click="refresh()" class="refresh">刷新</div>
         <div class="panel title" v-for="(v, k) in articles" v-show="showTitle && k == currentPath">
             <div v-for="(v2, k2) in v.titles" :style="v2.style" :class="'title-'+v2.level" @click="jumpTo(v2.id)">{{v2.name}}</div>
         </div>

@@ -68,3 +68,23 @@ spring-framework-6.2.x/buildSrc/src/main/java/org/springframework/build/TestConv
 
 spring6.2.x gradle 使用的是jdk16+, 到**setting->gradle:GradleJVM 修改为16+**
 
+# springboot
+
+## 3个Condition注解
+
+# springmvc
+
+## 前置知识
+
+springmvc --> servlet/server applet
+
+## servlet
+
+doPost
+doGet
+init
+service
+destory
+
+## web.xml
+

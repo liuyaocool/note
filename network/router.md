@@ -96,7 +96,26 @@ DMIPS（Dhrystone MIPS）是一种经典的CPU整数运算能力基准。计算�
 
 # ImmortalWRT
 
-OpenWRT 大陆优化版
+OpenWRT的大陆优化版
+
+## clash
+
+
+uci set dhcp.@dnsmasq[0].noresolv='1'
+uci set dhcp.@dnsmasq[0].server='127.0.0.1#1053'
+uci commit dhcp
+/etc/init.d/dnsmasq restart
+
+## 配置教程
+
+### 网络->接口
+
+1. 设备: 数据链路层, 物理的或虚拟的硬件端口或网卡
+2. 接口: 网络层， 配置了IP地址和防火墙规则的软件逻辑
+
+## 手动下载安装包
+
+- wget: `https://downloads.immortalwrt.org/releases/packages-24.10/aarch64_cortex-a53/packages/` 中搜wget
 
 ## 配置旁路由
 
@@ -690,14 +709,19 @@ mkfs.ext4 /dev/mmcblk0p6
 
 # 挂载 overlay
 
-登录后台管理界面， 找到 系统 -> 挂载点， 配置如下
+登录后台管理界面， 找到 系统 -> 挂载点
 
-```bash
-UUID: xxx (/dev/mmcblk0p6, 57.26 GiB)	/overlay	auto (ext4)	    defaults
-UUID: xxx (/dev/fit0, 8.57 MiB)	        /rom	    auto (squashfs) defaults
-# 原overlay挂载点
-UUID: xxx (/dev/fitrw, 283.87 MiB)	    /mnt/fitrw  auto (f2fs)	    defaults
-```
+1. 已挂载的文件系统L: 如果有大空间->卸载分区
+2. 挂载点
+    - 删除原overlay
+    - 将大空间挂载到overlay，设置未见系统为ext4, 列表头上"已启用"勾选
+    - 最终配置如下
+        ```bash
+        UUID: xxx (/dev/mmcblk0p6, 57.26 GiB)	/overlay	ext4	    defaults
+        UUID: xxx (/dev/fit0, 8.57 MiB)	        /rom	    auto (squashfs) defaults
+        ```
+3. 保存并应用
+4. 重启
 
 ### 官方原文
 

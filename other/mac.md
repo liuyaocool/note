@@ -10,6 +10,10 @@ https://support.apple.com/zh-cn/101578?utm_source=hacpai.com
 - [AltTab: 窗口切换器](https://alt-tab-macos.netlify.app/)
 - [HapiGO: 程序启动器](https://www.hapigo.com/)
 - [Karabiner-Elements: 快捷键映射](https://karabiner-elements.pqrs.org/)
+- [GrandPerspective: 磁盘分析](https://grandperspectiv.sourceforge.net/)
+- [Stats: 顶部监控](https://mac-stats.com/)
+- [iTerm2: 终端](https://iterm2.com/index.html)
+- [PixPin: 截图](https://pixpin.com/)
 
 
 # brew (Homebrew)

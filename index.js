@@ -24,7 +24,6 @@ const vm = Vue.createApp({
             showTitle: pc,
             windowwidth: window.innerWidth,
             currentPath: '',
-            codeStr: {}, // {id: str} for copy
             /**
              *  {
              *      path: {
@@ -97,7 +96,7 @@ const vm = Vue.createApp({
             }
             this.articles = articles;
             document.getElementById('menu_list').innerHTML = mstr;
-        if (mstr = location.hash.substring(1)) {
+        if (mstr = location.hash.substring(1) && this.articles[mstr]) {
             this.articles[mstr].file = (await fetchTextFile(mstr)).split('\n');
             this.openArticle(mstr);
         }
@@ -153,13 +152,11 @@ const vm = Vue.createApp({
             // 使用 scrollIntoView 方法滚动页面使得指定元素可见
             section.scrollIntoView({ behavior: 'smooth' });
         },
-        copyCode(id) {
-            copyToClipboard(this.codeStr[id])
-            let tip = document.getElementById(id).innerText;
-            document.getElementById(id).innerText = 'copied';
-            setTimeout(() => {
-                document.getElementById(id).innerText = tip;
-            }, 1000);
+        copyCode(copyBtn) {
+            copyToClipboard(copyBtn.nextElementSibling.innerText)
+            let tip = copyBtn.innerText;
+            copyBtn.innerText = 'copied';
+            setTimeout(() => copyBtn.innerText = tip, 1000);
         },
         async refresh() {
             this.toMd(this.currentPath, await fetchTextFile(`${this.currentPath}?${uuid()}`));
@@ -255,9 +252,8 @@ const vm = Vue.createApp({
             let preCode = (typeof hljs !== "undefined" && null !== hljs && hljs.getLanguage(lang))
                 ? hljs.highlight(code, { language: lang }).value : code;
             let id = uuid();
-            this.codeStr[id] = code;
             preCode = preCode.split('\n');
-            code = `<div class="language-tip copy" id="${id}" onclick="vm.copyCode('${id}')">${lang || 'copy'}</div><ol class="code-ol">`;
+            code = `<div class="language-tip" id="${id}" onclick="vm.copyCode(this)">${lang || 'copy'}</div><ol class="code-ol">`;
             for (let i = 0; i < preCode.length; i++) {
                 if(i == preCode.length-1 && !preCode[i]) break;
                 code += `<li>${preCode[i]}</li>`;

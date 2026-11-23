@@ -1,3 +1,15 @@
+# VPS
+
+| name      | price   | site |
+| ---       | ---     | --- |
+| vultr     | $2.5/mo | https://www.vultr.com/pricing/#cloud-compute |
+| racknerd  | $2.5/mo | https://www.racknerd.com/specials/ |
+| frantech  | $2.0/mo | https://my.frantech.ca/cart.php?gid=38 |
+| banwagong | $50/ye  | https://www.bwh81.net/index.php |
+| digital   | $4.0/mo | https://www.digitalocean.com/pricing#compute <br>https://www.digitalocean.com/pricing/droplets |
+
+- https://一元机场.com/
+
 # 海贼网站
 
 - https://www.pinterest.com/pin/151363237468087572/
@@ -5,6 +17,7 @@
 
 # 好用网站
 
+- 天文图片: https://www.nasa.gov/
 - 联通官方测速平台: http://60.217.44.4/index.jsp
 - 各银行利息: https://www.csai.cn/bankrate/
 - 中国法律服务网：12348.gov.cn
@@ -36,11 +49,13 @@
 
 > 注册邮箱统一使用 lxyx_cxmx@163.com 密:阳生
 
-| 类型 | 地址 | 账号 |
-| - | - | - |
-| 域名2 | https://www.namesilo.com/ |  |
-| dns | https://dash.cloudflare.com/ |  |
-| VPS3 | 搬瓦工 |  |
+| 类型  | 地址                           | 账号 |
+| -     | -                             | -   |
+| 域名2 | https://www.namesilo.com/     |    |
+| dns  | https://dash.cloudflare.com/   |    |
+| VPS3 | 搬瓦工                          |    |
+| VPS3 | racknerd                       | 163 Jxxxa4? |
+| VPS3 | interserver                    | gmail Jxxxa4? 不支持支付宝 |
 
 ## 其他账号
 
@@ -49,8 +64,23 @@
 - sijishe: jiangziya .....4
 - douyin: 同上
 - haijiao: jiangziya61 同上
-- cloudflare: 163邮箱 同上!
-- steam: 163邮箱 同上
+- cloudflare: 163 同上!
+- steam: 163 find_girlfriend 同上
+- 一元机场: 163 J....4?
+- 369vr: jiangziya 同上 163
+- platform.agnes-ai.com github
+- https://app.agnes-ai.com/login : gmail Jxxxa4?
+- pikpak: gmail Jxxxa4?
+- paypal: 163 L....!
+- reddit: gmail Jxxx4!
+- 品技(www.tekqart.com): gmail 同上
+- discord: gmail 同上
+- 亚马逊: 163 Jxxxx4
+
+
+## 本地帐号
+
+- sunshine: liuyao 111111
 
 # 教程
 

@@ -1,3 +1,25 @@
+# 软件黑榜
+
+- 鲁大师： 恶意篡改系统(屏保，浏览器主页，桌面图标等) 恶意安装软件
+
+# 好用软件
+
+- minitool partition: 磁盘分区/扫描分析
+- TrafficMonitor: 任务栏监控
+- 截图: PixPin
+- 酷呆桌面: 桌面整理， 换显示器会乱
+- rainmeter: ?
+- windows鼠标修改: [XMouseButtonControl](https://resource.liuyao.link/file/XMouseButtonControlSetup.2.20.5.exe)
+
+# win10 / win11 激活
+
+> see [https://zhuanlan.zhihu.com/p/6823352707](https://zhuanlan.zhihu.com/p/6823352707)
+
+1. 管理员运行powershell
+2. 执行 `irm https://get.activated.win | iex`
+3. 选1， 选择[1] HWID 用于 Windows 激活。选择[2] Ohook 用于 Office 激活
+4. 等几分钟 提示 `Windows xx xxxxx is permanently activated with xxxx`, 即为成功
+
 # Win7
 
 ## 禁用win按键打开菜单
@@ -53,6 +75,12 @@
 2. 依次打开 计算机配置 → 管理模板 → Windows组件 → Microsoft Defender防病毒
 3. 在右侧双击 “关闭Microsoft Defender防病毒程序”，选择启用
 
+## 关闭实时保护
+
+1. Win + R， 输入 “regedit” 
+2. 导航到以下路径： HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender
+3. 右侧空白处（没有则新建）， 名为 DisableAntiSpyware 的 DWORD (32位) 值，并将其“数值数据”设为 1。
+
 ## 触摸板滚轮
 
 1. Win键，搜索**设备管理器**，从**鼠标和其他指针设备**中找到触控板，双击打开
@@ -67,15 +95,11 @@
 
 ## 触控板
 
-控制面板 -> 搜 bootcamp -> 设置touch bar，触控板手势等
-
-### 程序： Trackpad++
-
-**问题**
-
-1. 三指拖动手势在结束三指后仍会被拖动
-2. 双指滚动惯性 跨应用后会继续
-
+1. 控制面板 -> 搜 bootcamp -> 设置touch bar，触控板手势等
+2. 解决三指四指: github.com/imbushuo/mac-precision-touchpad
+    - 不好用
+    - release下载 amd64版本
+    - 找到`AmtPtpDevice.inf`, 右键安装
 
 # win11
 
@@ -208,10 +232,6 @@ if [ -f /bin/zsh ]; then
   exec /bin/zsh
 fi
 ```
-
-# 好用程序
-
-- 截图: PixPin
 
 # KVM设置
 
