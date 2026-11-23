@@ -51,12 +51,10 @@ sudo systemctl restart libvirtd
 
 # Windows相关
 
-## 添加共享目录 未成功
+## 添加共享目录
 
 1. 虚拟机添加硬件 Filesystem
-   - 驱动: virtio-9p
+   - 驱动: virtiofs
    - Source path: 要共享的目录
    - Target path: 自定义目标名称
-2. windows安装驱动: https://github.com/virtio-win/virtio-win-pkg-scripts/blob/master/README.md
-   - 去磁盘管理中挂载磁盘
-   - ？？没有成功
+2. win虚拟机中安装 [winfsp](https://resource.liuyao.link/file/kvm/winfsp-2.1.25156.msi)
